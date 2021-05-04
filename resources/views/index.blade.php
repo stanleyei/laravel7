@@ -443,7 +443,7 @@
                 <div class="d-flex">
                     <button type="button" class="btn btn-md text-white px-4 mr-3"
                         style="background-color:#6366F1 ;">Button</button>
-                    <div class="rounded-circle text-center d-flex justify-content-center align-items-center"
+                    <div class="rounded-circle d-flex justify-content-center align-items-center"
                         style="width: 40px; height: 40px; background-color: #E5E7EB; line-height: 40px;">
                         <img src="{{ asset('image/svgexport-19.svg') }}" alt="">
                     </div>
