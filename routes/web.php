@@ -38,3 +38,11 @@ Route::get('index', function () {
     return view('index');
 });
 
+Route::get('news_list', function () {
+    return view('news_list_page');
+});
+
+Route::get('news_content', function () {
+    return view('news_content_page');
+});
+
