@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function PHPSTORM_META\type;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('text', function(){
+    $number = ['a' => 2 , 'b' => 3];
+    $ppp = 5.2;
+    $string = 'a';
+    $string2 = ' b';
+    dd($string.$string2,$number,$ppp);
+
+    return'Buenos dias !!';
+});
+
