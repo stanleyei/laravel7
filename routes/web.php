@@ -24,8 +24,17 @@ Route::get('text', function(){
     $ppp = 5.2;
     $string = 'a';
     $string2 = ' b';
-    dd($string.$string2,$number,$ppp);
-
     return'Buenos dias !!';
+});
+
+Route::get('lesson1', function () {
+    $japan = 'おはようございます';
+    $spain = 'Buenos días!';
+    echo $japan;
+    return view('text', compact('spain','japan'));
+});
+
+Route::get('index', function () {
+    return view('index');
 });
 
