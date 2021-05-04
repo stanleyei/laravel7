@@ -40,6 +40,10 @@ Route::get('index', function () {
     return view('index');
 });
 
+Route::get('login', function () {
+    return view('login');
+});
+
 Route::get('news_list', function () {
     return view('news_list_page');
 });
