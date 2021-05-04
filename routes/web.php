@@ -19,20 +19,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('text', function(){
-    $number = ['a' => 2 , 'b' => 3];
-    $ppp = 5.2;
-    $string = 'a';
-    $string2 = ' b';
-    return'Buenos dias !!';
-});
+//練習
+// Route::get('text', function(){
+//     $number = ['a' => 2 , 'b' => 3];
+//     $ppp = 5.2;
+//     $string = 'a';
+//     $string2 = ' b';
+//     return'Buenos dias !!';
+// });
 
-Route::get('lesson1', function () {
-    $japan = 'おはようございます';
-    $spain = 'Buenos días!';
-    echo $japan;
-    return view('text', compact('spain','japan'));
-});
+// Route::get('lesson1', function () {
+//     $japan = 'おはようございます';
+//     $spain = 'Buenos días!';
+//     echo $japan;
+//     return view('text', compact('spain','japan'));
+// });
+
 
 Route::get('index', function () {
     return view('index');
