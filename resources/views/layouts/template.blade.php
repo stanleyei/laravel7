@@ -60,7 +60,7 @@
 <body>
     <header class="pt-md-2 mb-1 bd-mb-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-white" id="nav">
-            <a class="navbar-brand" href="#"><img src="./image/logo.svg" alt="" id="nav-logo"></a>
+            <a class="navbar-brand" href="#"><img src="{{ asset('image/logo.svg') }}" alt="" id="nav-logo"></a>
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -93,7 +93,7 @@
                         </a>
                         <div id="dropdown" class="dropdown-menu dropdown-menu-right position-absolute"
                             style="width: 100%;" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./Digipack-login.html">Login</a>
+                            <a class="dropdown-item" href="Digipack-login.html">Login</a>
                         </div>
                     </li>
                 </ul>
@@ -153,7 +153,7 @@
                 <img src="./image/svgexport-23.svg" alt="" class="px-1">
                 <div class="pt-1">
                     <i class="fab fa-linkedin-in px-2 text-secondary"
-                        style="font-size: 24px; "></i></div>
+                        style="font-size: 24px;"></i></div>
             </div>
         </div>
     </footer>
