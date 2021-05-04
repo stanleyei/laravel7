@@ -79,6 +79,7 @@
             padding: 25px 0;
             font-size: 24px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         figcaption:hover{
