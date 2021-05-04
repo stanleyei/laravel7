@@ -6,47 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>news_content_page</title>
-    <style>
-
-        * {
-            font-family: Microsoft JhengHei;
-        }
-
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-        }
-
-        main{
-            padding: 0 20px;
-        }
-
-        h2{
-            font-size: 32px;
-        }
-
-        .inf-list {
-            display: flex;
-            padding-right: 50px;
-            font-size: 18px;
-        }
-
-        .inf-list > span {
-            display: flex;
-            margin-right: 20px;
-        }
-
-        .inf-list > span > p{
-            margin: 0 ;
-            color: #EB9500;
-        }
-
-        article{
-            font-size: 18px;
-            line-height: 1.8rem;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/news_content_page.css') }}">
 </head>
 
 <body>
