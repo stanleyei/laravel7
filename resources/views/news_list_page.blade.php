@@ -81,6 +81,10 @@
             font-weight: bold;
         }
 
+        figcaption:hover{
+            color: #EB9500;
+        }
+
         figcaption~span {
             font-size: 20px;
             font-weight: bold;
