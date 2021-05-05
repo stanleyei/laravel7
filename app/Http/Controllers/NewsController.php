@@ -9,11 +9,11 @@ class NewsController extends Controller
     //
     public function index()
     {
-        return view('news.news_list_page');
+        return view('news/index');
     }
 
     public function detial()
     {
-        return view('news.news_content_page');
+        return view('news/content');
     }
 }
