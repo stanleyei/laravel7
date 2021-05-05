@@ -1,0 +1,22 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    width: 80vw;
+    height: 50vw;
+    margin: 0 auto;
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+input{
+    width: 800px;
+}
+
+#content_box{
+    height: 200px;
+    overflow: scroll;
+    word-break: break-all;
+}
