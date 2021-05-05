@@ -28,7 +28,7 @@
     <div>
         <div class="article-tag">最新消息</div>
         <figcaption>
-            <a href="/news/content/{id}">{{$news->title}}</a>
+            <a href="/news/content/{{$news->id}}">{{$news->title}}</a>
         </figcaption>
         <span>{{$news->data}}</span>
         <p>
