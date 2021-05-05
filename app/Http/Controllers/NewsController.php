@@ -14,7 +14,7 @@ class NewsController extends Controller
         return view('news/news_list_page',compact('newsData'));
     }
 
-    public function newsContent()
+    public function newsContent($id)
     {
         return view('news/news_content_page');
     }
