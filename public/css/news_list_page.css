@@ -11,6 +11,7 @@ html {
 main{
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 .title {
@@ -20,13 +21,17 @@ main{
 }
 
 .title-icon {
+    padding-top: 26px;
+}
+
+.title-icon img{
     width: 75px;
     height: 75px;
-    padding-top: 26px;
 }
 
 h2 {
     font-size: 32px;
+    margin: 20px 0;
 }
 
 .inf-list {
@@ -43,7 +48,7 @@ h2 {
     color: #EB9500;
 }
 
-article {
+.article {
     display: flex;
 }
 
@@ -52,7 +57,9 @@ figure {
     width: 33vw;
     height: 20vw;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    margin-right: 30px;
 }
 
 .article-tip {
@@ -70,11 +77,12 @@ figcaption {
     padding: 25px 0;
     font-size: 24px;
     font-weight: bold;
-    cursor: pointer;
+    
 }
 
-figcaption:hover{
+figcaption > a:hover{
     color: #EB9500;
+    text-decoration: none;
 }
 
 figcaption~span {
@@ -83,7 +91,7 @@ figcaption~span {
     color: #EB9500;
 }
 
-figcaption~div {
+figcaption~p {
     max-width: 850px;
     width: 60vw;
     padding-top: 18px;
@@ -101,7 +109,7 @@ figcaption~div {
         padding: 0 30px;
     }
 
-    article {
+    .article {
         display: block;
     }
 
@@ -113,7 +121,7 @@ figcaption~div {
         margin: 0 auto;
     }
 
-    figcaption~div{
+    figcaption~p{
         width: 100%;
     }
 }
