@@ -12,7 +12,7 @@ class NewsController extends Controller
         return view('news/index');
     }
 
-    public function detial()
+    public function content()
     {
         return view('news/content');
     }
