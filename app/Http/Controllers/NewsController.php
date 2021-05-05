@@ -25,7 +25,7 @@ class NewsController extends Controller
     {
         DB::table('news') -> insert([
             'title' => 'ABC',
-            'data' => '2021-05-06',
+            'date' => '2021-05-06',
             'img' => 'https://www.taiwan.net.tw/pic.ashx?qp=/0040115/13_0040115.jpg',
             'content' => '7777777',
             'views' => '0'
@@ -36,7 +36,7 @@ class NewsController extends Controller
     {
         DB::table('news') 
             ->where('id',$id)
-            ->update(['data' => '2021-01-01']);
+            ->update(['date' => '2021-01-01']);
     }
 
     public function delete($id)
