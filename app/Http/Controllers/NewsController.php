@@ -42,7 +42,7 @@ class NewsController extends Controller
     public function delete($id)
     {
         DB::table('news') 
-            -> find($id)
+            ->where('id',$id)
             -> delete();
     }
 
