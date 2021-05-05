@@ -21,6 +21,11 @@ class NewsController extends Controller
         return view('news/news_content_page',compact('newsData'));
     }
 
+    public function newsChange()
+    {
+        return view('news/news_change_page');
+    }
+
     public function create()
     {
         DB::table('news') -> insert([
