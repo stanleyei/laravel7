@@ -6,6 +6,7 @@
     
 @section('main')
 <section>
+    <hr>
     <div class="title">
         <div class="title-icon">
             <img src="https://www.taiwan.net.tw/att/topTitleImg/21_0001001.svg" alt="">
