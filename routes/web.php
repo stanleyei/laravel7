@@ -15,10 +15,6 @@ use function PHPSTORM_META\type;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //練習
 // Route::get('text', function(){
 //     $number = ['a' => 2 , 'b' => 3];
@@ -36,7 +32,7 @@ Route::get('/', function () {
 // });
 
 
-Route::get('index', function () {
+Route::get('/', function () {
     return view('index');
 });
 
@@ -44,11 +40,6 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('news_list', function () {
-    return view('news.news_list_page');
-});
+Route::get('news/list', 'NewsController@index');
 
-Route::get('news_content', function () {
-    return view('news.news_content_page');
-});
-
+Route::get('news/detial', 'NewsController@detial');
