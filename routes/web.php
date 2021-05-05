@@ -42,4 +42,4 @@ Route::get('login', function () {
 
 Route::get('news/list', 'NewsController@index');
 
-Route::get('news/detial', 'NewsController@detial');
+Route::get('news/content', 'NewsController@content');
