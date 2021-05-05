@@ -9,7 +9,7 @@
     <hr>
     <h2>{{$newsData->title}}</h2>
     <div class="inf-list">
-        <span>發布日期：<p>{{$newsData->data}}</p></span>
+        <span>發布日期：<p>{{$newsData->date}}</p></span>
         <span>瀏覽次數：<p>{{$newsData->views}}</p></span>
     </div><br>
     <hr>
