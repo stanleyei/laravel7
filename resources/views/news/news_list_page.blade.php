@@ -30,7 +30,7 @@
         <figcaption>
             <a href="/news/content/{{$news->id}}">{{$news->title}}</a>
         </figcaption>
-        <span>{{$news->data}}</span>
+        <span>{{$news->date}}</span>
         <p>
             {{$news->content}}
         </p>
