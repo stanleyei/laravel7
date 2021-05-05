@@ -93,7 +93,7 @@
                         </a>
                         <div id="dropdown" class="dropdown-menu dropdown-menu-right position-absolute"
                             style="width: 100%;" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="Digipack-login.html">Login</a>
+                            <a class="dropdown-item" href="login">Login</a>
                         </div>
                     </li>
                 </ul>
