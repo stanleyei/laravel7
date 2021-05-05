@@ -16,7 +16,9 @@ class NewsController extends Controller
 
     public function newsContent($id)
     {
-        return view('news/news_content_page');
+        $newsData =DB::table('news')
+        -> find($id);
+        return view('news/news_content_page',compact('newsData'));
     }
 
     public function create()
