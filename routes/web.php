@@ -40,6 +40,6 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('news/list', 'NewsController@index');
+Route::get('news/list', 'NewsController@newsList');
 
-Route::get('news/content', 'NewsController@content');
+Route::get('news/content', 'NewsController@newsContent');
