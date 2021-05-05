@@ -33,14 +33,14 @@ class NewsController extends Controller
     public function update($id)
     {
         DB::table('news') 
-            -> where('id', $id)
-            ->update(['title' => 'good']);
+            ->where('id',$id)
+            ->update(['data' => '2021-01-01']);
     }
 
     public function delete($id)
     {
         DB::table('news') 
-            -> where('id',$id)
+            -> find($id)
             -> delete();
     }
 
