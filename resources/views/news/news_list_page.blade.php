@@ -24,7 +24,7 @@
     <figure style="background-image: url(https://www.taiwan.net.tw/pic.ashx?qp=/0040115/13_0040115.jpg);">
     </figure>
     <div>
-        <div class="article-tip">最新消息</div>
+        <div class="article-tag">最新消息</div>
         <figcaption>
             <a href="">經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮</a>
         </figcaption>
