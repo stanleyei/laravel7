@@ -27,7 +27,7 @@
     <div>
         <div class="article-tag">最新消息</div>
         <figcaption>
-            <a href="">經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮</a>
+            <a href="/news/detial">經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮</a>
         </figcaption>
         <span>2021-05-03</span>
         <p>
