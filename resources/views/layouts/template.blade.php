@@ -60,7 +60,7 @@
 <body>
     <header class="pt-md-2 mb-1 bd-mb-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-white" id="nav">
-            <a class="navbar-brand" href="#"><img src="{{ asset('image/logo.svg') }}" alt="" id="nav-logo"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('image/logo.svg') }}" alt="" id="nav-logo"></a>
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link mr-2 text-center" href="#">Blog<span class="sr-only">(current)</span></a>
+                        <a class="nav-link mr-2 text-center" href="/news/list">News<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-body ml-md-4 text-center" href="#">Portfolio</a>
