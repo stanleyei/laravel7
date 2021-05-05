@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     //
-    public function index()
+    public function newsList()
     {
-        return view('news/index');
+        return view('news/news_list_page');
     }
 
-    public function content()
+    public function newsContent()
     {
-        return view('news/content');
+        return view('news/news_content_page');
     }
 }
