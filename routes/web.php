@@ -42,6 +42,7 @@ Route::get('login', function () {
 
 Route::get('news/list', 'NewsController@newsList');
 Route::get('news/content/{id}', 'NewsController@newsContent');
+Route::get('news/change', 'NewsController@newsChange');
 Route::get('news/create', 'NewsController@create');
 Route::get('news/update/{id}', 'NewsController@update');
 Route::get('news/delete/{id}', 'NewsController@delete');
