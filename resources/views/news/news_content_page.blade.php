@@ -6,6 +6,7 @@
 
 @section('main')
 <div>
+    <hr>
     <h2>經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮</h2>
     <div class="inf-list">
         <span>發布日期：<p>2021-05-03</p></span>
@@ -24,6 +25,7 @@
     me」自行車美照打卡投稿活動，限定好禮拿不完。<br><br>
     百大經典小鎮電子集章活動訊息，請上活動網站查詢。
 </article>
+<hr>
 @endsection
 
 @section('js')
