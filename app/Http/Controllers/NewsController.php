@@ -8,6 +8,16 @@ use App\News;
 class NewsController extends Controller
 {
     //
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function index()
+    {
+        return view('index');
+    }
+
     public function newsList()
     {
         $newsData = News::get();
