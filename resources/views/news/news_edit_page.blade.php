@@ -18,7 +18,7 @@
             圖片：<input type="text" id="img" name="img" value="{{$newsData->img}}">
         </label>
         <label for="content">
-            內文：<textarea name="content" id="content" cols="151" rows="10">{{$newsData->content}}</textarea>
+            內文：<textarea name="content" id="content" cols="30" rows="10">{{$newsData->content}}</textarea>
         </label>
         <button type="submit" class="submit">送出</button>
     </form>
