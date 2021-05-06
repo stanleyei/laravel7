@@ -15,14 +15,8 @@ use function PHPSTORM_META\type;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('login', function () {
-    return view('login');
-});
-
+Route::get('/', 'NewsController@index');
+Route::get('login', 'NewsController@login');
 Route::get('news', 'NewsController@newsList');
 Route::get('news/content/{id}', 'NewsController@newsContent');
 Route::get('news/edit/{id}', 'NewsController@edit');
