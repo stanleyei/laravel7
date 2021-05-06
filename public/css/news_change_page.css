@@ -17,10 +17,11 @@ label{
 
 input{
     width: 80vw;
-    display: flex;
+    text-align: start;
 }
 
 #content_box{
+    width: 80vw;
     height: 200px;
     overflow: scroll;
     word-break: break-all;
