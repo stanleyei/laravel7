@@ -25,7 +25,7 @@ class NewsController extends Controller
     }
 
     public function create()
-    {
+    {   
         News::create([
             'title' => '經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮',
             'date' => '2021-05-06',
@@ -38,6 +38,7 @@ class NewsController extends Controller
             百大經典小鎮電子集章活動訊息，請上活動網站查詢。',
             'views' => '0'
         ]);
+        return  redirect('/news/list');
     }
 
     public function update($id)
@@ -50,5 +51,6 @@ class NewsController extends Controller
     {
         News::where('id', $id)
             ->delete();
+        return  redirect('/news/list');
     }
 }
