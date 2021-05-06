@@ -5,6 +5,7 @@
 @endsection
 
 @section('main')
+    <hr>
     <form action="">
         <label for="title_box">
             標題：<input type="text" id="title_box">
@@ -21,7 +22,7 @@
         <label for="views_box">
             瀏覽數：<input type="number" id="views_box" value="0">
         </label>
-        <button type="submit">送出</button>
+        <button type="submit" class="submit">送出</button>
     </form>
 @endsection
 
