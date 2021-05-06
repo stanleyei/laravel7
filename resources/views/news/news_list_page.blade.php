@@ -29,9 +29,9 @@
         <div class="function-box">
             <div class="article-tag">最新消息</div>
             <div>
-                <a href="change"><button class="change_btn">編輯</button></a>
-                <a href=""><button class="change_btn">新增</button></a>
-                <a href=""><button class="change_btn">刪除</button></a>
+                <a href="/change"><button class="change_btn">編輯</button></a>
+                <a href="/news/create/"><button class="change_btn">新增</button></a>
+                <a href="/news/delete/{{$news->id}}"><button class="change_btn">刪除</button></a>
             </div>
         </div>
         <figcaption>
