@@ -18,7 +18,7 @@
         <span>每頁筆數：<b>10</b></span>
         <span>總頁數：<b>18</b></span>
         <span>目前頁次：<b>1</b></span>
-        <a href="/news/create/"><button class="create_btn">新增文章</button></a>
+        <a href="/news/create"><button class="create_btn">新增文章</button></a>
     </div>
 </section>
 <hr>
