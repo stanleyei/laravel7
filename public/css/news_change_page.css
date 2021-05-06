@@ -20,7 +20,7 @@ input{
     text-align: start;
 }
 
-#content_box{
+#content{
     width: 80vw;
     height: 200px;
     overflow: scroll;
