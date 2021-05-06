@@ -73,6 +73,10 @@ figure {
     margin-right: 30px;
 }
 
+.main_inf{
+    width: 60vw;
+}
+
 .function-box{
     display: flex;
     justify-content: space-between;
@@ -150,7 +154,7 @@ figcaption~p {
         margin: 0 auto;
     }
 
-    figcaption~p{
+    figcaption~p,.main_inf{
         width: 100%;
     }
 }
