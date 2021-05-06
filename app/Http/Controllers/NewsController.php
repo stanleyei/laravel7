@@ -38,14 +38,19 @@ class NewsController extends Controller
             'date' => $request->date,
             'img' => $request->img,
             'content' => $request->content
-        ]);
+            ]);
         return  redirect('/news/list');
     }
 
     public function update(Request $request ,$id)
     {
         News::find($id)
-            ->update(['date' => $request->date]);
+            ->update([
+            'date' => $request->date,
+            'title' => $request->title,
+            'img' => $request->img,
+            'content' => $request->content,
+            ]);
         return  redirect('/news/list');
     }
 
