@@ -31,6 +31,7 @@
             <div>
                 <a href="change"><button class="change_btn">編輯</button></a>
                 <a href=""><button class="change_btn">新增</button></a>
+                <a href=""><button class="change_btn">刪除</button></a>
             </div>
         </div>
         <figcaption>
