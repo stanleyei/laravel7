@@ -22,7 +22,8 @@ class NewsController extends Controller
 
     public function newsEdit()
     {
-        return view('news/news_edit_page');
+        $newsData = News::get();
+        return view('news/news_edit_page',compact('newsData'));
     }
 
     public function create()
@@ -41,10 +42,11 @@ class NewsController extends Controller
         return  redirect('/news/list');
     }
 
-    public function update($id)
+    public function update(Request $request ,$id)
     {
-        News::where('id', $id)
-            ->update(['date' => '2021-01-01']);
+        News::find($id)
+            ->update(['date' => $request->date]);
+        return  redirect('/news/list');
     }
 
     public function delete($id)
