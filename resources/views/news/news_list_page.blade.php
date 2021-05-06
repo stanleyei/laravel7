@@ -26,7 +26,10 @@
     <figure style="background-image: url({{$news->img}});">
     </figure>
     <div>
-        <div class="article-tag">最新消息</div>
+        <div class="function-box">
+            <div class="article-tag">最新消息</div>
+            <button class="change_btn">編輯</button>
+        </div>
         <figcaption>
             <a href="/news/content/{{$news->id}}">{{$news->title}}</a>
         </figcaption>
