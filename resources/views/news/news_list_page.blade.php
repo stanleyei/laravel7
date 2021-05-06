@@ -18,6 +18,7 @@
         <span>每頁筆數：<b>10</b></span>
         <span>總頁數：<b>18</b></span>
         <span>目前頁次：<b>1</b></span>
+        <a href="/news/create/"><button class="create_btn">新增文章</button></a>
     </div>
 </section>
 <hr>
@@ -29,8 +30,7 @@
         <div class="function-box">
             <div class="article-tag">最新消息</div>
             <div>
-                <a href="/news/edit"><button class="change_btn">編輯</button></a>
-                <a href="/news/create/"><button class="change_btn">新增</button></a>
+                <a href="/news/edit/{{$news->id}}"><button class="change_btn">編輯</button></a>
                 <a href="/news/delete/{{$news->id}}"><button class="change_btn">刪除</button></a>
             </div>
         </div>
