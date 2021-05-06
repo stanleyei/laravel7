@@ -28,7 +28,10 @@
     <div>
         <div class="function-box">
             <div class="article-tag">最新消息</div>
-            <button class="change_btn">編輯</button>
+            <div>
+                <a href=""><button class="change_btn">編輯</button></a>
+                <a href="create"><button class="change_btn">新增</button></a>
+            </div>
         </div>
         <figcaption>
             <a href="/news/content/{{$news->id}}">{{$news->title}}</a>
