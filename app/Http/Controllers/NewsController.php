@@ -45,8 +45,7 @@ class NewsController extends Controller
     public function update(Request $request ,$id)
     {
         News::find($id)
-            ->update(
-            [
+            ->update([
             'date' => $request->date,
             'title' => $request->title,
             'img' => $request->img,
