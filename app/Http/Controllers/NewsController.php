@@ -39,7 +39,7 @@ class NewsController extends Controller
             'img' => $request->img,
             'content' => $request->content
         ]);
-        return  redirect('/news/list');
+        return  redirect('/news');
     }
 
     public function update(Request $request, $id)
@@ -51,13 +51,13 @@ class NewsController extends Controller
                 'img' => $request->img,
                 'content' => $request->content,
             ]);
-        return  redirect('/news/list');
+        return  redirect('/news');
     }
 
     public function delete($id)
     {
         News::where('id', $id)
             ->delete();
-        return  redirect('/news/list');
+        return  redirect('/news');
     }
 }
