@@ -28,7 +28,7 @@ class NewsController extends Controller
 
     public function create()
     {
-        return view('news/news_create_page');
+        return view('news/news_edit_page');
     }
 
     public function store(Request $request)
