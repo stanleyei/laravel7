@@ -20,36 +20,36 @@ class NewsController extends Controller
         return view('news/news_content_page', compact('newsData'));
     }
 
-    public function newsEdit()
+    public function edit($id)
     {
-        $newsData = News::get();
-        return view('news/news_edit_page',compact('newsData'));
+        $newsData = News::find($id);
+        return view('news/news_edit_page', compact('newsData'));
     }
 
     public function create()
-    {   
+    {
         return view('news/news_create_page');
     }
 
     public function store(Request $request)
     {
-            News::create([
+        News::create([
             'title' => $request->title,
             'date' => $request->date,
             'img' => $request->img,
             'content' => $request->content
-            ]);
+        ]);
         return  redirect('/news/list');
     }
 
-    public function update(Request $request ,$id)
+    public function update(Request $request, $id)
     {
         News::find($id)
             ->update([
-            'date' => $request->date,
-            'title' => $request->title,
-            'img' => $request->img,
-            'content' => $request->content,
+                'date' => $request->date,
+                'title' => $request->title,
+                'img' => $request->img,
+                'content' => $request->content,
             ]);
         return  redirect('/news/list');
     }
