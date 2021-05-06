@@ -56,7 +56,7 @@ class NewsController extends Controller
 
     public function delete($id)
     {
-        News::where('id', $id)
+        News::find($id)
             ->delete();
         return  redirect('/news');
     }
