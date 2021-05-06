@@ -20,9 +20,6 @@
         <label for="content">
             內文：<textarea name="content" id="" cols="151" rows="10"></textarea>
         </label>
-        <label for="views">
-            瀏覽數：<input type="number" id="views" value="0" name="views">
-        </label>
         <button type="submit" class="submit">送出</button>
     </form>
 @endsection
