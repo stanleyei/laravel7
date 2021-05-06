@@ -82,13 +82,14 @@ figure {
 .change_btn{
     width: 60px;
     height: 38px;
+    border-radius: 30px;
+    font-weight: bold;
 }
 
 figcaption {
     padding: 25px 0;
     font-size: 24px;
     font-weight: bold;
-    
 }
 
 figcaption > a:hover{
