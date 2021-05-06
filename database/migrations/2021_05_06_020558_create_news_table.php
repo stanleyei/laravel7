@@ -22,6 +22,10 @@ class CreateNewsTable extends Migration
             $table->integer('views');
             $table->timestamps();
         });
+
+        Schema::table('news', function (Blueprint $table) {
+            $table->string('tag')->nullable();
+        });
     }
 
     /**
