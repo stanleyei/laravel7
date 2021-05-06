@@ -6,7 +6,7 @@
 
 @section('main')
     <hr>
-    <form action="{{isset($newsData) ? '/news/update/$newsData->id' : '/news/store'}}" method="POST">
+    <form action="{{isset($newsData) ? "/news/update/$newsData->id" : '/news/store'}}" method="POST">
         @csrf
         <label for="title">
             標題：<input type="text" id="title" name="title"  value="{{$newsData->title ?? ''}}">
