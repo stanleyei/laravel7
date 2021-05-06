@@ -27,7 +27,7 @@ class NewsController extends Controller
 
     public function create()
     {
-        News::insert([
+        News::create([
             'title' => '經典小鎮升級3.0正式開跑　小鎮逗鎮趣 集章抽好禮',
             'date' => '2021-05-06',
             'img' => 'https://www.taiwan.net.tw/pic.ashx?qp=/0040115/13_0040115.jpg',
