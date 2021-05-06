@@ -5,18 +5,38 @@ body,html{
 
 form{
     width: 80vw;
-    height: 50vw;
     margin: 0 auto;
     padding-top: 50px;
     font-size: 20px;
 }
 
+label{
+    color: rgb(243, 132, 4);
+    font-weight: bold;
+}
+
 input{
-    width: 800px;
+    width: 80vw;
+    display: flex;
+}
+
+input:hover{
+    
 }
 
 #content_box{
     height: 200px;
     overflow: scroll;
     word-break: break-all;
+}
+
+button{
+    width: 80vw;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+button:hover{
+    background-color: rgb(243, 132, 4);
+    color: #ffffff;
 }
