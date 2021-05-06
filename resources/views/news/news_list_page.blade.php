@@ -26,7 +26,7 @@
 <section class="article">
     <figure style="background-image: url({{$news->img}});">
     </figure>
-    <div>
+    <div class="main_inf">
         <div class="function-box">
             <div class="article-tag">最新消息</div>
             <div>
