@@ -39,7 +39,7 @@
         #form-box {
             right: 9%;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50.5%);
             min-width: 353px;
         }
 
