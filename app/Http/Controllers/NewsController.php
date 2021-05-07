@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\News;
-use App\PersonalData;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -46,12 +45,6 @@ class NewsController extends Controller
     {
         News::create($request->all());
         return  redirect('/news');
-    }
-
-    public function contact(Request $request)
-    {
-        PersonalData::create($request->all());
-        return  redirect('/');
     }
 
     public function update(Request $request, $id)
