@@ -495,11 +495,11 @@
 @endsection
 
 @section('js')
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
     <script>
         submit.addEventListener('click', e =>{
             // swal("填寫成功","感謝您的填寫","success");
-            if(swal("填寫成功","感謝您的填寫","success") == true){
+            if(confirm('確認要送出嗎?\n\n再麻煩幫我確認喔!！')){
                 document.forms["contactus"].submit();
             }
         })
