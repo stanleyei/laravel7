@@ -460,31 +460,31 @@
     <div class="col-10 col-md-3 px-5 bg-light position-absolute py-4 shadow-sm p-3 mb-5 bg-white rounded border"
         id="form-box">
         <span class="h5">聯絡我們 Contact Us</span>
-        <form action="/contact" method="POST">
+        <form action="/contact" method="POST" id="contactus">
             @csrf
             <div class="form-group pt-2">
-                <label for="exampleInputEmail1">姓名</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+                <label for="exampleInputName">姓名</label>
+                <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <label for="exampleInputEmaill">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="email">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">電話</label>
-                <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
+                <label for="exampleInputPhone">電話</label>
+                <input type="tel" class="form-control" id="exampleInputPhone" aria-describedby="emailHelp" name="phone">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">主旨</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+                <label for="exampleInputTitle">主旨</label>
+                <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" name="title">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">內文</label>
-                <textarea class="form-control" name="content" id="exampleInputPassword1" cols="30" rows="10" style="height: 128px;"></textarea>
+                <label for="exampleInputPassword">內文</label>
+                <textarea class="form-control" name="content" id="exampleInputPassword" cols="30" rows="10" style="height: 128px;"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral
