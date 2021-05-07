@@ -459,17 +459,31 @@
         class="position-relative"></iframe>
     <div class="col-10 col-md-3 px-5 bg-light position-absolute py-4 shadow-sm p-3 mb-5 bg-white rounded border"
         id="form-box">
-        <span class="h5">Feedback</span>
-        <p class="pt-2">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+        <span class="h5">聯絡我們 Contact Us</span>
         <form>
+            <div class="form-group pt-2">
+                <label for="exampleInputEmail1">姓名</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Message</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" style="height: 128px;">
+                <label for="exampleInputEmail1">電話</label>
+                <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">主旨</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">內文</label>
+                <textarea class="form-control" name="content" id="exampleInputPassword1" cols="30" rows="10" style="height: 128px;"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mb-3" style="width: 100%;">Button</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral
