@@ -460,25 +460,26 @@
     <div class="col-10 col-md-3 px-5 bg-light position-absolute py-4 shadow-sm p-3 mb-5 bg-white rounded border"
         id="form-box">
         <span class="h5">聯絡我們 Contact Us</span>
-        <form>
+        <form action="/contact" method="POST">
+            @csrf
             <div class="form-group pt-2">
                 <label for="exampleInputEmail1">姓名</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">電話</label>
-                <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">主旨</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
