@@ -20,16 +20,16 @@ Route::prefix('news')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/create', 'NewsController@create');
         Route::get('/edit/{id}', 'NewsController@edit');
+        Route::post('/store', 'NewsController@store');
         Route::post('/update/{id}', 'NewsController@update');
         Route::get('/delete/{id}', 'NewsController@delete');
     });
     Route::get('/', 'NewsController@newsList');
     Route::get('/content/{id}', 'NewsController@newsContent');
-    Route::post('/store', 'NewsController@store');
 });
 
 Route::get('/', 'NewsController@index');
-Route::get('login', 'NewsController@login');
+// Route::get('login', 'NewsController@login');
 Route::post('/contact', 'ContactUsController@contact');
 
 
