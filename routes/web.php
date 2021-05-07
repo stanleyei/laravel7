@@ -24,5 +24,5 @@ Route::get('news/create', 'NewsController@create');
 Route::post('news/store', 'NewsController@store');
 Route::post('news/update/{id}', 'NewsController@update');
 Route::get('news/delete/{id}', 'NewsController@delete');
-Route::post('/contact', 'NewsController@contact');
+Route::post('/contact', 'ContactUsController@contact');
 
