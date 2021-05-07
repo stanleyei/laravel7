@@ -47,6 +47,12 @@ class NewsController extends Controller
         return  redirect('/news');
     }
 
+    public function contact(Request $request)
+    {
+        News::create($request->all());
+        return  redirect('/');
+    }
+
     public function update(Request $request, $id)
     {
         News::find($id)
