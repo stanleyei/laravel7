@@ -43,24 +43,14 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
-        News::create([
-            'title' => $request->title,
-            'date' => $request->date,
-            'img' => $request->img,
-            'content' => $request->content
-        ]);
+        News::create($request->all());
         return  redirect('/news');
     }
 
     public function update(Request $request, $id)
     {
         News::find($id)
-            ->update([
-                'date' => $request->date,
-                'title' => $request->title,
-                'img' => $request->img,
-                'content' => $request->content,
-            ]);
+            ->update($request->all());
         return  redirect('/news');
     }
 
