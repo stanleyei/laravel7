@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 use function PHPSTORM_META\type;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,7 @@ Route::post('news/update/{id}', 'NewsController@update');
 Route::get('news/delete/{id}', 'NewsController@delete');
 Route::post('/contact', 'ContactUsController@contact');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
