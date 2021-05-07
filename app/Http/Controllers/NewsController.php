@@ -30,6 +30,12 @@ class NewsController extends Controller
         return view('news/news_content_page', compact('newsData'));
     }
 
+    public function editTable()
+    {
+        $newsData = News::get();
+        return view('news/news_editTable_page', compact('newsData'));
+    }
+
     public function edit($id)
     {
         $newsData = News::find($id);
