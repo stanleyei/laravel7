@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('news')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/create', 'NewsController@create');
+        Route::get('/edit', 'NewsController@editTable');
         Route::get('/edit/{id}', 'NewsController@edit');
         Route::post('/store', 'NewsController@store');
         Route::post('/update/{id}', 'NewsController@update');
