@@ -31,7 +31,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <a href="/news/create"><button class="create_btn">新增文章</button></a>
+                        {{-- <a href="/news/edit/{{$news->id}}"><button class="change_btn">編輯</button></a> --}}
+                        {{-- <button class="change_btn btn_delete" data-href="/news/delete/{{$news->id}}">刪除</button> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
