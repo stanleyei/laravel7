@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\News;
+use App\PersonalData;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -49,7 +50,7 @@ class NewsController extends Controller
 
     public function contact(Request $request)
     {
-        News::create($request->all());
+        PersonalData::create($request->all());
         return  redirect('/');
     }
 
