@@ -2,6 +2,7 @@
 
 use function PHPSTORM_META\type;
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,16 +16,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('news')->group(function () {
+    Route::get('/', 'NewsController@newsList');
+    Route::get('/content/{id}', 'NewsController@newsContent');
+    Route::get('/edit/{id}', 'NewsController@edit');
+    Route::get('/create', 'NewsController@create');
+    Route::post('/store', 'NewsController@store');
+    Route::post('/update/{id}', 'NewsController@update');
+    Route::get('/delete/{id}', 'NewsController@delete');
+});
 
 Route::get('/', 'NewsController@index');
 Route::get('login', 'NewsController@login');
-Route::get('news', 'NewsController@newsList');
-Route::get('news/content/{id}', 'NewsController@newsContent');
-Route::get('news/edit/{id}', 'NewsController@edit');
-Route::get('news/create', 'NewsController@create');
-Route::post('news/store', 'NewsController@store');
-Route::post('news/update/{id}', 'NewsController@update');
-Route::get('news/delete/{id}', 'NewsController@delete');
 Route::post('/contact', 'ContactUsController@contact');
 
 
