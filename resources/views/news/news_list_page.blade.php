@@ -31,7 +31,7 @@
             <div class="article-tag">最新消息</div>
             <div>
                 <a href="/news/edit/{{$news->id}}"><button class="change_btn">編輯</button></a>
-                <a href="/news/delete/{{$news->id}}"><button class="change_btn">刪除</button></a>
+                <button class="change_btn btn_delete" data-href="/news/delete/{{$news->id}}">刪除</button>
             </div>
         </div>
         <figcaption>
@@ -49,6 +49,17 @@
 @endsection
 
 @section('js')
-    
+
+    <script>
+        const btn_delete = document.querySelectorAll('.btn_delete');
+        btn_delete.forEach(btn =>
+            btn.addEventListener('click',e =>{
+                if(confirm('確定要刪除嗎?')){
+                    location.href = `${e.target.dataset.href}`;
+                }
+            }) 
+        )
+    </script>
+
 @endsection
 
