@@ -486,7 +486,7 @@
                 <label for="exampleInputPassword1">內文</label>
                 <textarea class="form-control" name="content" id="exampleInputPassword1" cols="30" rows="10" style="height: 128px;"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mb-3" style="width: 100%;">Submit</button>
+            <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral
                 artisan.</div>
         </form>
