@@ -78,8 +78,6 @@
             @yield('main')
         </main>
     </div>
-    
     @yield('js')
-
 </body>
 </html>
