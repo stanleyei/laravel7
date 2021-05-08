@@ -30,40 +30,34 @@ class NewsController extends Controller
         return view('news/news_content_page', compact('newsData'));
     }
 
-    public function editTable()
+    public function edit()
     {
         $newsData = News::get();
-        return view('news/news_editTable_page', compact('newsData'));
-    }
-
-    public function edit($id)
-    {
-        $newsData = News::find($id);
         return view('news/news_edit_page', compact('newsData'));
     }
 
     public function create()
     {
-        return view('news/news_edit_page');
+        return view('news/news_create');
     }
 
     public function store(Request $request)
     {
         News::create($request->all());
-        return  redirect('/news');
+        return  redirect('/news/edit');
     }
 
     public function update(Request $request, $id)
     {
         News::find($id)
             ->update($request->all());
-        return  redirect('/news');
+        return  redirect('/news/edit');
     }
 
     public function delete($id)
     {
         News::find($id)
             ->delete();
-        return  redirect('/news');
+        return  redirect('/news/edit');
     }
 }

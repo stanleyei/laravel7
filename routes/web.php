@@ -19,8 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('news')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/create', 'NewsController@create');
-        Route::get('/edit', 'NewsController@editTable');
-        Route::get('/edit/{id}', 'NewsController@edit');
+        Route::get('/edit', 'NewsController@edit');
         Route::post('/store', 'NewsController@store');
         Route::post('/update/{id}', 'NewsController@update');
         Route::get('/delete/{id}', 'NewsController@delete');
@@ -33,6 +32,14 @@ Route::get('/', 'NewsController@index');
 // Route::get('login', 'NewsController@login');
 Route::post('/contact', 'ContactUsController@contact');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

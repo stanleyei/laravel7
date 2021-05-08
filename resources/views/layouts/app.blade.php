@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -31,9 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a href="/news/create"><button class="create_btn">新增文章</button></a>
-                        {{-- <a href="/news/edit/{{$news->id}}"><button class="change_btn">編輯</button></a> --}}
-                        {{-- <button class="change_btn btn_delete" data-href="/news/delete/{{$news->id}}">刪除</button> --}}
+                        <a href="/news/create" class="mr-3"><button class="rounded-pill">新增文章</button></a>
+                        <a href="/news/edit"><button class="rounded-pill">編輯文章</button></a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,13 +75,10 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
             @yield('main')
         </main>
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
     @yield('js')
 
 </body>
