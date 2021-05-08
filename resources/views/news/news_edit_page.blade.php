@@ -50,7 +50,7 @@
         window.onload = () => {
             const btn_delete = document.querySelectorAll('.btn_delete');
             btn_delete.forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', e => {
                     if(confirm('確定要刪除嗎?')){
                         location.href = `${e.target.dataset.href}`;
                     }
