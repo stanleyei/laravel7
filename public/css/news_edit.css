@@ -38,6 +38,11 @@ h2 {
     color: #EB9500;
 }
 
+.drawer_title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .article {
     display: flex;
 }
