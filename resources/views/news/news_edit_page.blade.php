@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('css/news_edit.css') }}">
 @endsection
     
@@ -18,26 +19,29 @@
 </section>
 <hr>
 @foreach ($newsData as $news)
-<section class="article">
-    <figure style="background-image: url({{$news->img}});"></figure>
-    <div class="main_inf">
-        <form action="/news/update/{{$news->id}}" method="POST">
-            @csrf
-            <label for="title" class="w-100 mt-2">
-                標題：<input type="text" class="w-50" id="title" name="title" value="{{$news->title}}">
-            </label>
-            <label for="date" class="input_box mr-2">
-                日期：<input type="date" id="date" name="date" value="{{$news->date}}">
-            </label>
-            <label for="img" class="input_box">
-                圖片：<input type="text" id="img" name="img" value="{{$news->img}}">
-            </label>
-            <label for="content" class="w-100">
-                內文：<textarea class="w-100" name="content" id="content" cols="30" rows="10">{{$news->content}}</textarea>
-            </label>
-            <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
-        </form>
-        <button class="btn btn_delete rounded-pill w-100" data-href="/news/delete/{{$news->id}}">刪除</button>
+<section>
+    <div class="drawer_title d-flex justify-content-between align-items-center" data-toggle="collapse" href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">{{$news->title}}<i class="fas fa-arrow-alt-circle-down"></i></div>
+    <div class="article collapse" id="collapse{{$news->id}}">
+        <figure style="background-image: url({{$news->img}});"></figure>
+        <div class="main_inf">
+            <form action="/news/update/{{$news->id}}" method="POST">
+                @csrf
+                <label for="title" class="w-100 mt-2">
+                    標題：<input type="text" class="w-50" id="title" name="title" value="{{$news->title}}">
+                </label>
+                <label for="date" class="input_box mr-2">
+                    日期：<input type="date" id="date" name="date" value="{{$news->date}}">
+                </label>
+                <label for="img" class="input_box">
+                    圖片：<input type="text" id="img" name="img" value="{{$news->img}}">
+                </label>
+                <label for="content" class="w-100">
+                    內文：<textarea class="w-100" name="content" id="content" cols="30" rows="10">{{$news->content}}</textarea>
+                </label>
+                <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
+            </form>
+            <button class="btn btn_delete rounded-pill w-100" data-href="/news/delete/{{$news->id}}">刪除</button>
+        </div>
     </div>
 </section>
 <hr>
