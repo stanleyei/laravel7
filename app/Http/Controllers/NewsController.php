@@ -21,7 +21,8 @@ class NewsController extends Controller
     public function newsList()
     {
         $newsData = News::get();
-        return view('news/news_list_page', compact('newsData'));
+        $total = News::count();
+        return view('news/news_list_page', compact('newsData','total'));
     }
 
     public function newsContent($id)
@@ -33,7 +34,8 @@ class NewsController extends Controller
     public function edit()
     {
         $newsData = News::get();
-        return view('news/news_edit_page', compact('newsData'));
+        $total = News::count();
+        return view('news/news_edit_page', compact('newsData','total'));
     }
 
     public function create()

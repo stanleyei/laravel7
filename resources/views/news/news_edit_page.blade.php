@@ -11,16 +11,16 @@
         <h2>最新消息</h2>
     </div>
     <div class="inf-list">
-        <span>資料總筆數：<b>175</b></span>
-        <span>每頁筆數：<b>10</b></span>
-        <span>總頁數：<b>18</b></span>
+        <span>資料總筆數：<b>{{$total}}</b></span>
+        {{-- <span>每頁筆數：<b>10</b></span> --}}
+        {{-- <span>總頁數：<b>18</b></span> --}}
         <span>目前頁次：<b>1</b></span>
     </div>
 </section>
 <hr>
 @foreach ($newsData as $news)
 <section>
-    <div class="drawer_title d-flex justify-content-between align-items-center" data-toggle="collapse" href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">{{$news->title}}<i class="fas fa-arrow-alt-circle-down"></i></div>
+    <div class="drawer_title d-flex justify-content-between align-items-center mb-2" data-toggle="collapse" href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-circle"> {{$news->title}}</i><i class="fas fa-arrow-alt-circle-down"></i></div>
     <div class="article collapse" id="collapse{{$news->id}}">
         <figure style="background-image: url({{$news->img}});"></figure>
         <div class="main_inf">

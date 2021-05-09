@@ -14,7 +14,7 @@
         <h2>最新消息</h2>
     </div>
     <div class="inf-list">
-        <span>資料總筆數：<b>175</b></span>
+        <span>資料總筆數：<b>{{$total}}</b></span>
         <span>每頁筆數：<b>10</b></span>
         <span>總頁數：<b>18</b></span>
         <span>目前頁次：<b>1</b></span>
