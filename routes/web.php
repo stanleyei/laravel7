@@ -33,7 +33,6 @@ Route::prefix('news')->group(function () {
     Route::get('/content/{id}', 'NewsController@content');
 });
 
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
