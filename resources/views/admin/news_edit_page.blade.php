@@ -41,7 +41,7 @@
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <form id="delete_form" action="/admin/news/{{$news->id}}" method="POST">
+            <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}" data-id="/admin/news/{{$news->id}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn_delete rounded-pill w-100">刪除</button>
@@ -61,11 +61,11 @@
             btn_delete.forEach(btn => {
                 btn.addEventListener('click', e => {
                     if(confirm('確定要刪除嗎?')){
-                        document.getElementById("delete_form").submit();
+                        document.getElementById("delete_{{$news->id}}}").submit()
                     }
                 })
             })
-        }
+        };
     </script>
 @endsection
 
