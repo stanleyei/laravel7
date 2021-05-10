@@ -12,18 +12,18 @@ class AdminController extends Controller
     {
         $newsData = News::get();
         $total = News::count();
-        return view('admin/news_edit_page', compact('newsData','total'));
+        return view('admin.news_edit_page', compact('newsData','total'));
     }
 
     public function show(){
         $newsData = News::get();
         $total = News::count();
-        return view('admin/news_edit_page', compact('newsData','total'));
+        return view('admin.news_edit_page', compact('newsData','total'));
     }
 
     public function create()
     {
-        return view('admin/news_create');
+        return view('admin.news_create');
     }
 
     public function store(Request $request)
