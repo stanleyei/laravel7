@@ -3,6 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="{{ asset('css/news_edit.css') }}">
 @endsection
 
@@ -13,8 +14,6 @@
     </div>
     <div class="inf-list">
         <span>資料總筆數：<b>{{$total}}</b></span>
-        {{-- <span>每頁筆數：<b>10</b></span> --}}
-        {{-- <span>總頁數：<b>18</b></span> --}}
         <span>目前頁次：<b>1</b></span>
     </div>
 </section>
