@@ -13,13 +13,13 @@ class NewsController extends Controller
     {
         $newsData = News::get();
         $total = News::count();
-        return view('front/news_list_page', compact('newsData','total'));
+        return view('front.news_list_page', compact('newsData','total'));
     }
 
     public function content($id)
     {
         $newsData = News::find($id);
-        return view('front/news_content_page', compact('newsData'));
+        return view('front.news_content_page', compact('newsData'));
     }
 
 }
