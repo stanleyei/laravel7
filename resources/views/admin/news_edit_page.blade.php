@@ -64,14 +64,14 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
     window.onload = () => {
-            document.querySelectorAll('.btn_delete').forEach(btn => {
-                btn.addEventListener('click', function (btn) {
-                    const id = this.dataset.id;
-                    if(confirm('確定要刪除嗎?')){
-                        document.querySelector(id).submit();
-                    }
-                })
-            })
+        document.querySelectorAll('.btn_delete').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = this.dataset.id;
+                if(confirm('確定要刪除嗎?')){
+                    document.querySelector(id).submit();
+                };
+            });
+        });
     };
 </script>
 @endsection
