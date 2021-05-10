@@ -23,7 +23,7 @@
 <hr>
 @foreach ($newsData as $news)
 <section class="article">
-    <figure style="background-image: url({{$news->img}});">
+    <figure style="background-image: url({{asset($news->img)}});">
     </figure>
     <div class="main_inf">
         <div class="function-box">

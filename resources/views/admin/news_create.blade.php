@@ -6,7 +6,7 @@
 
 @section('main')
     <hr>
-    <form action="/admin/news/" method="POST">
+    <form action="/admin/news/" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="title">
             標題：<input type="text" id="title" name="title">
@@ -15,7 +15,7 @@
             日期：<input type="date" id="date" name="date">
         </label>
         <label for="img">
-            圖片：<input type="text" id="img" name="img">
+            圖片：<input type="file" accept="image/*" id="img" name="img">
         </label>
         <label for="content">
             內文：<textarea name="content" id="content" cols="30" rows="10"></textarea>

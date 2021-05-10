@@ -24,7 +24,7 @@
     <div class="article collapse" id="collapse{{$news->id}}">
         <figure style="background-image: url({{$news->img}});"></figure>
         <div class="main_inf">
-            <form action="/admin/news/{{$news->id}}" method="POST">
+            <form action="/admin/news/{{$news->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <label for="title" class="w-100 mt-2">
@@ -34,14 +34,14 @@
                     日期：<input type="date" id="date" name="date" value="{{$news->date}}">
                 </label>
                 <label for="img" class="input_box">
-                    圖片：<input type="text" id="img" name="img" value="{{$news->img}}">
+                    圖片：<input type="file" accept="image/*" id="img" name="img" value="{{$news->img}}">
                 </label>
                 <label for="content" class="w-100">
                     內文：<textarea class="w-100" name="content" id="content" cols="30" rows="10">{{$news->content}}</textarea>
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}"  method="POST">
+            <form id="delete_form" action="/admin/news/{{$news->id}}"  method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn_delete rounded-pill w-100" data-action="{{$news->id}}">刪除</button>
@@ -60,9 +60,9 @@
             const btn_delete = document.querySelectorAll('.btn_delete');
             btn_delete.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    const id = this.dataset.action;
+                    // const id = this.dataset.action;
                     if(confirm('確定要刪除嗎?')){
-                        document.getElementById(`delete_${id}`).submit();
+                        document.getElementById(`delete_form`).submit();
                     }
                 })
             })
