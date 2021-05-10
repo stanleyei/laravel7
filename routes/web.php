@@ -22,15 +22,14 @@ Route::get('login', 'FrontController@login');
 Route::post('/contact', 'ContactUsController@contact');
 
 Route::prefix('news')->group(function () {
-    Route::middleware('auth')->group(function () {
-            Route::get('/create', 'NewsController@create');
-            Route::get('/edit', 'NewsController@edit');
-            Route::post('/store', 'NewsController@store');
-            Route::post('/update/{id}', 'NewsController@update');
-            Route::get('/delete/{id}', 'NewsController@destroy');
-        }); 
     Route::get('/', 'NewsController@index');
     Route::get('/content/{id}', 'NewsController@content');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        Route::resource('news', 'AdminController');
+    });
 });
 
 Auth::routes();

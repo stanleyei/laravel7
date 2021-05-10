@@ -6,7 +6,7 @@
 
 @section('main')
     <hr>
-    <form action="/news/store" method="POST">
+    <form action="/admin/news/" method="POST">
         @csrf
         <label for="title">
             標題：<input type="text" id="title" name="title">

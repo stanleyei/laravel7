@@ -24,8 +24,9 @@
     <div class="article collapse" id="collapse{{$news->id}}">
         <figure style="background-image: url({{$news->img}});"></figure>
         <div class="main_inf">
-            <form action="/news/update/{{$news->id}}" method="POST">
+            <form action="/admin/news/{{$news->id}}" method="POST">
                 @csrf
+                @method('PATCH')
                 <label for="title" class="w-100 mt-2">
                     標題：<input type="text" class="w-50" id="title" name="title" value="{{$news->title}}">
                 </label>
@@ -40,7 +41,11 @@
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <button class="btn btn_delete rounded-pill w-100" data-href="/news/delete/{{$news->id}}">刪除</button>
+            <form id="delete_form" action="/admin/news/{{$news->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="button" class="btn btn_delete rounded-pill w-100">刪除</button>
+            </form>
         </div>
     </div>
 </section>
@@ -56,7 +61,7 @@
             btn_delete.forEach(btn => {
                 btn.addEventListener('click', e => {
                     if(confirm('確定要刪除嗎?')){
-                        location.href = `${e.target.dataset.href}`;
+                        document.getElementById("delete_form").submit();
                     }
                 })
             })

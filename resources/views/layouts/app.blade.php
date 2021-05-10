@@ -34,8 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a href="/news/create" class="mr-3"><button>新增文章</button></a>
-                        <a href="/news/edit"><button>編輯文章</button></a>
+                        <a href="/admin/news/create" class="mr-3"><button>新增文章</button></a>
+                        <a href="/admin/news/"><button>編輯文章</button></a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
