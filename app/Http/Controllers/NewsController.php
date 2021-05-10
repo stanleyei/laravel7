@@ -8,24 +8,15 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     //
-    // public function login()
-    // {
-    //     return view('login');
-    // }
 
-    public function mainIndex()
-    {
-        return view('index');
-    }
-
-    public function newsList()
+    public function index()
     {
         $newsData = News::get();
         $total = News::count();
         return view('news/news_list_page', compact('newsData','total'));
     }
 
-    public function newsContent($id)
+    public function content($id)
     {
         $newsData = News::find($id);
         return view('news/news_content_page', compact('newsData'));
