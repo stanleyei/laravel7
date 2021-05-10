@@ -41,10 +41,10 @@
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}" data-id="/admin/news/{{$news->id}}" method="POST">
+            <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}"  method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="button" class="btn btn_delete rounded-pill w-100">刪除</button>
+                <button type="button" class="btn btn_delete rounded-pill w-100" data-action="{{$news->id}}">刪除</button>
             </form>
         </div>
     </div>
@@ -59,9 +59,10 @@
         window.onload = () => {
             const btn_delete = document.querySelectorAll('.btn_delete');
             btn_delete.forEach(btn => {
-                btn.addEventListener('click', e => {
+                btn.addEventListener('click', () => {
+                    const id = this.dataset.action;
                     if(confirm('確定要刪除嗎?')){
-                        document.getElementById("delete_{{$news->id}}}").submit()
+                        document.getElementById(`delete_${id}`).submit();
                     }
                 })
             })
