@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="{{ asset('css/news_edit.css') }}">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ asset('css/news_edit.css') }}">
 @endsection
-    
+
 @section('main')
 <section>
     <div class="title">
@@ -20,7 +21,9 @@
 <hr>
 @foreach ($newsData as $news)
 <section>
-    <div class="drawer_title d-flex justify-content-between align-items-center mb-2" data-toggle="collapse" href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-circle"> {{$news->title}}</i><i class="fas fa-arrow-alt-circle-down"></i></div>
+    <div class="drawer_title d-flex justify-content-between align-items-center mb-2" data-toggle="collapse"
+        href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i
+            class="fas fa-circle"> {{$news->title}}</i><i class="fas fa-arrow-alt-circle-down"></i></div>
     <div class="article collapse" id="collapse{{$news->id}}">
         <figure style="background-image: url({{$news->img}});"></figure>
         <div class="main_inf">
@@ -37,14 +40,15 @@
                     圖片：<input type="file" accept="image/*" id="img" name="img" value="{{$news->img}}">
                 </label>
                 <label for="content" class="w-100">
-                    內文：<textarea class="w-100" name="content" id="content" cols="30" rows="10">{{$news->content}}</textarea>
+                    內文：<textarea class="w-100" name="content" id="content" cols="30"
+                        rows="10">{{$news->content}}</textarea>
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <form id="delete_form" action="/admin/news/{{$news->id}}"  method="POST">
+            <button type="button" class="btn btn_delete rounded-pill w-100" data-id="#delete_{{$news->id}}">刪除</button>
+            <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="button" class="btn btn_delete rounded-pill w-100" data-action="{{$news->id}}">刪除</button>
             </form>
         </div>
     </div>
@@ -55,18 +59,19 @@
 @endsection
 
 @section('js')
-    <script>
-        window.onload = () => {
-            const btn_delete = document.querySelectorAll('.btn_delete');
-            btn_delete.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // const id = this.dataset.action;
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    window.onload = () => {
+            document.querySelectorAll('.btn_delete').forEach(btn => {
+                btn.addEventListener('click', function (btn) {
+                    const id = this.dataset.id;
                     if(confirm('確定要刪除嗎?')){
-                        document.getElementById(`delete_form`).submit();
+                        document.querySelector(id).submit();
                     }
                 })
             })
-        };
-    </script>
+    };
+</script>
 @endsection
-
