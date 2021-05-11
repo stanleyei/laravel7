@@ -20,7 +20,7 @@
 <hr>
 @foreach ($newsData as $news)
 <section>
-    <div class="drawer_title d-flex justify-content-between align-items-center mb-2" data-toggle="collapse"
+    <div class="drawer_title d-flex justify-content-between align-items-center mb-2 mt-3" data-toggle="collapse"
         href="#collapse{{$news->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i
             class="fas fa-circle"> {{$news->title}}</i><i class="fas fa-arrow-alt-circle-down"></i></div>
     <div class="article collapse" id="collapse{{$news->id}}">
@@ -30,17 +30,16 @@
                 @csrf
                 @method('PATCH')
                 <label for="title" class="w-100 mt-2">
-                    標題：<input type="text" class="w-50" id="title" name="title" value="{{$news->title}}">
+                    標題：<input type="text" class="w-50" name="title" value="{{$news->title}}">
                 </label>
                 <label for="date" class="input_box mr-2">
-                    日期：<input type="date" id="date" name="date" value="{{$news->date}}">
+                    日期：<input type="date" name="date" value="{{$news->date}}">
                 </label>
                 <label for="img" class="input_box">
-                    圖片：<input type="file" accept="image/*" id="img" name="img" value="{{$news->img}}">
+                    圖片：<input type="file" accept="image/*" name="img" value="{{$news->img}}">
                 </label>
                 <label for="content" class="w-100">
-                    內文：<textarea class="w-100" name="content" id="content" cols="30"
-                        rows="10">{{$news->content}}</textarea>
+                    內文：<textarea class="w-100" name="content" cols="30" rows="10">{{$news->content}}</textarea>
                 </label>
                 <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
             </form>
@@ -60,8 +59,12 @@
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
 <script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+
     window.onload = () => {
         document.querySelectorAll('.btn_delete').forEach(btn => {
             btn.addEventListener('click', function () {
