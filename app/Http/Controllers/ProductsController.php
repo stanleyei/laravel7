@@ -14,9 +14,9 @@ class ProductsController extends Controller
         return view('front.products_list_page', compact('productsData'));
     }
 
-    // public function content($id)
-    // {
-    //     $productsData = Products::find($id);
-    //     return view('front.news_content_page', compact('productsData'));
-    // }
+    public function content($id)
+    {
+        $productsData = Products::find($id);
+        return view('front.products_content_page', compact('productsData'));
+    }
 }

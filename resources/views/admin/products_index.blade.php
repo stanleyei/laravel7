@@ -1,19 +1,28 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <style>
-    .td_bg{
-        height:100px;
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+<style>
+    .td_bg {
+        height: 100px;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
     }
 
-    .td_content{
-        width: 530px;
+    .td_content {
+        max-width: 400px;
+        max-height: 110px;
+        width: 400px;
+        height: 110px;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
     }
-    </style>
+</style>
 @endsection
 
 @section('main')
@@ -40,7 +49,8 @@
                 <td class="td_content">{{$product->content}}</td>
                 <td>
                     <a href="/admin/products/{{$product->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
-                    <button type="button" class="btn_delete rounded-pill btn btn-danger" data-id="#delete_{{$product->id}}">刪除</button>
+                    <button type="button" class="btn_delete rounded-pill btn btn-danger"
+                        data-id="#delete_{{$product->id}}">刪除</button>
                     <form id="delete_{{$product->id}}" action="/admin/products/{{$product->id}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -55,9 +65,9 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
-    <script>
-        $(document).ready( function () {
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
+<script>
+    $(document).ready( function () {
             $('#myTable').DataTable();
         } );
 
@@ -71,5 +81,5 @@
             });
         });
     };
-    </script>
+</script>
 @endsection

@@ -95,9 +95,11 @@ main li:nth-child(3n+2) p {
 }
 
 .price {
-    bottom: 0;
+    bottom: -4%;
     right: 5%;
+    border-bottom-right-radius: 50%;
     font-size: 1.2em;
+    line-height: 30px;
     color: #001a23;
 }
 
