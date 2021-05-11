@@ -14,4 +14,24 @@ class AdminProductsController extends Controller
         $total = Products::count();
         return view('front.products_list_page', compact('productsData','total'));
     }
+
+    public function show()
+    {
+        
+    }
+
+    public function create()
+    {
+        
+    }
+
+    public function store()
+    {
+        
+    }
+
+    public function show()
+    {
+        
+    }
 }
