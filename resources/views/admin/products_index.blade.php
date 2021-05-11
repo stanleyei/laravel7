@@ -39,7 +39,7 @@
                 <td class="text-center">${{$product->price}}</td>
                 <td class="td_content">{{$product->content}}</td>
                 <td>
-                    <a href="/admin/products/{{$product->id}}" class="rounded-pill btn btn-success mr-2">編輯</a>
+                    <a href="/admin/products/{{$product->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
                     <button type="button" class="btn_delete rounded-pill btn btn-danger" data-id="#delete_{{$product->id}}">刪除</button>
                     <form id="delete_{{$product->id}}" action="/admin/products/{{$product->id}}" method="POST">
                         @csrf
