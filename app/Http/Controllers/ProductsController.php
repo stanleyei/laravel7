@@ -11,8 +11,7 @@ class ProductsController extends Controller
     public function index()
     {
         $productsData = Products::get();
-        $total = Products::count();
-        return view('front.products_list_page', compact('productsData','total'));
+        return view('front.products_list_page', compact('productsData'));
     }
 
     // public function content($id)
