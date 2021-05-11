@@ -36,11 +36,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <a href="/admin/news/" class="mr-3 btn btn-primary">檢視文章</a>
                         <a href="/admin/news/create" class="mr-3 btn btn-primary">新增文章</a>
-                        <a href="/admin/news/" class="mr-3 btn btn-primary">編輯文章</a>
-                        <div>
-                            <a href="/admin/products/create" class="btn btn-primary">新增商品</a>
-                        </div>
+                        <a href="/admin/products/" class="mr-3 btn btn-primary">檢視商品</a>
+                        <a href="/admin/products/create" class="btn btn-primary">新增商品</a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

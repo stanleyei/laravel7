@@ -7,14 +7,14 @@
 @section('main')
     <form action="/admin/products/" method="POST" enctype="multipart/form-data">
         @csrf
-        <label for="name">
-            商品名稱：<input type="text" id="title" name="name">
+        <label for="name" class="mb-3">
+            商品名稱：<input type="text" id="name" name="name">
         </label>
-        <label for="img">
-            商品照片：<input type="file" id="date" name="img" accept="image/*">
+        <label for="img" class="mb-3">
+            商品照片：<input type="file" id="img" name="img" accept="image/*">
         </label>
-        <label for="price">
-            商品價格：<input type="number" id="img" name="price">
+        <label for="price" class="mb-3">
+            商品價格：<input type="number" id="price" name="price">
         </label>
         <label for="content">
             商品簡介：<textarea name="content" id="content" cols="30" rows="10"></textarea>

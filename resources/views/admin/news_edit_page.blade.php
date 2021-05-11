@@ -41,9 +41,9 @@
                 <label for="content" class="w-100">
                     內文：<textarea class="w-100" name="content" cols="30" rows="10">{{$news->content}}</textarea>
                 </label>
-                <button type="submit" class="btn submit rounded-pill w-100 mb-2">送出</button>
+                <button type="submit" class="btn-f submit rounded-pill w-100 mb-2">送出</button>
             </form>
-            <button type="button" class="btn btn_delete rounded-pill w-100" data-id="#delete_{{$news->id}}">刪除</button>
+            <button type="button" class="btn-f btn_delete rounded-pill w-100" data-id="#delete_{{$news->id}}">刪除</button>
             <form id="delete_{{$news->id}}" action="/admin/news/{{$news->id}}" method="POST">
                 @csrf
                 @method('DELETE')
