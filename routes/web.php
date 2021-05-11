@@ -23,7 +23,7 @@ Route::post('/contact', 'ContactUsController@contact');
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
-        Route::resource('news', 'AdminController');
+        Route::resource('news', 'AdminNewsController');
     });
 });
 
