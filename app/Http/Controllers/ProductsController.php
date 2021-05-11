@@ -10,14 +10,14 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        $newsData = Products::get();
+        $productsData = Products::get();
         $total = Products::count();
-        return view('front.products_list_page', compact('newsData','total'));
+        return view('front.products_list_page', compact('productsData','total'));
     }
 
     // public function content($id)
     // {
-    //     $newsData = Products::find($id);
-    //     return view('front.news_content_page', compact('newsData'));
+    //     $productsData = Products::find($id);
+    //     return view('front.news_content_page', compact('productsData'));
     // }
 }
