@@ -15,7 +15,7 @@ class AdminProductsController extends Controller
         return view('admin.products_index', compact('productsData'));
     }
 
-    public function show($id)
+    public function edit($id)
     {
         $productsData = Products::find($id);
         return view('admin.products_edit_page',compact('productsData'));
@@ -42,7 +42,6 @@ class AdminProductsController extends Controller
     public function update(Request $request, $id)
     {
         $item = Products::find($id);
-
         $requsetData = $request->all();
         if($request->hasFile('img')) {
             $old_image = $item->img;
@@ -53,7 +52,7 @@ class AdminProductsController extends Controller
         }
     
         $item->update($requsetData);
-        return  redirect('/admin/porducts/');
+        return  redirect('/admin/products/');
     }
 
     public function destroy($id)
