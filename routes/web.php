@@ -21,16 +21,21 @@ Route::get('login', 'FrontController@login');
 
 Route::post('/contact', 'ContactUsController@contact');
 
-Route::prefix('news')->group(function () {
-    Route::get('/', 'NewsController@index');
-    Route::get('/content/{id}', 'NewsController@content');
-});
-
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::resource('news', 'AdminController');
     });
 });
+
+Route::prefix('news')->group(function () {
+    Route::get('/', 'NewsController@index');
+    Route::get('/content/{id}', 'NewsController@content');
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('/', 'ProductsController@index');
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

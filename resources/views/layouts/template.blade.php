@@ -74,7 +74,7 @@
                         <a class="nav-link mr-2 text-center" href="/news">News<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-body ml-md-4 text-center" href="#">Portfolio</a>
+                        <a class="nav-link text-body ml-md-4 text-center" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-body mx-md-4 text-center" href="#">About</a>
