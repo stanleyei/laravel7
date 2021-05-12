@@ -11,7 +11,7 @@
     }
 
     .td_content {
-        max-width: 580px
+        max-width: 580px;
         max-height: 110px;
         width: 580px;
         height: 110px;
