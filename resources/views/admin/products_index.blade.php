@@ -73,7 +73,7 @@
             $('#myTable').DataTable();
         } );
 
-        window.onload = () => {
+    window.onload = () => {
         document.querySelectorAll('.btn_delete').forEach(btn => {
             btn.addEventListener('click', function () {
                 const id = this.dataset.id;
