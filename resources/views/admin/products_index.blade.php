@@ -11,9 +11,9 @@
     }
 
     .td_content {
-        max-width: 400px;
+        max-width: 580px
         max-height: 110px;
-        width: 400px;
+        width: 580px;
         height: 110px;
         word-break: break-all;
         overflow: hidden;
@@ -32,6 +32,7 @@
         <thead>
             <tr>
                 <th>編號</th>
+                <th>類型</th>
                 <th>名稱</th>
                 <th>圖片</th>
                 <th>價格</th>
@@ -43,6 +44,7 @@
             @foreach ($productsData as $product)
             <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
+                <td>{{$product->type}}</td>
                 <td>{{$product->name}}</td>
                 <td class="td_bg" style="background-image:url({{$product->img}});"></td>
                 <td class="text-center">${{$product->price}}</td>
