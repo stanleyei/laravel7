@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AdminNewsController extends Controller
 {
@@ -33,7 +34,7 @@ class AdminNewsController extends Controller
         
         if($request->hasFile('img')) {
             $file = $request->file('img');
-            $path = Storage::disk('myfile')->putFile('products', $file);
+            $path = Storage::disk('myfile')->putFile('news', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
         }
         News::create($requsetData);
@@ -48,7 +49,7 @@ class AdminNewsController extends Controller
         if($request->hasFile('img')) {
             $old_image = $item->img;
             $file = $request->file('img');
-            $path = Storage::disk('myfile')->putFile('products', $file);
+            $path = Storage::disk('myfile')->putFile('news', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
             File::delete(public_path().$old_image);
         }
