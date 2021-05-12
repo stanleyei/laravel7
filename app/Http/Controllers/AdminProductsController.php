@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class AdminProductsController extends Controller
 {
@@ -32,8 +33,8 @@ class AdminProductsController extends Controller
     
         if($request->hasFile('img')) {
             $file = $request->file('img');
-            $path = $this->fileUpload($file,'products');
-            $requsetData['img'] = $path;
+            $path = Storage::disk('myfile')->putFile('products', $file);
+            $requsetData['img'] = Storage::disk('myfile')->url($path);
         }
         Products::create($requsetData);
         return  redirect('/admin/products/');
@@ -46,8 +47,8 @@ class AdminProductsController extends Controller
         if($request->hasFile('img')) {
             $old_image = $item->img;
             $file = $request->file('img');
-            $path = $this->fileUpload($file,'products');
-            $requsetData['img'] = $path;
+            $path = Storage::disk('myfile')->putFile('products', $file);
+            $requsetData['img'] = Storage::disk('myfile')->url($path);
             File::delete(public_path().$old_image);
         }
     
@@ -64,24 +65,5 @@ class AdminProductsController extends Controller
         }
         $item->delete();
         return  redirect('/admin/products/');
-    }
-
-    private function fileUpload($file,$dir){
-        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
-        if( ! is_dir('upload/')){
-            mkdir('upload/');
-        }
-        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
-        if ( ! is_dir('upload/'.$dir)) {
-            mkdir('upload/'.$dir);
-        }
-        //取得檔案的副檔名
-        $extension = $file->getClientOriginalExtension();
-        //檔案名稱會被重新命名
-        $filename = strval(time().md5(rand(100, 200))).'.'.$extension;
-        //移動到指定路徑
-        move_uploaded_file($file, public_path().'/upload/'.$dir.'/'.$filename);
-        //回傳 資料庫儲存用的路徑格式
-        return '/upload/'.$dir.'/'.$filename;
     }
 }
