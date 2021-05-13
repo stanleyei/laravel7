@@ -29,7 +29,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('image/logo.svg') }}" alt="">
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -42,7 +43,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown mr-3">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">最新消息</a>
+                                aria-haspopup="true" aria-expanded="false">文章管理</a>
                             <div class="dropdown-menu">
                                 <a href="/admin/news/" class="dropdown-item">檢視文章</a>
                                 <a href="/admin/news/create" class="dropdown-item">新增文章</a>
@@ -50,22 +51,12 @@
                         </li>
                         <li class="nav-item dropdown mr-3">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">最新商品</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/admin/products/" class="dropdown-item">檢視商品</a>
-                                </li>
-                                <li>
-                                    <a href="/admin/products/create" class="dropdown-item">新增商品</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">商品類型</a>
+                            aria-haspopup="true" aria-expanded="false">商品管理</a>
                             <div class="dropdown-menu">
-                                <a href="/admin/product_types/" class="dropdown-item">檢視類型</a>
-                                <a href="/admin/product_types/create" class="dropdown-item">新增類型</a>
+                                <a href="/admin/products/" class="dropdown-item">檢視商品</a>
+                                <a href="/admin/products/create" class="dropdown-item">新增商品</a>
+                                <a href="/admin/product_types/" class="dropdown-item">檢視商品類型</a>
+                                <a href="/admin/product_types/create" class="dropdown-item">新增商品類型</a>
                             </div>
                         </li>
                     </ul>
