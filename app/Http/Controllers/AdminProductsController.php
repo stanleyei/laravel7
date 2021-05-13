@@ -14,20 +14,20 @@ class AdminProductsController extends Controller
     public function index()
     {
         $productsData = Products::with('productTypes')->get();
-        return view('admin.products.products_index', compact('productsData'));
+        return view('admin.products.index', compact('productsData'));
     }
 
     public function edit($id)
     {
         $productsData = Products::find($id);
         $typesData = ProductTypes::get();
-        return view('admin.products.products_edit_page',compact('productsData','typesData'));
+        return view('admin.products.edit',compact('productsData','typesData'));
     }
 
     public function create()
     {
         $typesData = ProductTypes::get();
-        return view('admin.products.products_create_page', compact('typesData'));
+        return view('admin.products.create', compact('typesData'));
     }
 
     public function store(Request $request)

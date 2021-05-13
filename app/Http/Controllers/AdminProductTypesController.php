@@ -17,7 +17,7 @@ class AdminProductTypesController extends Controller
     {
         //
         $typesData = ProductTypes::with('products')->get();
-        return view('admin.products.types.product_types_index', compact('typesData'));
+        return view('admin.products.types.index', compact('typesData'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminProductTypesController extends Controller
     public function create()
     {
         //
-        return view('admin.products.types.product_types_create_page');
+        return view('admin.products.types.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class AdminProductTypesController extends Controller
     {
         //
         $typesData = ProductTypes::find($id);
-        return view('admin.products.types.product_types_edit_page',compact('typesData'));
+        return view('admin.products.types.edit',compact('typesData'));
     }
 
     /**
