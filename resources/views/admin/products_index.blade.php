@@ -44,7 +44,7 @@
             @foreach ($productsData as $product)
             <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
-                <td>{{$product->type}}</td>
+                <td>{{$product->productTypes->name}}</td>
                 <td>{{$product->name}}</td>
                 <td class="td_bg" style="background-image:url({{$product->img}});"></td>
                 <td class="text-center">${{$product->price}}</td>

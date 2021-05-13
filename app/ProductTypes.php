@@ -6,15 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $type
  * @property string $name
- * @property float $price
- * @property string $content
- * @property string $img
  * @property string $created_at
  * @property string $updated_at
  */
-class Products extends Model
+class ProductTypes extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -26,11 +22,11 @@ class Products extends Model
     /**
      * @var array
      */
-    protected $fillable = ['type_id', 'name', 'price', 'content', 'img'];
+    protected $fillable = ['name', 'created_at', 'updated_at'];
 
-    public function productTypes()
+    public function products()
     {
-        return $this->hasOne('App\ProductTypes','id','type_id');
+        return $this->hasMany('App\Products','type_id','id');
     }
 
 }

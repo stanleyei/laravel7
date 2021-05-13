@@ -7,6 +7,14 @@
 @section('main')
     <form action="/admin/products/" method="POST" enctype="multipart/form-data">
         @csrf
+        <label for="type" class="mb-3">
+            商品類型：
+            <select name="type_id" id="type">
+                @foreach ($typesData as $type)
+                    <option value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
+            </select>
+        </label>
         <label for="name" class="mb-3">
             商品名稱：<input type="text" id="name" name="name">
         </label>

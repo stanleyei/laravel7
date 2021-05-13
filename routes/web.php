@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::resource('news', 'AdminNewsController');
         Route::resource('products', 'AdminProductsController');
+        Route::resource('product_types', 'AdminProductTypesController');
     });
 });
 

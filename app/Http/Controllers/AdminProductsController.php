@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\ProductTypes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -12,19 +13,21 @@ class AdminProductsController extends Controller
     //
     public function index()
     {
-        $productsData = Products::get();
+        $productsData = Products::with('productTypes')->get();
         return view('admin.products_index', compact('productsData'));
     }
 
     public function edit($id)
     {
         $productsData = Products::find($id);
-        return view('admin.products_edit_page',compact('productsData'));
+        $typesData = ProductTypes::get();
+        return view('admin.products_edit_page',compact('productsData','typesData'));
     }
 
     public function create()
     {
-        return view('admin.products_create_page');
+        $typesData = ProductTypes::get();
+        return view('admin.products_create_page', compact('typesData'));
     }
 
     public function store(Request $request)

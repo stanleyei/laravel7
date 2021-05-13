@@ -8,6 +8,14 @@
     <form action="/admin/products/{{$productsData->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
+        <label for="type_id" class="mb-3">
+            商品類型：
+            <select name="type_id" id="type_id">
+                @foreach ($typesData as $type)
+                    <option value="{{$type->id}}" @if ($type->id == $productsData->type_id) selected @endif>{{$type->name}}</option>
+                @endforeach
+            </select>
+        </label>
         <label for="name" class="mb-3">
             商品名稱：<input type="text" id="name" name="name" value="{{$productsData->name}}">
         </label>
