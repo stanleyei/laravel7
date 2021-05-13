@@ -78,7 +78,7 @@ figure {
     padding: 0;
 }
 
-.btn:hover{
+.btn-f:hover{
     background-color: #EB9500;
     color: #ffffff;
 }
