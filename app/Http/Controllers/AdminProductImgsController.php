@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductTypes;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class AdminProductTypesController extends Controller
+class AdminProductImgsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,6 @@ class AdminProductTypesController extends Controller
     public function index()
     {
         //
-        $typesData = ProductTypes::with('products')->get();
-        return view('admin.types.product_types_index', compact('typesData'));
     }
 
     /**
@@ -28,7 +24,6 @@ class AdminProductTypesController extends Controller
     public function create()
     {
         //
-        return view('admin.types.product_types_create_page');
     }
 
     /**
@@ -40,8 +35,6 @@ class AdminProductTypesController extends Controller
     public function store(Request $request)
     {
         //
-        ProductTypes::create($request->all());
-        return  redirect('/admin/product_types/');
     }
 
     /**
@@ -64,8 +57,6 @@ class AdminProductTypesController extends Controller
     public function edit($id)
     {
         //
-        $typesData = ProductTypes::find($id);
-        return view('admin.types.product_types_edit_page',compact('typesData'));
     }
 
     /**
@@ -78,9 +69,6 @@ class AdminProductTypesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        ProductTypes::find($id)
-                    ->update($request->all());
-        return  redirect('/admin/product_types/');
     }
 
     /**
@@ -92,8 +80,5 @@ class AdminProductTypesController extends Controller
     public function destroy($id)
     {
         //
-        ProductTypes::find($id)
-                    ->delete();
-        return  redirect('/admin/product_types/');
     }
 }
