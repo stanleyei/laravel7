@@ -57,6 +57,8 @@
                                 <a href="/admin/products/create" class="dropdown-item">新增商品</a>
                                 <a href="/admin/product_types/" class="dropdown-item">檢視商品類型</a>
                                 <a href="/admin/product_types/create" class="dropdown-item">新增商品類型</a>
+                                <a href="/admin/product_imgs/" class="dropdown-item">檢視商品圖片</a>
+                                <a href="/admin/product_imgs/create" class="dropdown-item">新增商品圖片</a>
                             </div>
                         </li>
                     </ul>
