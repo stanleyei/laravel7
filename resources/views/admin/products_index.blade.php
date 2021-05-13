@@ -11,9 +11,9 @@
     }
 
     .td_content {
-        max-width: 580px;
+        max-width: 550px;
         max-height: 110px;
-        width: 580px;
+        width: 550px;
         height: 110px;
         word-break: break-all;
         overflow: hidden;
@@ -51,7 +51,7 @@
                 <td class="td_content">{{$product->content}}</td>
                 <td>
                     <a href="/admin/products/{{$product->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
-                    <button type="button" class="btn_delete rounded-pill btn btn-danger"
+                    <button type="button" class="btn_delete rounded-pill btn btn-danger mr-2"
                         data-id="#delete_{{$product->id}}">刪除</button>
                     <form id="delete_{{$product->id}}" action="/admin/products/{{$product->id}}" method="POST">
                         @csrf
