@@ -16,7 +16,7 @@ class AdminProductTypesController extends Controller
     public function index()
     {
         //
-        $typesData = ProductTypes::get();
+        $typesData = ProductTypes::with('products')->get();
         return view('admin.products_type_index', compact('typesData'));
     }
 
