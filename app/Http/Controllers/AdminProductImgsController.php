@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImgs;
 use Illuminate\Http\Request;
 
 class AdminProductImgsController extends Controller
@@ -14,6 +15,8 @@ class AdminProductImgsController extends Controller
     public function index()
     {
         //
+        $imgsData = ProductImgs::get();
+        return view('admin.products.imgs.index', compact('imgsData'));
     }
 
     /**
@@ -24,6 +27,7 @@ class AdminProductImgsController extends Controller
     public function create()
     {
         //
+        return view('admin.products.imgs.create');
     }
 
     /**
