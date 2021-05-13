@@ -23,10 +23,10 @@
                 <td>{{$img->product_id}}</td>
                 <td>{{$img->path}}</td>
                 <td>
-                    <a href="/admin/product_types/{{$img->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
+                    <a href="/admin/product_imgs/{{$img->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
                     <button type="button" class="btn_delete rounded-pill btn btn-danger"
                         data-id="#delete_{{$img->id}}">刪除</button>
-                    <form id="delete_{{$img->id}}" action="/admin/product_types/{{$img->id}}" method="POST">
+                    <form id="delete_{{$img->id}}" action="/admin/product_imgs/{{$img->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                     </form>
