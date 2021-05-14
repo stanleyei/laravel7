@@ -35,7 +35,7 @@
         其他照片：
         <input type="file" id="imgs" name="imgs[]" accept="image/*" multiple>
         <div class="d-flex otherphoto">
-            @foreach ($imgsData as $img)
+            @foreach ($productsData->productImgs as $img)
             <figure class="mt-3 mr-1" style="background-image: url({{$img->img}});">
                 <button type="button" class="btn_delete rounded-pill btn btn-danger mr-2" data-id="#delete_{{$img->id}}"
                     data-path="{{$img->id}}">X</button>
