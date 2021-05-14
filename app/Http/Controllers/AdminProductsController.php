@@ -20,10 +20,9 @@ class AdminProductsController extends Controller
 
     public function edit($id)
     {
-        $productsData = Products::find($id);
+        $productsData = Products::with('productImgs')->find($id);
         $typesData = ProductTypes::get();
-        $imgsData = ProductImgs::get();
-        return view('admin.products.edit',compact('productsData','typesData','imgsData'));
+        return view('admin.products.edit',compact('productsData','typesData'));
     }
 
     public function create()
