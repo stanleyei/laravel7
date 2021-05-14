@@ -35,7 +35,7 @@
             <input type="file" id="imgs" name="imgs[]" accept="image/*" multiple>
             <div class="d-flex">
             @foreach ($imgsData as $img)
-                <figure class="mt-3" style="background-image: url({{$img->img}});"></figure>
+                <figure class="mt-3 mr-1" style="background-image: url({{$img->img}});"></figure>
             @endforeach
             </div>
         </label>
