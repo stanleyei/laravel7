@@ -43,8 +43,7 @@ class AdminProductsController extends Controller
         }
         $product = Products::create($requsetData);
 
-        $imgs = $request->file('imgs');
-        foreach($imgs as $img){
+        foreach($request->imgs as $img){
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
             ProductImgs::create([
@@ -69,11 +68,12 @@ class AdminProductsController extends Controller
         }
         $item->update($requsetData);
 
-        $imgs = $request->file('imgs');
-        foreach($imgs as $img){
+        $imgsData = ProductImgs::where('product_id',$id)->get();
+        foreach($request->imgs as $img){
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
-            ProductImgs::update($imgs);
+            dd($publicPath);
+            $imgsData['img']->update($publicPath);
         };
     
         return  redirect('/admin/products/');
