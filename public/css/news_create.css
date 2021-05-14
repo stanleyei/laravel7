@@ -35,6 +35,20 @@ figure{
     background-repeat: no-repeat;
 }
 
+.btn_delete{
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    transform: translate(160px,-10px);
+    text-align: center;
+    line-height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 99;
+}
+
 .submit{
     width: 80vw;
     margin-top: 15px;

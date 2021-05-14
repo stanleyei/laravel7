@@ -27,7 +27,6 @@ class AdminProductImgsController extends Controller
     public function create()
     {
         //
-        return view('admin.products.imgs.create');
     }
 
     /**
@@ -39,8 +38,6 @@ class AdminProductImgsController extends Controller
     public function store(Request $request)
     {
         //
-        ProductImgs::create($request->all());
-        return  redirect('/admin/product_imgs/');
     }
 
     /**
@@ -63,8 +60,6 @@ class AdminProductImgsController extends Controller
     public function edit($id)
     {
         //
-        $imgsData = ProductImgs::find($id);
-        return view('admin.products.imgs.edit',compact('imgsData'));
     }
 
     /**
@@ -93,6 +88,6 @@ class AdminProductImgsController extends Controller
         //
         ProductImgs::find($id)
                     ->delete();
-        return  redirect('/admin/product_imgs/');
+        return  'success' ;
     }
 }
