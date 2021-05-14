@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProductImgs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminProductImgsController extends Controller
 {
@@ -86,8 +87,12 @@ class AdminProductImgsController extends Controller
     public function destroy($id)
     {
         //
-        ProductImgs::find($id)
-                    ->delete();
+        $item = ProductImgs::find($id);
+        $old_image = $item->img;
+        if(file_exists(public_path().$old_image)){
+            File::delete(public_path().$old_image);
+        }
+        $item->delete();
         return  'success' ;
     }
 }
