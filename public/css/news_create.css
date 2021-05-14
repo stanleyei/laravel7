@@ -27,6 +27,14 @@ input{
     word-break: break-all;
 }
 
+figure{
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .submit{
     width: 80vw;
     margin-top: 15px;

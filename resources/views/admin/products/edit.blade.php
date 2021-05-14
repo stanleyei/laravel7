@@ -19,14 +19,25 @@
         <label for="name" class="mb-3">
             商品名稱：<input type="text" id="name" name="name" value="{{$productsData->name}}">
         </label>
-        <label for="img" class="mb-3">
-            商品照片：<input type="file" id="img" name="img" accept="image/*">
-        </label>
         <label for="price" class="mb-3">
             商品價格：<input type="number" id="price" name="price" value="{{$productsData->price}}">
         </label>
         <label for="content">
             商品簡介：<textarea name="content" id="content" cols="30" rows="10">{{$productsData->content}}</textarea>
+        </label>
+        <label for="img" class="mb-3">
+            主要照片：
+            <input type="file" id="img" name="img" accept="image/*">
+            <figure class="mt-3" style="background-image: url({{$productsData->img}});"></figure>
+        </label>
+        <label for="imgs" class="mb-3">
+            其他照片：
+            <input type="file" id="imgs" name="imgs[]" accept="image/*" multiple>
+            <div class="d-flex">
+            @foreach ($imgsData as $img)
+                <figure class="mt-3" style="background-image: url({{$img->img}});"></figure>
+            @endforeach
+            </div>
         </label>
         <button type="submit" class="submit">送出</button>
     </form>

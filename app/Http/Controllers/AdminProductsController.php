@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\ProductImgs;
 use App\ProductTypes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -21,7 +22,8 @@ class AdminProductsController extends Controller
     {
         $productsData = Products::find($id);
         $typesData = ProductTypes::get();
-        return view('admin.products.edit',compact('productsData','typesData'));
+        $imgsData = ProductImgs::get();
+        return view('admin.products.edit',compact('productsData','typesData','imgsData'));
     }
 
     public function create()
@@ -39,7 +41,18 @@ class AdminProductsController extends Controller
             $path = Storage::disk('myfile')->putFile('products', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
         }
-        Products::create($requsetData);
+        $product = Products::create($requsetData);
+
+        $imgs = $request->file('imgs');
+        foreach($imgs as $img){
+            $path = Storage::disk('myfile')->putFile('products', $img);
+            $publicPath = Storage::disk('myfile')->url($path);
+            ProductImgs::create([
+                'product_id'=>$product->id,
+                'img'=>$publicPath
+            ]);
+        }
+
         return  redirect('/admin/products/');
     }
 
@@ -54,8 +67,15 @@ class AdminProductsController extends Controller
             $requsetData['img'] = Storage::disk('myfile')->url($path);
             File::delete(public_path().$old_image);
         }
-    
         $item->update($requsetData);
+
+        $imgs = $request->file('imgs');
+        foreach($imgs as $img){
+            $path = Storage::disk('myfile')->putFile('products', $img);
+            $publicPath = Storage::disk('myfile')->url($path);
+            ProductImgs::update($imgs);
+        };
+    
         return  redirect('/admin/products/');
     }
 
