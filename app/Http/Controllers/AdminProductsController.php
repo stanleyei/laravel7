@@ -72,7 +72,6 @@ class AdminProductsController extends Controller
         foreach($request->imgs as $img){
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
-            dd($publicPath);
             $imgsData['img']->update($publicPath);
         };
     
