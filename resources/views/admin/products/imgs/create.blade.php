@@ -10,8 +10,8 @@
         <label for="product_id" class="mb-3">
             產品編號：<input type="text" id="product_id" name="product_id">
         </label>
-        <label for="path" class="mb-3">
-            路徑：<input type="text" id="path" name="path">
+        <label for="img" class="mb-3">
+            路徑：<input type="text" id="img" name="img">
         </label>
         <button type="submit" class="submit">送出</button>
     </form>

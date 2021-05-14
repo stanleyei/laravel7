@@ -19,7 +19,10 @@
             商品名稱：<input type="text" id="name" name="name">
         </label>
         <label for="img" class="mb-3">
-            商品照片：<input type="file" id="img" name="img" accept="image/*">
+            主要照片：<input type="file" id="img" name="img" accept="image/*">
+        </label>
+        <label for="imgs" class="mb-3">
+            其他照片：<input type="file" id="imgs" name="imgs[]" accept="image/*" multiple>
         </label>
         <label for="price" class="mb-3">
             商品價格：<input type="number" id="price" name="price">

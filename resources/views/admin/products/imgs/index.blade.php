@@ -21,7 +21,7 @@
             <tr>
                 <td>{{$img->id}}</td>
                 <td>{{$img->product_id}}</td>
-                <td>{{$img->path}}</td>
+                <td>{{$img->img}}</td>
                 <td>
                     <a href="/admin/product_imgs/{{$img->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
                     <button type="button" class="btn_delete rounded-pill btn btn-danger"
