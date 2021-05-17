@@ -34,7 +34,7 @@
       <ul class="content-list" style="list-style-type:none">
         @foreach ($productsData as $product)
         <li class="content">
-          <a href="/products/content/{{$product->productTypes->id}}">
+          <a href="/products/content/{{$product->id}}">
             <div class="details">
               <h2 class="h6">{{$product->name}}</h2>
               <p class="price">${{$product->price}}</p>
@@ -49,7 +49,7 @@
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($productsData as $product)
+        @foreach ($oneIds->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
@@ -66,7 +66,7 @@
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($productsData as $product)
+        @foreach ($twoIds->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
@@ -83,7 +83,7 @@
     </div>
     <div class="tab-pane fade" id="none" role="tabpanel" aria-labelledby="none-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($productsData as $product)
+        @foreach ($threeIds->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
