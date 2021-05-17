@@ -13,6 +13,7 @@
                 <th>編號</th>
                 <th>類別名稱</th>
                 <th>數量</th>
+                <th>權重</th>
                 <th>功能</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{$type->id}}</td>
                 <td>{{$type->name}}</td>
                 <td>{{$type->products->count()}}</td>
+                <td>{{$type->sort}}</td>
                 <td>
                     <a href="/admin/product_types/{{$type->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>
                     <button type="button" class="btn_delete rounded-pill btn btn-danger"
