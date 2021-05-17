@@ -97,12 +97,12 @@ class AdminProductsController extends Controller
         return  redirect('/admin/products/');
     }
 
-    // public function delete_img(Request $request)
-    // {
-    //     $img = ProductImgs::find($request->id);
-    //     File::delete(public_path().$img->img);
-    //     $img->delete();
+    public function delete_img($path)
+    {
+        $img = ProductImgs::find($path);
+        File::delete(public_path().$img->img);
+        $img->delete();
 
-    //     return  'success' ;
-    // }
+        return  'success' ;
+    }
 }
