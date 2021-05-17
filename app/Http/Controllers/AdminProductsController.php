@@ -59,11 +59,10 @@ class AdminProductsController extends Controller
         $item = Products::find($id);
         $requsetData = $request->all();
         if($request->hasFile('img')) {
-            $old_image = $item->img;
             $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('products', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
-            File::delete(public_path().$old_image);
+            File::delete(public_path().$item->img);
         }
 
         foreach($request->imgs ?? [] as $img){
@@ -81,22 +80,19 @@ class AdminProductsController extends Controller
 
     public function destroy($id)
     {
-        $item = Products::find($id);
-        $other_imgs = ProductImgs::where('product_id',$id)->get();
-        // $old_image = $item->img;
+        $item = Products::with('productImgs')->find($id);
 
-        foreach($other_imgs as $img){
-            // $old_otherImgs = $img->img ;
+        foreach($item->productImgs as $img){
             if(file_exists(public_path().$img->img)){
                 File::delete(public_path().$img->img);
+                $img->delete();
             }
         }
         if(file_exists(public_path().$item->img)){
             File::delete(public_path().$item->img);  
         }
-        $item->delete();
 
-        ProductImgs::where('product_id',$id)->delete();
+        $item->delete();
         return  redirect('/admin/products/');
     }
 
