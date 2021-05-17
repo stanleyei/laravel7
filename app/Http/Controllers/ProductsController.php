@@ -12,10 +12,8 @@ class ProductsController extends Controller
     public function index()
     {
         $productsData = Products::get();
-        $oneIds = ProductTypes::with('products')->find(1);
-        $twoIds = ProductTypes::with('products')->find(2);
-        $threeIds = ProductTypes::with('products')->find(3);
-        return view('front.products.products_list_page', compact('productsData','oneIds','twoIds','threeIds'));
+        $allTypes = ProductTypes::with('products')->get();
+        return view('front.products.products_list_page', compact('productsData', 'allTypes'));
     }
 
     public function content($id)
@@ -23,4 +21,5 @@ class ProductsController extends Controller
         $productsData = Products::with('productImgs')->find($id);
         return view('front.products.products_content_page', compact('productsData'));
     }
+
 }
