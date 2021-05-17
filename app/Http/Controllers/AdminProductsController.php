@@ -83,16 +83,16 @@ class AdminProductsController extends Controller
     {
         $item = Products::find($id);
         $other_imgs = ProductImgs::where('product_id',$id)->get();
-        $old_image = $item->img;
+        // $old_image = $item->img;
 
         foreach($other_imgs as $img){
-            $old_otherImgs = $img->img ;
-            if(file_exists(public_path().$old_otherImgs)){
-                File::delete(public_path().$old_otherImgs);
+            // $old_otherImgs = $img->img ;
+            if(file_exists(public_path().$img->img)){
+                File::delete(public_path().$img->img);
             }
         }
-        if(file_exists(public_path().$old_image)){
-            File::delete(public_path().$old_image);  
+        if(file_exists(public_path().$item->img)){
+            File::delete(public_path().$item->img);  
         }
         $item->delete();
 
