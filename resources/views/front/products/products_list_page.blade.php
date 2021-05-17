@@ -49,7 +49,7 @@
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($oneIds->products as $product)
+        @foreach ($allTypes->find(1)->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
@@ -66,7 +66,7 @@
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($twoIds->products as $product)
+        @foreach ($allTypes->find(2)->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
@@ -83,7 +83,7 @@
     </div>
     <div class="tab-pane fade" id="none" role="tabpanel" aria-labelledby="none-tab">
       <ul class="content-list" style="list-style-type:none">
-        @foreach ($threeIds->products as $product)
+        @foreach ($allTypes->find(3)->products as $product)
         <li class="content">
           <a href="/products/content/{{$product->id}}">
             <div class="details">
