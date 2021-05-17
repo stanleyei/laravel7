@@ -17,7 +17,7 @@ main a{
     z-index: 20;
 }
 
-main ul {
+.content-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     transform-origin: top left;
@@ -25,7 +25,7 @@ main ul {
     margin: 20vw 25% 0 2%;
 }
 
-main li {
+.content {
     transform-origin: top left;
     transform: skewY(-4.398705355deg) rotatez(-14.03624deg);
     padding-top: 150%;
@@ -49,11 +49,11 @@ main li {
     transition-duration: .3s;
 }
 
-main li:nth-child(3n+1) .details {
+.content:nth-child(3n+1) .details {
     background-color: #f9c22e;
 }
 
-main li:nth-child(3n+2) .details {
+.content:nth-child(3n+2) .details {
     background-color: #35ce8d;
 }
 
@@ -82,13 +82,13 @@ main li:nth-child(3n+2) .details {
     padding: 0.4em;
 }
 
-main li:nth-child(3n+1) h2,
-main li:nth-child(3n+1) p {
+.content:nth-child(3n+1) h2,
+.content:nth-child(3n+1) p {
     background-color: #f9c22e;
 }
 
-main li:nth-child(3n+2) h2,
-main li:nth-child(3n+2) p {
+.content:nth-child(3n+2) h2,
+.content:nth-child(3n+2) p {
     background-color: #35ce8d;
 }
 
@@ -115,15 +115,15 @@ main li:nth-child(3n+2) p {
     transition-duration: .3s;
 }
 
-main li:hover {
+.content:hover {
     z-index: 4;
 }
 
-main li:hover .details {
+.content:hover .details {
     transform: rotate(14.03624deg) translate(0%, 10%) scale(1.3);
 }
 
-main li:hover .product > img {
+.content:hover .product > img {
     height: 210%;
     transform: translateX(-50%) translateY(-14%);
 }
@@ -133,7 +133,7 @@ main li:hover .product > img {
         font-size: 2.75vw;
     }
 
-    main ul {
+    .content-list {
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 3vw;
         margin: 10vw 14vw 0 2vw;
@@ -145,7 +145,7 @@ main li:hover .product > img {
         font-size: 1.95vw;
     }
 
-    main ul {
+    .content-list {
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 2vw;
         margin: 8vw 10vw 0 1vw;
@@ -157,7 +157,7 @@ main li:hover .product > img {
         font-size: 1.5vw;
     }
 
-    main ul {
+    .content-list {
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 1.5vw;
         margin: 6vw 7.5vw 0 0.5vw;
@@ -169,7 +169,7 @@ main li:hover .product > img {
         font-size: 1.25vw;
     }
 
-    main ul {
+    .content-list {
         grid-template-columns: repeat(5, 1fr);
         grid-column-gap: 1vw;
         margin: 4.5vw 6vw 0 0.5vw;
@@ -181,7 +181,7 @@ main li:hover .product > img {
         font-size: 1vw;
     }
 
-    main ul {
+    .content-list {
         grid-template-columns: repeat(6, 1fr);
         grid-column-gap: 1vw;
         margin: 4vw 6vw 0 0.5vw;
