@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\ProductTypes;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -11,7 +12,10 @@ class ProductsController extends Controller
     public function index()
     {
         $productsData = Products::with('productTypes')->get();
-        return view('front.products.products_list_page', compact('productsData'));
+        $oneIds = ProductTypes::with('products')->find(1);
+        $twoIds = ProductTypes::with('products')->find(2);
+        $threeIds = ProductTypes::with('products')->find(3);
+        return view('front.products.products_list_page', compact('productsData','oneIds','twoIds','threeIds'));
     }
 
     public function content($id)
