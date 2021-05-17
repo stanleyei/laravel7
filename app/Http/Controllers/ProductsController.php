@@ -10,7 +10,7 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        $productsData = Products::get();
+        $productsData = Products::with('productTypes')->get();
         return view('front.products.products_list_page', compact('productsData'));
     }
 
