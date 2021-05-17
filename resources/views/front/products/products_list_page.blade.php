@@ -34,7 +34,7 @@
       <ul class="content-list" style="list-style-type:none">
         @foreach ($productsData as $product)
         <li class="content">
-          <a href="/products/content/{{$product->id}}">
+          <a href="/products/content/{{$product->productTypes->id}}">
             <div class="details">
               <h2 class="h6">{{$product->name}}</h2>
               <p class="price">${{$product->price}}</p>
