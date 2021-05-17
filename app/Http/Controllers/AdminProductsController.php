@@ -82,14 +82,18 @@ class AdminProductsController extends Controller
     public function destroy($id)
     {
         $item = Products::find($id);
-        $img_item = ProductImgs::where('product_id',$id)->get();
+        $other_imgs = ProductImgs::where('product_id',$id)->get();
         $old_image = $item->img;
-        
-        // dd($img_item->img);  
-        if(file_exists(public_path().$old_image)){
-            File::delete(public_path().$old_image);
+
+        foreach($other_imgs as $img){
+            $old_otherImgs = $img->img ;
+            if(file_exists(public_path().$old_otherImgs)){
+                File::delete(public_path().$old_otherImgs);
+            }
         }
-        if(file_exists(public_path().$old_image);
+        if(file_exists(public_path().$old_image)){
+            File::delete(public_path().$old_image);  
+        }
         $item->delete();
 
         ProductImgs::where('product_id',$id)->delete();
