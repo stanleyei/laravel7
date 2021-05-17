@@ -11,7 +11,7 @@ class ProductsController extends Controller
     //
     public function index()
     {
-        $productsData = Products::with('productTypes')->get();
+        $productsData = Products::get();
         $oneIds = ProductTypes::with('products')->find(1);
         $twoIds = ProductTypes::with('products')->find(2);
         $threeIds = ProductTypes::with('products')->find(3);
