@@ -11,6 +11,12 @@
   <h2 class="text-center">最新商品</h2>
 </section>
 <section>
+  <div class="btn_list">
+    <button>全部</button>
+    <button>長袖</button>
+    <button>短袖</button>
+    <button>無袖</button>
+  </div>
   <ul style="list-style-type:none">
     @foreach ($productsData as $product)
     <li>
