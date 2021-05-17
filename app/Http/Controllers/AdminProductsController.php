@@ -8,6 +8,7 @@ use App\ProductTypes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Ui\Presets\React;
 
 class AdminProductsController extends Controller
 {
@@ -96,10 +97,12 @@ class AdminProductsController extends Controller
         return  redirect('/admin/products/');
     }
 
-    // public function fatchDelete($id)
+    // public function delete_img(Request $request)
     // {
-    //     ProductImgs::find($id)
-    //     ->delete();
+    //     $img = ProductImgs::find($request->id);
+    //     File::delete(public_path().$img->img);
+    //     $img->delete();
+
     //     return  'success' ;
     // }
 }
