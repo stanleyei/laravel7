@@ -64,8 +64,9 @@ class AdminProductsController extends Controller
             $path = Storage::disk('myfile')->putFile('products', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
             File::delete(public_path().$old_image);
-        
-        foreach($request->imgs as $img){
+        }
+
+        foreach($request->imgs ?? [] as $img){
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
             ProductImgs::create([
@@ -73,7 +74,6 @@ class AdminProductsController extends Controller
                 'img'=>$publicPath
                 ]);
             };
-        }
 
         $item->update($requsetData);
         return  redirect('/admin/products/');
