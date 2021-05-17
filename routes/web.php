@@ -25,8 +25,8 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::resource('news', 'AdminNewsController');
         Route::resource('products', 'AdminProductsController');
+        // Route::post('products/delete', 'AdminProductsController@delete_img');
         Route::resource('product_types', 'AdminProductTypesController');
-        // Route::post('product_types/{id}/edit/destroy/{id}', 'AdminProductTypesController@fatchDelete');
         Route::resource('product_imgs', 'AdminProductImgsController');
     });
 });
