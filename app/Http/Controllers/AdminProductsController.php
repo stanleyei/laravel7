@@ -42,7 +42,7 @@ class AdminProductsController extends Controller
         }
         $product = Products::create($requsetData);
 
-        foreach($request->imgs as $img){
+        foreach($request->imgs ?? [] as $img){
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
             ProductImgs::create([
