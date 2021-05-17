@@ -20,7 +20,7 @@ class ProductsController extends Controller
 
     public function content($id)
     {
-        $productsData = Products::find($id);
+        $productsData = Products::with('productImgs')->find($id);
         return view('front.products.products_content_page', compact('productsData'));
     }
 }
