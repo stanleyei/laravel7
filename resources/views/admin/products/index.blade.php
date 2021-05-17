@@ -3,7 +3,8 @@
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 <style>
-    .td_bg {
+    figure {
+        margin: 0;
         height: 100px;
         background-position: center;
         background-size: contain;
@@ -46,7 +47,9 @@
                 <td class="text-center">{{$loop->iteration}}</td>
                 <td>{{$product->productTypes->name}}</td>
                 <td>{{$product->name}}</td>
-                <td class="td_bg" style="background-image:url({{$product->img}});"></td>
+                <td class="p-0">
+                    <figure style="background-image:url({{$product->img}});"></figure>
+                </td>
                 <td class="text-center">${{$product->price}}</td>
                 <td class="td_content">{{$product->content}}</td>
                 <td>
