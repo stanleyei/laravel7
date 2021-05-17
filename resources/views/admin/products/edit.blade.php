@@ -62,12 +62,9 @@
                         formData.append('id', imgId);
                         formData.append('_token', '{{ csrf_token() }}');
                         const delbtn = this;
-                        fetch(`../../product_imgs/${path}`,{
-                            method:'DELETE',
+                        fetch(`../edit/delete/${path}`,{
+                            method:'POST',
                             body: formData,
-                            headers: {
-                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                            }
                         })
                         .then(function(response){
                             return response.text();
