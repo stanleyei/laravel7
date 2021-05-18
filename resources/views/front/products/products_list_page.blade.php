@@ -16,20 +16,11 @@
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
         aria-selected="true">全部</a>
     </li>
-    @foreach ($allTypes as $product)
+    @foreach ($allTypes as $type)
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="contact" data-toggle="tab" href="#contact{{$product->id}}" role="tab" aria-controls="profile"
-        aria-selected="false">{{$product->name}}</a>
+      <a class="nav-link" id="contact" data-toggle="tab" href="#contact{{$type->id}}" role="tab" aria-controls="profile" aria-selected="false">{{$type->name}}</a>
     </li>
     @endforeach
-    {{-- <li class="nav-item" role="presentation">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-        aria-selected="false">短袖</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="none-tab" data-toggle="tab" href="#none" role="tab" aria-controls="none"
-        aria-selected="false">無袖</a>
-    </li> --}}
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -49,9 +40,10 @@
         @endforeach
       </ul>
     </div>
-    @foreach ($allTypes as $type)
-    <div class="tab-pane fade" id="contact{{$type->id}}" role="tabpanel" aria-labelledby="tab{{$type->id}}">
+    {{-- @foreach ($productsData as $product)
+    <div class="tab-pane fade" id="contact{{$product->productTypes->id}}" role="tabpanel" aria-labelledby="tab{{$product->productTypes->id}}">
       <ul class="content-list" style="list-style-type:none">
+        @foreach ($allTypes->find(1)->products as $type)
         <li class="content">
           <a href="/products/content/{{$type->id}}">
             <div class="details">
@@ -63,10 +55,11 @@
             </div>
           </a>
         </li>
+        @endforeach
       </ul>
     </div>
-    @endforeach
-    {{-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    @endforeach --}}
+    <div class="tab-pane fade" id="contact{{$allTypes->find(1)->id}}" role="tabpanel" aria-labelledby="profile-tab">
       <ul class="content-list" style="list-style-type:none">
         @foreach ($allTypes->find(1)->products as $product)
         <li class="content">
@@ -83,7 +76,7 @@
         @endforeach
       </ul>
     </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="tab-pane fade" id="contact{{$allTypes->find(2)->id}}" role="tabpanel" aria-labelledby="contact-tab">
       <ul class="content-list" style="list-style-type:none">
         @foreach ($allTypes->find(2)->products as $product)
         <li class="content">
@@ -100,7 +93,7 @@
         @endforeach
       </ul>
     </div>
-    <div class="tab-pane fade" id="none" role="tabpanel" aria-labelledby="none-tab">
+    <div class="tab-pane fade" id="contact{{$allTypes->find(3)->id}}" role="tabpanel" aria-labelledby="none-tab">
       <ul class="content-list" style="list-style-type:none">
         @foreach ($allTypes->find(3)->products as $product)
         <li class="content">
@@ -116,7 +109,7 @@
         </li>
         @endforeach
       </ul>
-    </div> --}}
+    </div>
   </div>
 </section>
 
