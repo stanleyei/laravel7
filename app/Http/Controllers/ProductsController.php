@@ -9,10 +9,14 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     //
-    public function index()
+    public function index($typeId = null)
     {
-        $productsData = Products::with('productTypes')->get();
         $allTypes = ProductTypes::with('products')->get();
+        if($typeId){
+            $types = ProductTypes::find($typeId);
+        }else{
+            $productsData = Products::with('productTypes')->get();
+        }
         return view('front.products.products_list_page', compact('productsData', 'allTypes'));
     }
 
