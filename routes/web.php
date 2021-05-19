@@ -36,8 +36,8 @@ Route::prefix('news')->group(function () {
 });
 
 Route::prefix('products')->group(function () {
-    Route::get('/{typeId?}', 'ProductsController@index');
     Route::get('/content/{id}', 'ProductsController@content');
+    Route::get('/{typeId?}', 'ProductsController@index');
 });
 
 
