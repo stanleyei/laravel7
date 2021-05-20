@@ -17,6 +17,14 @@ main a{
     z-index: 20;
 }
 
+.btns{
+    font-weight: bold;
+}
+
+.btns:hover{
+    background-color: rgb(228, 135, 13);
+}
+
 .content-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
