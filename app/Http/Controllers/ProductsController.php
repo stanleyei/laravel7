@@ -24,7 +24,7 @@ class ProductsController extends Controller
 
     public function typeSwitch(Request $request)
     {
-        if($request->id === 0){
+        if($request->id == 0){
             $productsData = Products::with('productTypes', 'productImgs')->get();
         }else{
             $productsData = Products::with('productTypes', 'productImgs')->where('type_id', $request->id)->get();
@@ -39,7 +39,7 @@ class ProductsController extends Controller
                   <h2 class='h6'>{$product->name}</h2>
                   <p class='price'>'$'{$product->price}</p>
                   <div class='product'>
-                    <img src='{($product->img)}'>
+                    <img src='{$product->img}'>
                   </div>
                 </div>
               </a>
