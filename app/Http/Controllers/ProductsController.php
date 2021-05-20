@@ -9,13 +9,9 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     //
-    public function index($typeId = null)
+    public function index()
     {
-        if($typeId){
-            $productsData = Products::where('type_id', $typeId)->get();
-        }else{
-            $productsData = Products::with('productTypes')->get();
-        }
+        $productsData = Products::with('productTypes')->get();
         $allTypes = ProductTypes::get();
         return view('front.products.products_list_page', compact('productsData', 'allTypes'));
     }
@@ -36,8 +32,22 @@ class ProductsController extends Controller
 
         $dataString = '';
         foreach($productsData as $product){
-            $dataString = ""
+            $dataString .= 
+            "<ul class='content-list' style='list-style-type:none'>
+            <li class='content'>
+              <a href='/products/content/{$product->id}'>
+                <div class='details'>
+                  <h2 class='h6'>{$product->name}</h2>
+                  <p class='price'>'$'{$product->price}</p>
+                  <div class='product'>
+                    <img src='{asset($product->img)}'>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>";
         };
+        return $dataString;
     }
 
 
