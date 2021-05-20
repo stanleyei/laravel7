@@ -12,9 +12,9 @@
 </section>
 <section>
   <div class="nav nav-tabs px-5" id="myTab" role="tablist">
-    <a class="nav-link btns" href="" data-id="0">全部</a>
+    <button class="nav-link btns" data-id="0">全部</button>
     @foreach ($allTypes as $type)
-    <a class="nav-link btns" href="" data-id="{{$type->id}}">{{$type->name}}</a>
+    <button class="nav-link btns ml-1" data-id="{{$type->id}}">{{$type->name}}</button>
     @endforeach
   </div>
   <ul class="content-list" style="list-style-type:none">
