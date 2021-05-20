@@ -11,12 +11,12 @@ class ProductsController extends Controller
     //
     public function index($typeId = null)
     {
-        $allTypes = ProductTypes::with('products')->get();
         if($typeId){
-            $types = ProductTypes::find($typeId);
+            $productsData = Products::where('type_id', $typeId)->get();
         }else{
             $productsData = Products::with('productTypes')->get();
         }
+        $allTypes = ProductTypes::get();
         return view('front.products.products_list_page', compact('productsData', 'allTypes'));
     }
 
