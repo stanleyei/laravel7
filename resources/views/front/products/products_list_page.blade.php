@@ -38,14 +38,12 @@
 
 @section('js')
   <script>
-    window.onload = () =>{
       const btns = document.querySelectorAll('.btns');
       btns.forEach(e => {
         e.addEventListener('click',function(){
           restProducts(this.dataset.id);
         })
       });
-    }
 
     function restProducts(typeId){
       const container = document.querySelector('.content-list');
