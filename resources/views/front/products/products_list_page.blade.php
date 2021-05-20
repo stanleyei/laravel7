@@ -12,9 +12,9 @@
 </section>
 <section>
   <div class="nav nav-tabs px-5" id="myTab" role="tablist">
-    <a class="nav-link" href="/products">全部</a>
+    <a class="nav-link btns" href="" data-id="0">全部</a>
     @foreach ($allTypes as $type)
-    <a class="nav-link" href="/products/{{$type->id}}">{{$type->name}}</a>
+    <a class="nav-link btns" href="" data-id="{{$type->id}}">{{$type->name}}</a>
     @endforeach
   </div>
   <ul class="content-list" style="list-style-type:none">
@@ -37,5 +37,31 @@
 @endsection
 
 @section('js')
+  <script>
+    window.onload = () =>{
+      const btns = document.querySelectorAll('.btns');
+      btns.forEach(e => {
+        e.addEventListener('click',function(){
+          restProducts(this.dataset.id);
+        })
+      });
+    }
 
+    function restProducts(typeId){
+      const container = document.querySelector('.content-list');
+      let formData = new FormData();
+      formData.append('id', typeId);
+      formData.append('_token', '{{ csrf_token() }}');
+
+      fetch('/products/typeId',{
+        method: 'POST',
+        body: formData
+      })
+      .then(function(response){
+        return response.text();
+      }).then(function(result){
+        container.innerHTML = result;
+      })
+    }
+  </script>
 @endsection
