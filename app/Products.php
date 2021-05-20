@@ -38,4 +38,9 @@ class Products extends Model
         return $this->hasMany('App\ProductImgs','product_id','id');
     }
 
+    public function productTypeslinks()
+    {
+        return $this->belongsToMany(ProductTypes::class);
+    }
+
 }

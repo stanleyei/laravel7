@@ -40,6 +40,17 @@ main a{
     z-index: 1;
     transition-property: z-index;
     transition-duration: .3s;
+    animation: slow 1.5s;
+}
+
+@keyframes slow{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
 
 .details {

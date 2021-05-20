@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImgs;
 use App\Products;
 use App\ProductTypes;
 use Illuminate\Http\Request;
