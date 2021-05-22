@@ -31,7 +31,7 @@ class ProductTypes extends Model
 
     public function productslinks()
     {
-        return $this->belongsToMany(Products::class);
+        return $this->belongsToMany('App\Products');
     }
 
 }
