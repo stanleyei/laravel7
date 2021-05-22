@@ -45,9 +45,7 @@
             @foreach ($productsData as $product)
             <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
-                {{-- @foreach ($typesData as $type)    --}}
                 <td>{{$product->productTypes->name}}</td>
-                {{-- @endforeach --}}
                 <td>{{$product->name}}</td>
                 <td class="p-0">
                     <figure style="background-image:url({{$product->img}});"></figure>
