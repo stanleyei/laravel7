@@ -23,32 +23,39 @@ class AdminProductsController extends Controller
     {
         $productsData = Products::with('productImgs')->find($id);
         $typesData = ProductTypes::get();
-        return view('admin.products.edit',compact('productsData','typesData'));
+        return view('admin.products.edit', compact('productsData', 'typesData'));
     }
 
     public function create()
     {
-        $typesData = ProductTypes::get();
-        return view('admin.products.create', compact('typesData'));
+        $data = ProductTypes::get();
+        $typesData = $data->filter(function ($item) {
+            return $item->id != 4 and $item->id != 5;
+        });
+        $genderData = $data->filter(function ($item) {
+            return $item->id > 3 and $item->id < 6;
+        });
+
+        return view('admin.products.create', compact('typesData', 'genderData'));
     }
 
     public function store(Request $request)
     {
         $requsetData = $request->all();
-    
-        if($request->hasFile('img')) {
+
+        if ($request->hasFile('img')) {
             $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('products', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
         }
         $product = Products::create($requsetData);
 
-        foreach($request->imgs ?? [] as $img){
+        foreach ($request->imgs ?? [] as $img) {
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
             ProductImgs::create([
-                'product_id'=>$product->id,
-                'img'=>$publicPath
+                'product_id' => $product->id,
+                'img' => $publicPath
             ]);
         }
 
@@ -59,21 +66,21 @@ class AdminProductsController extends Controller
     {
         $item = Products::find($id);
         $requsetData = $request->all();
-        if($request->hasFile('img')) {
+        if ($request->hasFile('img')) {
             $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('products', $file);
             $requsetData['img'] = Storage::disk('myfile')->url($path);
-            File::delete(public_path().$item->img);
+            File::delete(public_path() . $item->img);
         }
 
-        foreach($request->imgs ?? [] as $img){
+        foreach ($request->imgs ?? [] as $img) {
             $path = Storage::disk('myfile')->putFile('products', $img);
             $publicPath = Storage::disk('myfile')->url($path);
             ProductImgs::create([
-                'product_id'=>$id,
-                'img'=>$publicPath
-                ]);
-            };
+                'product_id' => $id,
+                'img' => $publicPath
+            ]);
+        };
 
         $item->update($requsetData);
         return  redirect('/admin/products/');
@@ -83,14 +90,14 @@ class AdminProductsController extends Controller
     {
         $item = Products::with('productImgs')->find($id);
 
-        foreach($item->productImgs as $img){
-            if(file_exists(public_path().$img->img)){
-                File::delete(public_path().$img->img);
+        foreach ($item->productImgs as $img) {
+            if (file_exists(public_path() . $img->img)) {
+                File::delete(public_path() . $img->img);
                 $img->delete();
             }
         }
-        if(file_exists(public_path().$item->img)){
-            File::delete(public_path().$item->img);  
+        if (file_exists(public_path() . $item->img)) {
+            File::delete(public_path() . $item->img);
         }
 
         $item->delete();
@@ -100,9 +107,9 @@ class AdminProductsController extends Controller
     public function delete_img($path)
     {
         $img = ProductImgs::find($path);
-        File::delete(public_path().$img->img);
+        File::delete(public_path() . $img->img);
         $img->delete();
 
-        return  'success' ;
+        return  'success';
     }
 }

@@ -44,7 +44,7 @@
           restProducts(this.dataset.id);
         })
       });
-
+      
     function restProducts(typeId){
       const container = document.querySelector('.content-list');
       let formData = new FormData();

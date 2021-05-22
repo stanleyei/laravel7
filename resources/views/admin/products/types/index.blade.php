@@ -22,7 +22,7 @@
             <tr>
                 <td>{{$type->id}}</td>
                 <td>{{$type->name}}</td>
-                <td>{{$type->products->count()}}</td>
+                <td>{{$type->productslinks()->count()}}</td>
                 <td>{{$type->sort}}</td>
                 <td>
                     <a href="/admin/product_types/{{$type->id}}/edit" class="rounded-pill btn btn-success mr-2">編輯</a>

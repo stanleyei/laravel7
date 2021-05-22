@@ -13,10 +13,10 @@ class CreateProductProductTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_product_type', function (Blueprint $table) {
+        Schema::create('product_types_products', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id')->nullable();
-            $table->integer('productType_id')->nullable();
+            $table->integer('products_id')->nullable();
+            $table->integer('product_types_id')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateProductProductTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_product_type');
+        Schema::dropIfExists('product_types_products');
     }
 }

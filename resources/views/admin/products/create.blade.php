@@ -14,6 +14,11 @@
                     <option value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach
             </select>
+            <select name="type_id" id="type">
+                @foreach ($genderData as $gender)
+                    <option value="{{$gender->id}}">{{$gender->name}}</option>
+                @endforeach
+            </select>
         </label>
         <label for="name" class="mb-3">
             商品名稱：<input type="text" id="name" name="name">

@@ -27,10 +27,10 @@ class ProductsController extends Controller
     {
         if($request->id == 0){
             $productsData = Products::with('productTypes', 'productImgs')->get();
-        }else{
-            $productsData = Products::with('productTypes', 'productImgs')->where('type_id', $request->id)->get();
         }
-
+        else{
+            $productsData = ProductTypes::find($request->id)->productslinks()->get();
+        }
         $dataString = '';
         foreach($productsData as $product){
             $dataString .= 
