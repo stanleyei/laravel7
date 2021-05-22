@@ -14,7 +14,7 @@
                     <option value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach
             </select>
-            <select name="type_id" id="type">
+            <select name="gender_id" id="gender" class="ml-2">
                 @foreach ($genderData as $gender)
                     <option value="{{$gender->id}}">{{$gender->name}}</option>
                 @endforeach
