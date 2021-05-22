@@ -16,18 +16,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'FrontController@index');
 Route::get('login', 'FrontController@login');
 
 Route::post('/contact', 'ContactUsController@contact');
 
-Route::prefix('admin')->group(function () {
-    Route::middleware(['auth'])->group(function () {
-        Route::resource('news', 'AdminNewsController');
-        Route::resource('products', 'AdminProductsController');
-        Route::post('/products/edit/delete/{path}', 'AdminProductsController@delete_img');
-        Route::resource('product_types', 'AdminProductTypesController');
-    });
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::resource('news', 'AdminNewsController');
+    Route::resource('products', 'AdminProductsController');
+    Route::post('/products/edit/delete/{path}', 'AdminProductsController@delete_img');
+    Route::resource('product_types', 'AdminProductTypesController');
 });
 
 Route::prefix('news')->group(function () {
@@ -44,4 +43,3 @@ Route::prefix('products')->group(function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
