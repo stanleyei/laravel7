@@ -38,7 +38,7 @@ class ProductsController extends Controller
               <a href='/products/content/{$product->id}'>
                 <div class='details'>
                   <h2 class='h6'>{$product->name}</h2>
-                  <p class='price'>'$'{$product->price}</p>
+                  <p class='price'>$ {$product->price}</p>
                   <div class='product'>
                     <img src='{$product->img}'>
                   </div>
