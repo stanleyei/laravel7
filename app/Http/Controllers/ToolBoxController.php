@@ -14,6 +14,5 @@ class ToolBoxController extends Controller
             $path = Storage::disk('myfile')->putFile('news', $file);
             return $path;
         }
-        dd($path);
     }
 }
