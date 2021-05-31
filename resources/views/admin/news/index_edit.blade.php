@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
@@ -40,7 +39,8 @@
                     圖片：<input type="file" accept="image/*" name="img" value="{{$news->img}}">
                 </label>
                 <label for="content" class="w-100">
-                    內文：<textarea class="w-100 textarea" name="content" id="content{{$news->id}}" cols="30" rows="10" data-text="{{$news->id}}">{!! $news->content !!}</textarea>
+                    內文：<textarea class="w-100 textarea" name="content" id="content{{$news->id}}" cols="30" rows="10"
+                        data-text="{{$news->id}}">{!! $news->content !!}</textarea>
                 </label>
                 <button type="submit" class="btn-f submit rounded-pill w-100 mb-2">送出</button>
             </form>
@@ -59,9 +59,6 @@
 @endsection
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js" defer></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
 <script>
     $(document).ready( function () {
@@ -83,7 +80,25 @@
         const textarea = document.querySelectorAll('.textarea');
         textarea.forEach(function(content){
             let text = $(content).data().text;
-            $(`#content${text}`).summernote();
+            $(`#content${text}`).summernote({
+                callbacks: {
+                    onImageUpload: function(files) {
+                        const formData = new FormData();
+                        formData.append('img', files[0]);
+                        formData.append('_token', '{{ csrf_token() }}');
+                        fetch('../summernote/store',{
+                            method:'POST',
+                            body: formData,
+                        })
+                        .then(function(response){
+                            return response.text();
+                        })
+                        .then(function(path){
+                            $(`#content${text}`).summernote('insertImage', path);
+                        })
+                    }
+                }
+            });
         });
     });
 </script>

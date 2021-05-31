@@ -40,5 +40,12 @@
 @endsection
 
 @section('js')
-    
+<script>
+    $(document).ready(function() {
+        $('#content').summernote({
+            width: 1270,
+            height: 300,
+        });
+    });
+</script>
 @endsection

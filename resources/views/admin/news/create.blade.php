@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('css')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/news_create.css') }}">
 @endsection
 
@@ -26,8 +25,6 @@
 @endsection
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js" defer></script>
 <script>
     $(document).ready(function() {
         $('#content').summernote({
