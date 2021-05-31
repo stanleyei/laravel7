@@ -124,7 +124,7 @@ figcaption~span {
     color: #EB9500;
 }
 
-figcaption~p {
+.content {
     max-width: 850px;
     width: 60vw;
     padding-top: 18px;

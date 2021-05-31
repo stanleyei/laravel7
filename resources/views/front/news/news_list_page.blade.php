@@ -33,9 +33,9 @@
             <a href="/news/content/{{$news->id}}">{{$news->title}}</a>
         </figcaption>
         <span>{{$news->date}}</span>
-        <p>
-            {{$news->content}}
-        </p>
+        <div class="content">
+            {!! $news->content !!}
+        </div>
     </div>
 </section>
 <hr>

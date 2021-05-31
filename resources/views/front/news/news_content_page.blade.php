@@ -15,7 +15,7 @@
     <hr>
 </div>
 <article>
-    {{$newsData->content}}
+    {!!$newsData->content!!}
 </article>
 <hr>
 @endsection
