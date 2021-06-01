@@ -96,7 +96,7 @@
                         .then(function(path){
                             $(`#content${text}`).summernote('insertImage', path);
                         })
-                    }
+                    },
                 }
             });
         });
