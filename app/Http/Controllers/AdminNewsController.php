@@ -53,7 +53,7 @@ class AdminNewsController extends Controller
             $requsetData['img'] = Storage::disk('myfile')->url($path);
             File::delete(public_path().$old_image);
         }
-        
+
         $item->update($requsetData);
         return  redirect('/admin/news/');
     }
