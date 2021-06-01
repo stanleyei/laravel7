@@ -11,8 +11,10 @@ class ToolBoxController extends Controller
     {
         if($request->hasFile('img')) {
             $file = $request->file('img');
-            $path = Storage::disk('myfile')->putFile('news', $file);
-            return $path;
+            $path = Storage::disk('myfile')->putFile('summernote', $file);
+            $publicPath = Storage::disk('myfile')->url($path);
+            return $publicPath;
         }
+        return 'fail';
     }
 }
