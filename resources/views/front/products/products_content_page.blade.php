@@ -40,7 +40,7 @@
     <div class="px-3 pt-5 border-left">
       <h2 class="h1">{{$productsData->name}}</h2>
       <p class="my-5 h3">Price：$ {{$productsData->price}}</p>
-      <p class="content">{{$productsData->content}}</p>
+      <p class="content">{!!$productsData->content!!}</p>
     </div>
   </div>
 </section>
