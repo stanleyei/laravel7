@@ -27,8 +27,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('products', 'AdminProductsController');
     Route::post('/products/edit/delete/{path}', 'AdminProductsController@delete_img');
     Route::resource('product_types', 'AdminProductTypesController');
-    Route::post('/summernote/store', 'ToolBoxController@summernoteStore');
-    Route::post('/summernote/delete', 'ToolBoxController@summernoteDelete');
+    Route::post('/summernote/store', 'ToolBoxController@summernoteStore')->name('summernoteStore');
+    Route::post('/summernote/delete', 'ToolBoxController@summernoteDelete')->name('summernoteDelete');
 });
 
 Route::prefix('news')->group(function () {

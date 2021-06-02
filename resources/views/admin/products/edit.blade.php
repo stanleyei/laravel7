@@ -46,7 +46,7 @@
     <div class="d-flex justify-content-center">
         <button type="submit" class="submit">送出</button>
     </div>
-    </form>
+</form>
 @endsection
 
 @section('js')
@@ -80,7 +80,34 @@
         };
 
     $(document).ready(function() {
-        $('#content').summernote();
+        $('#content').summernote({
+            callbacks: {
+                    onImageUpload: function(files) {
+                        const formData = new FormData();
+                        formData.append('img', files[0]);
+                        formData.append('_token', '{{ csrf_token() }}');
+                        fetch('../../summernote/store',{
+                            method:'POST',
+                            body: formData,
+                        })
+                        .then(function(response){
+                            return response.text();
+                        })
+                        .then(function(path){
+                            $('#content').summernote('insertImage', path);
+                        })
+                    },
+                    onMediaDelete: function(element){
+                        const formData = new FormData();
+                        formData.append('src', element.attr('src'));
+                        formData.append('_token', '{{ csrf_token() }}');
+                        fetch('../../summernote/delete',{
+                            method:'POST',
+                            body: formData,
+                        })
+                    }
+                }
+        });
     });
 </script>
 @endsection
