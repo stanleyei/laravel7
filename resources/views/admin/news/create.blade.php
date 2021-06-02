@@ -30,6 +30,32 @@
         $('#content').summernote({
             width: 1270,
             height: 300,
+            callbacks: {
+                onImageUpload: function(files) {
+                    const formData = new FormData();
+                    formData.append('img', files[0]);
+                    formData.append('_token', '{{ csrf_token() }}');
+                    fetch('{{route("summernoteStore")}}',{
+                        method:'POST',
+                        body: formData,
+                    })
+                    .then(function(response){
+                        return response.text();
+                    })
+                    .then(function(path){
+                        $('#content').summernote('insertImage', path);
+                    })
+                },
+                onMediaDelete: function(element){
+                    const formData = new FormData();
+                    formData.append('src', element.attr('src'));
+                    formData.append('_token', '{{ csrf_token() }}');
+                    fetch('{{route("summernoteDelete")}}',{
+                        method:'POST',
+                        body: formData,
+                    })
+                }
+            }
         });
     });
 </script>

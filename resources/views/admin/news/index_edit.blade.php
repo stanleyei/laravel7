@@ -86,7 +86,7 @@
                         const formData = new FormData();
                         formData.append('img', files[0]);
                         formData.append('_token', '{{ csrf_token() }}');
-                        fetch('../summernote/store',{
+                        fetch('{{route("summernoteStore")}}',{
                             method:'POST',
                             body: formData,
                         })
@@ -101,7 +101,7 @@
                         const formData = new FormData();
                         formData.append('src', element.attr('src'));
                         formData.append('_token', '{{ csrf_token() }}');
-                        fetch('../summernote/delete',{
+                        fetch('{{route("summernoteDelete")}}',{
                             method:'POST',
                             body: formData,
                         })
