@@ -62,9 +62,27 @@ class AdminNewsController extends Controller
     {
         $item = News::find($id);
         $old_image = $item->img;
+
+        // $parser = xml_parser_create();
+        // xml_parse_into_struct($parser, $item->content, $values);
+        // foreach ($values as $key => $val) {
+        //     if ($val['tag'] == 'IMG') {
+        //         $first_src = $val['attributes']['SRC'];
+        //         array_push($data, $first_src);
+        //     }
+        // }
+
+        $pattern = '/src="(\S*)"/';
+        preg_match_all($pattern, $item->content, $match);
+
         if(file_exists(public_path().$old_image)){
             File::delete(public_path().$old_image);
         }
+        $arrayMatch = array_pop($match);
+        dd($arrayMatch);
+
+        File::delete(public_path($arrayMatch));
+        
         $item->delete();
         return  redirect('/admin/news/');
     }
