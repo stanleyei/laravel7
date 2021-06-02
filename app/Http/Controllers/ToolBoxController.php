@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class ToolBoxController extends Controller
 {
     public function summernoteStore(Request $request)
-    {
+    {  
         if($request->hasFile('img')) {
             $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('summernote', $file);
