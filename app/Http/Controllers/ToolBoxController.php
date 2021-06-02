@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ToolBoxController extends Controller
 {
@@ -16,5 +17,11 @@ class ToolBoxController extends Controller
             return $publicPath;
         }
         return 'fail';
+    }
+
+    public function summernoteDelete(Request $request)
+    {
+        File::delete(public_path().$request->src);
+        return 'success';
     }
 }

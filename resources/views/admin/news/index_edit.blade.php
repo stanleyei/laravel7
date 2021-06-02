@@ -97,6 +97,15 @@
                             $(`#content${text}`).summernote('insertImage', path);
                         })
                     },
+                    onMediaDelete: function(element){
+                        const formData = new FormData();
+                        formData.append('src', element.attr('src'));
+                        formData.append('_token', '{{ csrf_token() }}');
+                        fetch('../summernote/delete',{
+                            method:'POST',
+                            body: formData,
+                        })
+                    }
                 }
             });
         });

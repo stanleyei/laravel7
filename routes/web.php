@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('/products/edit/delete/{path}', 'AdminProductsController@delete_img');
     Route::resource('product_types', 'AdminProductTypesController');
     Route::post('/summernote/store', 'ToolBoxController@summernoteStore');
+    Route::post('/summernote/delete', 'ToolBoxController@summernoteDelete');
 });
 
 Route::prefix('news')->group(function () {
