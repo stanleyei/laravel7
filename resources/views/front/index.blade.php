@@ -457,6 +457,9 @@
         class="position-relative"></iframe>
     <div class="col-10 col-md-3 px-5 bg-light position-absolute py-4 shadow-sm p-3 mb-5 bg-white rounded border"
         id="form-box" style="overflow: scroll; height: 650px;">
+        @error('g-recaptcha-response')
+        <div class="alert alert-danger">請勾選『我不是機器人』</div>
+        @enderror
         <span class="h5">聯絡我們 Contact Us</span>
         <form action="/contact" method="POST" id="contactus">
             @csrf
@@ -491,9 +494,6 @@
                 {!! htmlFormSnippet([
                     "size" => "normal",
                 ]) !!}
-                @error('g-recaptcha-response')
-                    <div class="alert alert-danger">請勾選我不是機器人</div>
-                @enderror
             </div>
             <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral

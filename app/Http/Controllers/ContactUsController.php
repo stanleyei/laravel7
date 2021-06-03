@@ -17,7 +17,7 @@ class ContactUsController extends Controller
         
         if($validator->fails()) {
             $errors = $validator->errors();
-            return redirect('/')
+            return redirect('/#form-box')
                     ->withErrors($validator)
                     ->withInput();
         }
