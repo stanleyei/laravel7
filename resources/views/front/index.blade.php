@@ -491,6 +491,9 @@
                 {!! htmlFormSnippet([
                     "size" => "normal",
                 ]) !!}
+                @error('g-recaptcha-response')
+                    <div class="alert alert-danger">請勾選我不是機器人</div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral

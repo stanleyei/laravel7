@@ -11,17 +11,18 @@ class ContactUsController extends Controller
     //
     public function contact(Request $request)
     {
-        $validator = Validator::make(request()->all(), [
-            
+        $validator = Validator::make($request->all(), [
             'g-recaptcha-response' => 'recaptcha',
         ]);
         
         if($validator->fails()) {
-            
             $errors = $validator->errors();
+            return redirect('/')
+                    ->withErrors($validator)
+                    ->withInput();
         }
 
         PersonalData::create($request->all());
-        return  redirect('/');
+        return redirect('/');
     }
 }
