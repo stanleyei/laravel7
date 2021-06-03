@@ -22,13 +22,13 @@
             <img src="{{ asset('image/nekoteacher03.jpg') }}" class="d-block w-100" alt="...">
         </div>
     </div>
-    <a class="carousel-control-prev d-flex justify-content-start pl-3" href="#carouselExampleIndicators"
-        role="button" data-slide="prev">
+    <a class="carousel-control-prev d-flex justify-content-start pl-3" href="#carouselExampleIndicators" role="button"
+        data-slide="prev">
         <span aria-hidden="true"><i class="fal fa-chevron-left fa-3x text-primary"></i></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next d-flex justify-content-end pr-3" href="#carouselExampleIndicators"
-        role="button" data-slide="next">
+    <a class="carousel-control-next d-flex justify-content-end pr-3" href="#carouselExampleIndicators" role="button"
+        data-slide="next">
         <span aria-hidden="true"><i class="fal fa-chevron-right fa-3x text-primary"></i></span>
         <span class="sr-only">Next</span>
     </a>
@@ -102,8 +102,7 @@
             </div>
         </aside>
         <div class="d-flex justify-content-center pt-2">
-            <button type="button" class="btn btn-lg text-white px-4"
-                style="background-color:#6366F1 ;">Button</button>
+            <button type="button" class="btn btn-lg text-white px-4" style="background-color:#6366F1 ;">Button</button>
         </div>
     </article>
 </section>
@@ -316,8 +315,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center pt-2 pb-5">
-        <button type="button" class="btn btn-lg text-white px-4"
-            style="background-color:#6366F1 ;">Button</button>
+        <button type="button" class="btn btn-lg text-white px-4" style="background-color:#6366F1 ;">Button</button>
     </div>
 </section>
 <section class="py-5 d-lg-flex flex-wrap justify-content-center">
@@ -469,7 +467,8 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmaill">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="email">
+                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                    name="email">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
@@ -479,14 +478,20 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputTitle">主旨</label>
-                <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" name="title">
+                <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp"
+                    name="title">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword">內文</label>
-                <textarea class="form-control" name="content" id="exampleInputPassword" cols="30" rows="10" style="height: 128px;"></textarea>
+                <textarea class="form-control" name="content" id="exampleInputPassword" cols="30" rows="10"
+                    style="height: 128px;"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
+            {!! htmlFormSnippet([
+                "theme" => "custom",
+                "size" => "normal",
+            ]) !!}
+            <button type="submit" class="btn btn-primary mb-3 mt-2" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral
                 artisan.</div>
         </form>
@@ -495,13 +500,13 @@
 @endsection
 
 @section('js')
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-    <script>
-        submit.addEventListener('click', e =>{
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+<script>
+    submit.addEventListener('click', e =>{
             // swal("填寫成功","感謝您的填寫","success");
             if(confirm('確認要送出嗎?\n\n再麻煩幫我確認喔!！')){
                 document.forms["contactus"].submit();
             }
         })
-    </script>
+</script>
 @endsection
