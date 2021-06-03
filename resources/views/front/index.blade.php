@@ -487,11 +487,12 @@
                 <textarea class="form-control" name="content" id="exampleInputPassword" cols="30" rows="10"
                     style="height: 128px;"></textarea>
             </div>
-            {!! htmlFormSnippet([
-                "theme" => "custom",
-                "size" => "normal",
-            ]) !!}
-            <button type="submit" class="btn btn-primary mb-3 mt-2" style="width: 100%;" id="submit">Submit</button>
+            <div class="form-group">
+                {!! htmlFormSnippet([
+                    "size" => "normal",
+                ]) !!}
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" style="width: 100%;" id="submit">Submit</button>
             <div style="font-size: 12px;">Chicharrones blog helvetica normcore iceland tousled brook viral
                 artisan.</div>
         </form>
