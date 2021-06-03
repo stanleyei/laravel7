@@ -161,6 +161,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
+        //Google表單機器人驗證
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
 
         /*
@@ -227,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        //Google表單機器人驗證
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
     ],
 
