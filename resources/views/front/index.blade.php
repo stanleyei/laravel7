@@ -462,30 +462,30 @@
             @csrf
             <div class="form-group pt-2">
                 <label for="exampleInputName">姓名</label>
-                <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name">
+                <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name" value="{{old('name')}}">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmaill">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                    name="email">
+                    name="email" value="{{old('email')}}">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone">電話</label>
-                <input type="tel" class="form-control" id="exampleInputPhone" aria-describedby="emailHelp" name="phone">
+                <input type="tel" class="form-control" id="exampleInputPhone" aria-describedby="emailHelp" name="phone" value="{{old('phone')}}">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputTitle">主旨</label>
                 <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp"
-                    name="title">
+                    name="title" value="{{old('title')}}">
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword">內文</label>
                 <textarea class="form-control" name="content" id="exampleInputPassword" cols="30" rows="10"
-                    style="height: 128px;"></textarea>
+                    style="height: 128px;">{{old('content')}}</textarea>
             </div>
             <div class="form-group">
                 {!! htmlFormSnippet([
