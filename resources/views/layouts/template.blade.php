@@ -87,7 +87,7 @@
                     </li>
                     <li class="nav-item dropdown mx-md-3 d-flex justify-content-center">
                         <div class="nav-item mr-3">
-                            <a class="nav-link text-body ml-md-3" href="./Digipack-shoppingcart-1.html"><i
+                            <a class="nav-link text-body ml-md-3" href="/shoppingcart"><i
                                     class="fas fa-shopping-cart fa-2x"></i></a>
                         </div>
                         <a class="nav-link text-body" href="" id="navbarDropdownMenuLink" role="button"

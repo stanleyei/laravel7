@@ -42,6 +42,10 @@ Route::prefix('products')->group(function () {
     Route::get('/content/{id}', 'ProductsController@content');
 });
 
+Route::prefix('shoppingcart')->group(function () {
+    Route::get('/', 'ShoppingCartController@index');
+});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
