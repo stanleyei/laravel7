@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\PersonalData;
+use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactUsController extends Controller
@@ -19,15 +21,18 @@ class ContactUsController extends Controller
         $validator = Validator::make($request->all(), [
             'g-recaptcha-response' => 'recaptcha',
         ]);
-        
-        if($validator->fails()) {
+
+        if ($validator->fails()) {
             $errors = $validator->errors();
             return redirect('/#form-box')
-                    ->withErrors($validator)
-                    ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        PersonalData::create($request->all());
+        Mail::to('jp60303@gmail.com')
+            ->send(new OrderShipped());
+
+        // PersonalData::create($request->all());
         return redirect('/');
     }
 }
