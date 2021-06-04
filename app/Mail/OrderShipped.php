@@ -16,9 +16,10 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->subject = $data['title'];
+        $this->data = $data;
     }
 
     /**
@@ -29,6 +30,6 @@ class OrderShipped extends Mailable
     public function build()
     {
         return $this->view('emails.orders.shipped')
-                    ->subject("食神");
+                    ->with($this->data);
     }
 }

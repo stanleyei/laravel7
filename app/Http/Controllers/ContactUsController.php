@@ -29,8 +29,9 @@ class ContactUsController extends Controller
                 ->withInput();
         }
 
+        $data = $request->all();
         Mail::to('jp60303@gmail.com')
-            ->send(new OrderShipped());
+            ->send(new OrderShipped($data));
 
         // PersonalData::create($request->all());
         return redirect('/');
