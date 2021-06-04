@@ -12,16 +12,6 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <meta charset="UTF-8">
-    {{-- <style>
-        table {
-            background-color: rgb(17, 133, 211);
-        }
-
-        th,
-        td {
-            border: 1px white solid;
-        }
-    </style> --}}
 </head>
 
 <body>
