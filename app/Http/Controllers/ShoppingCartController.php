@@ -15,4 +15,15 @@ class ShoppingCartController extends Controller
     {
         return view('front.shoppingcart.shoppingcart-2');
     }
+
+    public function information()
+    {
+        return view('front.shoppingcart.shoppingcart-3');
+        
+    }
+
+    public function finish()
+    {
+        return view('front.shoppingcart.shoppingcart-4');
+    }
 }

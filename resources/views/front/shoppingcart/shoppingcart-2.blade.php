@@ -132,7 +132,7 @@
             ?
             location.href = "/shoppingcart"
             :
-            location.href = "";
+            location.href = "/shoppingcart/information";
     });
 </script>
 @endsection
