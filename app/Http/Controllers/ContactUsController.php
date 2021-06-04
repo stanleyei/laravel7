@@ -33,7 +33,7 @@ class ContactUsController extends Controller
         Mail::to('jp60303@gmail.com')
             ->send(new OrderShipped($data));
 
-        // PersonalData::create($request->all());
+        PersonalData::create($request->all());
         return redirect('/');
     }
 }
