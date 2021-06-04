@@ -153,7 +153,7 @@
         this.price = price;
         this.quantity = quantity;
         this.number = `#${number}`;
-        this.img = `url(./image/${img}.jpg)`;
+        this.img = `url(/image/${img}.jpg)`;
     };
 
     function produceGoods() {
