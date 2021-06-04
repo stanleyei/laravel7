@@ -135,7 +135,7 @@
 <script>
     submit_order.addEventListener('click', e => {
         e.preventDefault();
-        location.href = "/shoppingcart/information";
+        location.href = "/";
     });
 
     //宣告一個陣列並寫入資料
