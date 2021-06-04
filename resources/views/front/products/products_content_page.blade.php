@@ -41,7 +41,7 @@
       <h2 class="h1">{{$productsData->name}}</h2>
       <p class="my-5 h3">Price：$ {{$productsData->price}}</p>
       <p class="content">{!!$productsData->content!!}</p>
-      <button class="btn btn btn-outline-dark position-absolute font-weight-bold" style="right:0; top:0;">放入購物車</button>
+      <a class="btn btn btn-outline-dark position-absolute font-weight-bold" style="right:0; top:0;" href="/shoppingcart">放入購物車</a>
     </div>
   </div>
 </section>

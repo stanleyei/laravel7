@@ -44,6 +44,7 @@ Route::prefix('products')->group(function () {
 
 Route::prefix('shoppingcart')->group(function () {
     Route::get('/', 'ShoppingCartController@index');
+    Route::get('/method', 'ShoppingCartController@method');
 });
 
 

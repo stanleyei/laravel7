@@ -10,7 +10,7 @@ produceGoods();
 //綁定監聽事件給"下一步"按鈕，點擊時執行跳轉
 submit_order.addEventListener('click', e => {
     e.preventDefault();
-    location.href = "./Digipack-shoppingcart-2.html";
+    location.href = "/shoppingcart/method";
 });
 
 //綁定監聽事件至按鈕父層
