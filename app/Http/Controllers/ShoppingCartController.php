@@ -31,15 +31,20 @@ class ShoppingCartController extends Controller
 
     public function add(Request $request)
     {
+        //拿接收到的$request去與資料庫比對，如果有才存入購物車，沒有則回傳fail
         $prductsData = Products::find($request->id);
-        \Cart::add(array(
-            'id' => $prductsData->id,
-            'name' => $prductsData->name,
-            'price' => $prductsData->price,
-            'quantity' => 4,
-            'attributes' => array(),
-        ));
-        return 'success';
+        if($prductsData){
+            \Cart::add(array(
+                'id' => $prductsData->id,
+                'name' => $prductsData->name,
+                'price' => $prductsData->price,
+                'quantity' => 4,
+                'attributes' => array(),
+            ));
+            return 'success';
+        }else{
+            return 'fail';
+        }
     }
 
     public function content()
