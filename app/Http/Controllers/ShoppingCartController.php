@@ -31,10 +31,11 @@ class ShoppingCartController extends Controller
 
     public function add(Request $request)
     {
+        $prductsData = Products::find($request->id);
         \Cart::add(array(
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
+            'id' => $prductsData->id,
+            'name' => $prductsData->name,
+            'price' => $prductsData->price,
             'quantity' => 4,
             'attributes' => array(),
         ));

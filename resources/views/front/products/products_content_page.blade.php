@@ -33,6 +33,10 @@
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.603);
   }
 
+  .number-btn:hover{
+    background-color: rgb(182, 171, 171);
+  }
+
   .number-btn:active{
     box-shadow: none;
   }
@@ -56,19 +60,17 @@
       <p class="my-5 h3">Price：$ {{$productsData->price}}</p>
       <p class="content">{!!$productsData->content!!}</p>
       <button class="btn btn btn-outline-dark position-absolute font-weight-bold add-btn" style="right:0; top:0;"
-        data-id="{{$productsData->id}}" data-name="{{$productsData->name}}"
-        data-price="{{$productsData->price}}">放入購物車</button>
+        data-id="{{$productsData->id}}">放入購物車</button>
       <div class="position-absolute d-flex" style="right: 0;top:33%;">
         <div>數量</div>
         <button data-action="minus" class="number-btn border-0 rounded mx-2" style="width: 24px; height: 24px;">-</button>
-        <input class="text-center mr-2" type="number" value="0" style="width: 36px; height: 24px; font-size: 14px;">
+        <input class="text-center mr-2" type="number" value="1" style="width: 36px; height: 24px; font-size: 14px;">
         <button data-action="plus" class="number-btn border-0 rounded" style="width: 24px; height: 24px;">+</button>
       </div>
     </div>
   </div>
 </section>
 <hr>
-
 @endsection
 
 @section('js')
@@ -80,8 +82,6 @@
       const price = this.dataset.price;
       const formData = new FormData;
       formData.append('id', id);
-      formData.append('name', name);
-      formData.append('price', price);
       formData.append('_token', '{{ csrf_token() }}');
       fetch('{{route("shoppingcartAdd")}}',{
           method:'POST',
@@ -103,9 +103,7 @@
           else{
             Swal.fire({
               icon: 'error',
-              title: 'Oops...',
-              text: '請再試一次',
-              footer: '<a href="">Why do I have this issue?</a>'
+              text: '哇!!請再試一次!!',
             });
           };
       });
