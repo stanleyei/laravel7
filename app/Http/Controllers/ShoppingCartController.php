@@ -53,4 +53,8 @@ class ShoppingCartController extends Controller
         dd($cartCollection);
     }
 
+    public function delete($id)
+    {
+        \Cart::remove($id);
+    }
 }
