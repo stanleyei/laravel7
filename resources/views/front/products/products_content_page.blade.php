@@ -22,6 +22,20 @@
   .figure:hover {
     border: 2px black solid;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .number-btn{
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.603);
+  }
+
+  .number-btn:active{
+    box-shadow: none;
+  }
 </style>
 @endsection
 
@@ -42,7 +56,14 @@
       <p class="my-5 h3">Price：$ {{$productsData->price}}</p>
       <p class="content">{!!$productsData->content!!}</p>
       <button class="btn btn btn-outline-dark position-absolute font-weight-bold add-btn" style="right:0; top:0;"
-        data-id="{{$productsData->id}}" data-name="{{$productsData->name}}" data-price="{{$productsData->price}}">放入購物車</button>
+        data-id="{{$productsData->id}}" data-name="{{$productsData->name}}"
+        data-price="{{$productsData->price}}">放入購物車</button>
+      <div class="position-absolute d-flex" style="right: 0;top:33%;">
+        <div>數量</div>
+        <button data-action="minus" class="number-btn border-0 rounded mx-2" style="width: 24px; height: 24px;">-</button>
+        <input class="text-center mr-2" type="number" value="0" style="width: 36px; height: 24px; font-size: 14px;">
+        <button data-action="plus" class="number-btn border-0 rounded" style="width: 24px; height: 24px;">+</button>
+      </div>
     </div>
   </div>
 </section>
@@ -71,90 +92,24 @@
       })
       .then(function(result){
           if(result === 'success'){
-            Alert('已放入 ^^');
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: '已放入',
+              showConfirmButton: false,
+              timer: 800
+            });
           }
           else{
-            Alert('沒成功喔，請再試一次 ^^');
-          }
-      })
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: '請再試一次',
+              footer: '<a href="">Why do I have this issue?</a>'
+            });
+          };
+      });
     });
   });
-
-  function Alert(str) {    
-    var msgw,msgh,bordercolor;    
-    msgw=350;//提示視窗的寬度    
-    msgh=80;//提示視窗的高度    
-    titleheight=25 //提示視窗標題高度    
-    bordercolor="#336699";//提示視窗的邊框顏色    
-    titlecolor="#99CCFF";//提示視窗的標題顏色    
-    var sWidth,sHeight;    
-    //獲取當前視窗尺寸    
-    sWidth = document.body.offsetWidth;    
-    sHeight = document.body.offsetHeight;    
-    //背景div    
-    var bgObj=document.createElement("div");    
-    bgObj.setAttribute('id','alertbgDiv');    
-    bgObj.style.position="absolute";    
-    bgObj.style.top="0";    
-    bgObj.style.background="#E8E8E8";    
-    bgObj.style.filter="progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75";    
-    bgObj.style.opacity="0.6";    
-    bgObj.style.left="0";    
-    bgObj.style.width = sWidth + "px";    
-    bgObj.style.height = sHeight + "px";    
-    bgObj.style.zIndex = "10000";    
-    document.body.appendChild(bgObj);    
-    //建立提示視窗的div    
-    var msgObj = document.createElement("div")    
-    msgObj.setAttribute("id","alertmsgDiv");    
-    msgObj.setAttribute("align","center");
-    msgObj.setAttribute("class","alert-box");    
-    msgObj.style.background="white";    
-    msgObj.style.borderRadius="20px";   
-    msgObj.style.position = "absolute";    
-    msgObj.style.left = "50%";    
-    msgObj.style.font="12px/1.6em Verdana, Geneva, Arial, Helvetica, sans-serif";    
-    //視窗距離左側和頂端的距離     
-    msgObj.style.marginLeft = "-225px";    
-    //視窗被捲去的高+（螢幕可用工作區高/2）-150    
-    msgObj.style.top = document.body.scrollTop+(window.screen.availHeight/2)-150 +"px";    
-    msgObj.style.width = msgw + "px";    
-    msgObj.style.height = msgh + "px";    
-    msgObj.style.textAlign = "center";    
-    msgObj.style.lineHeight ="25px";    
-    msgObj.style.zIndex = "10001";    
-    document.body.appendChild(msgObj);    
-    //提示資訊標題    
-    var title=document.createElement("h4");    
-    title.setAttribute("id","alertmsgTitle");    
-    title.setAttribute("align","left");    
-    title.style.margin="0";      
-    title.style.paddingLeft="10px";      
-    title.style.background = bordercolor;    
-    title.style.filter="progid:DXImageTransform.Microsoft.Alpha(startX=20, startY=20, finishX=100, finishY=100,style=1,opacity=75,finishOpacity=100);";    
-    title.style.opacity="0.75";    
-    title.style.border="1px solid " + bordercolor;
-    title.style.borderTopLeftRadius="20px";
-    title.style.borderTopRightRadius="20px";      
-    title.style.height="18px";         
-    document.getElementById("alertmsgDiv").appendChild(title);    
-    //提示資訊    
-    var txt = document.createElement("p");    
-    txt.setAttribute("id","msgTxt");    
-    txt.style.margin="16px 0"; 
-    txt.style.fontSize="24px";   
-    txt.style.color=bordercolor;   
-    txt.style.fontWeight="bold";   
-    txt.innerHTML = str;    
-    document.getElementById("alertmsgDiv").appendChild(txt);    
-    //設定關閉時間    
-    window.setTimeout("closewin()",1200);     
-  }
-
-  function closewin() {    
-      document.body.removeChild(document.getElementById("alertbgDiv"));    
-      document.getElementById("alertmsgDiv").removeChild(document.getElementById("alertmsgTitle"));    
-      document.body.removeChild(document.getElementById("alertmsgDiv"));    
-  }  
 </script>
 @endsection

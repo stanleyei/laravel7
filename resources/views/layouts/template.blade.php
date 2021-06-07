@@ -10,6 +10,9 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.min.css"
+        integrity="sha512-/D4S05MnQx/q7V0+15CCVZIeJcV+Z+ejL1ZgkAcXE1KZxTE4cYDvu+Fz+cQO9GopKrDzMNNgGK+dbuqza54jgw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
     {!! htmlScriptTagJsApi() !!}
     <style>
@@ -151,9 +154,9 @@
         <div class="bg-light d-md-flex py-3 px-5 justify-content-between text-center align-items-center">
             <div><small>© 2020 Tailblocks — @knyttneve</small></div>
             <div class="d-flex align-items-center justify-content-center">
-                <img src="./image/svgexport-21.svg" alt="" class="px-1">
-                <img src="./image/svgexport-22.svg" alt="" class="px-1">
-                <img src="./image/svgexport-23.svg" alt="" class="px-1">
+                <img src="{{asset('image/svgexport-21.svg')}}" alt="" class="px-1">
+                <img src="{{asset('image/svgexport-22.svg')}}" alt="" class="px-1">
+                <img src="{{asset('image/svgexport-23.svg')}}" alt="" class="px-1">
                 <div class="pt-1">
                     <i class="fab fa-linkedin-in px-2 text-secondary" style="font-size: 24px;"></i></div>
             </div>
@@ -169,7 +172,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.all.min.js" integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('js')
 
 </body>
