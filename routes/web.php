@@ -47,6 +47,8 @@ Route::prefix('shoppingcart')->group(function () {
     Route::get('/method', 'ShoppingCartController@method');
     Route::get('/information', 'ShoppingCartController@information');
     Route::get('/finish', 'ShoppingCartController@finish');
+    Route::post('/add', 'ShoppingCartController@add')->name('shoppingcartAdd');
+    Route::get('/content', 'ShoppingCartController@content')->name('shoppingcartContent');
 });
 
 

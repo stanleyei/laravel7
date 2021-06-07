@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Products;
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
@@ -26,4 +28,23 @@ class ShoppingCartController extends Controller
     {
         return view('front.shoppingcart.shoppingcart-4');
     }
+
+    public function add(Request $request)
+    {
+        \Cart::add(array(
+            'id' => $request->id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => 4,
+            'attributes' => array(),
+        ));
+        return 'success';
+    }
+
+    public function content()
+    {
+        $cartCollection = \Cart::getContent ();
+        dd($cartCollection);
+    }
+
 }

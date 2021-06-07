@@ -164,6 +164,8 @@ return [
 
         //Google表單機器人驗證
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+        //購物車
+        Darryldecode\Cart\CartServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -177,6 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
 
     ],
 
@@ -232,6 +235,8 @@ return [
 
         //Google表單機器人驗證
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+        //購物車
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ],
 
 ];
