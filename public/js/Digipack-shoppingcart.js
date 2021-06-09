@@ -1,7 +1,4 @@
 const inputs = document.querySelectorAll('input');
-let subPrice = 0;
-let fare = 60;
-let totalPrice = 0;
 checkout()
 
 submit_order.addEventListener('click', e => {
@@ -43,8 +40,11 @@ inputs.forEach(input => {
 
 function checkout() {
     let totalQty = 0;
+    let subPrice = 0;
+    let fare = 60;
+    let totalPrice = 0;
     inputs.forEach(input => {
-        const price = Number(input.parentElement.nextElementSibling.dataset.price);
+        const price = Number(input.parentElement.nextElementSibling.textContent);
         totalQty += Number(input.value);
         subPrice += price;
         totalPrice = subPrice + fare;
