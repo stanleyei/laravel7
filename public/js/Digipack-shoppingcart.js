@@ -17,7 +17,7 @@ display_rack.addEventListener("click", function (e) {
             priceElement.textContent = productPrice.toLocaleString();
         }
         else if (input === e.target.nextElementSibling) {
-            if (input.value > 0) {
+            if (input.value > 1) {
                 input.value--;
                 productPrice = priceElement.dataset.price * input.value;
                 priceElement.textContent = productPrice.toLocaleString();
