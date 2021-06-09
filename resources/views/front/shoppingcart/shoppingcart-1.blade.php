@@ -77,7 +77,33 @@
             <form>
                 <div>
                     <h2 class="h4 pt-2 pb-5">訂單明細</h2>
-                    <div id="display_rack"></div>
+                    <div id="display_rack">
+                        @foreach ($cartCollection as $cart)
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="rounded-circle"
+                                    style="background-image:url({{asset($cart->attributes->img)}});background-size: cover; width: 60px; height: 60px;">
+                                </div>
+                                <div class="pl-2">
+                                    <h3 class="m-0 text-nowrap" style="font-size: 16px;">{{$cart->name}}</h3>
+                                    <span class="text-black-50" style="font-size: 12px;">#{{$cart->id}}</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <div class="pr-sm-4" data-name="{{$cart->name}}">
+                                    <button data-action="minus" class="border-0 rounded"
+                                        style="width: 24px; height: 24px;">-</button>
+                                    <input class="text-center" type="number" value="{{$cart->quantity}}"
+                                        style="width: 32px; height: 24px; font-size: 14px;">
+                                    <button data-action="plus" class="border-0 rounded"
+                                        style="width: 24px; height: 24px;">+</button>
+                                </div>
+                                <div class="text-center single-price" style="font-size: 12px; width: 70px" data-price="{{$cart->price}}">{{$cart->price}}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        @endforeach
+                    </div>
                 </div>
                 <div>
                     <div class="d-flex flex-column align-items-end">

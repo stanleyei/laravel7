@@ -10,7 +10,8 @@ class ShoppingCartController extends Controller
 {
     public function index()
     {
-        return view('front.shoppingcart.shoppingcart-1');
+        $cartCollection = \Cart::getContent ();
+        return view('front.shoppingcart.shoppingcart-1', compact('cartCollection'));
     }
 
     public function method()
@@ -38,8 +39,10 @@ class ShoppingCartController extends Controller
                 'id' => $prductsData->id,
                 'name' => $prductsData->name,
                 'price' => $prductsData->price,
-                'quantity' => 4,
-                'attributes' => array(),
+                'quantity' => 1,
+                'attributes' => array(
+                    'img'=> $prductsData->img,
+                ),
             ));
             return 'success';
         }else{
