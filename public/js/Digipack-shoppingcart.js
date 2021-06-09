@@ -57,37 +57,3 @@ function checkout() {
     shipping_cost.textContent = `$${fare}`;
     price_total.textContent = `$${totalPrice.toLocaleString()}`;
 }
-
-document.querySelectorAll('.delete-btns').forEach(delBtns => {
-    delBtns.addEventListener('click', function () {
-        const delId = this.dataset.delete;
-        const formData = new FormData;
-        formData.append('id', delId);
-        formData.append('_token', '{{ csrf_token() }}');
-        fetch('{{route("shoppingcartDelete")}}', {
-            method: 'POST',
-            body: formData,
-        })
-            .then(function (response) {
-                return response.text();
-            })
-            .then(function (result) {
-                if (result === 'success') {
-                    
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: '已移出購物車',
-                        showConfirmButton: false,
-                        timer: 800
-                    });
-                }
-                else {
-                    Swal.fire({
-                        icon: 'error',
-                        text: '哇!!請再試一次!!',
-                    });
-                };
-            });
-    });
-});

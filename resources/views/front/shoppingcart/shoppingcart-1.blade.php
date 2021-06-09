@@ -81,7 +81,8 @@
                         @foreach ($cartCollection as $cart)
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-between align-items-center">
-                                <button class="delete-btns btn-danger rounded-circle mr-4" style="font-size: 14px;" data-delete="{{$cart->id}}">X</button>
+                                <button class="delete-btns btn-danger rounded-circle mr-4" style="font-size: 14px;"
+                                    data-delete="{{$cart->id}}">X</button>
                                 <div class="rounded-circle"
                                     style="background-image:url({{asset($cart->attributes->img)}});background-size: cover; width: 60px; height: 60px;">
                                 </div>
@@ -99,7 +100,8 @@
                                     <button data-action="plus" class="border-0 rounded"
                                         style="width: 24px; height: 24px;">+</button>
                                 </div>
-                                <div class="text-center single-price" style="font-size: 12px; width: 70px" data-price="{{$cart->price}}">{{$cart->price}}</div>
+                                <div class="text-center single-price" style="font-size: 12px; width: 70px"
+                                    data-price="{{$cart->price}}">{{$cart->price}}</div>
                             </div>
                         </div>
                         <hr>
@@ -141,5 +143,53 @@
 @endsection
 
 @section('js')
-    <script src="./js/Digipack-shoppingcart.js"></script>
+<script src="./js/Digipack-shoppingcart.js"></script>
+<script>
+document.querySelectorAll('.delete-btns').forEach(delBtns => {
+    delBtns.addEventListener('click', function () {
+        Swal.fire({
+            title: '確定要移出購物車嗎?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                const delId = this.dataset.delete;
+                const formData = new FormData;
+                formData.append('id', delId);
+                formData.append('_token', '{{ csrf_token() }}');
+                fetch('{{route("shoppingcartDelete")}}', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => {
+                    return response.text();
+                })
+                .then(result => {
+                    if (result === 'success') {
+                        this.parentElement.parentElement.nextElementSibling.remove();
+                        this.parentElement.parentElement.remove();
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: '已移出購物車',
+                            showConfirmButton: false,
+                            timer: 800
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            text: '哇!!請再試一次!!',
+                        });
+                    };
+                });
+            };
+        });
+    });
+});
+</script>
 @endsection
