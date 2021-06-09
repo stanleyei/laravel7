@@ -66,7 +66,7 @@
 <body>
     <header class="pt-md-2 mb-1 bd-mb-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-white" id="nav">
-            <a class="navbar-brand" href="/"><img src="{{ asset('image/logo.svg') }}" alt="" id="nav-logo"></a>
+            <a class="navbar-brand" href="/" title="前往首頁"><img src="{{ asset('image/logo.svg') }}" alt="前往首頁" id="nav-logo"></a>
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -77,10 +77,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link mr-2 text-center" href="/news">News<span class="sr-only">(current)</span></a>
+                        <a class="nav-link mr-2 text-center" href="/news" title="前往最新消息">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-body ml-md-4 text-center" href="/products">Products</a>
+                        <a class="nav-link text-body ml-md-4 text-center" href="/products" title="前往商品介紹">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-body mx-md-4 text-center" href="#">About</a>
@@ -91,7 +91,7 @@
                     <li class="nav-item dropdown mx-md-3 d-flex justify-content-center">
                         <div class="nav-item mr-3">
                             <a class="nav-link text-body ml-md-3" href="/shoppingcart"><i
-                                    class="fas fa-shopping-cart fa-2x"></i></a>
+                                    class="fas fa-shopping-cart fa-2x" title="前往購物車"></i></a>
                         </div>
                         <a class="nav-link text-body" href="" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
