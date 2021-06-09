@@ -1,6 +1,9 @@
 const inputs = document.querySelectorAll('input');
-let priceArray;
-let fare = 24.9;
+let totalQty = 0;
+let subPrice = 0;
+let fare = 60;
+let totalPrice = 0;
+checkout()
 
 submit_order.addEventListener('click', e => {
     e.preventDefault();
@@ -12,9 +15,12 @@ display_rack.addEventListener("click", function (e) {
     const priceElement = e.target.parentElement.nextElementSibling;
     inputs.forEach(input => {
         if (input === e.target.previousElementSibling) {
-            input.value++;
+            input.value = input.value * 1 + 1;
             productPrice = priceElement.dataset.price * input.value;
             priceElement.textContent = productPrice.toLocaleString();
+            console.log(input);
+            // checkout()
+            
         }
         else if (input === e.target.nextElementSibling) {
             if (input.value > 1) {
@@ -33,28 +39,24 @@ inputs.forEach(input => {
         };
         const priceElement = this.parentElement.nextElementSibling;
         priceElement.textContent = this.value * priceElement.dataset.price;
+        checkout()
     });
 });
 
 
 
-shipping_cost.textContent = `$${fare.toFixed(2)}`;
-
-
-// let amount = inputs.reduce((a, cV) => a + cV.value, 0);
-
-function produceGoods() {
-    let fare = 24.9;
-    let result = goodsArray.reduce((a, cV) => a + (cV.price * cV.quantity), 0);
-    let amount = goodsArray.reduce((a, cV) => a + cV.quantity, 0);
-
-    用數量來判斷是否免收運費
-    if (amount === 0 || amount >= 10) {
+function checkout(){
+    inputs.forEach(input => {
+        const price = Number(input.parentElement.nextElementSibling.dataset.price);
+        totalQty += Number(input.value);
+        subPrice += price;
+        totalPrice = subPrice + fare;
+    });
+    if (totalQty === 0 || totalQty >= 10) {
         fare = 0;
     }
-
-    show_amount.textContent = amount;
-    show_price.textContent = `$${result.toFixed(2)}`;
-    shipping_cost.textContent = `$${fare.toFixed(2)}`;
-    price_total.textContent = `$${(result + fare).toFixed(2)}`;
-};
+    show_amount.textContent = totalQty.toLocaleString();
+    show_price.textContent = `$${subPrice.toLocaleString()}`;
+    shipping_cost.textContent = `$${fare}`;
+    price_total.textContent = `$${totalPrice.toLocaleString()}`;
+}
