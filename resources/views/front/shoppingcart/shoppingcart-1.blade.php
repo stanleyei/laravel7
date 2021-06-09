@@ -81,6 +81,7 @@
                         @foreach ($cartCollection as $cart)
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-between align-items-center">
+                                <button class="delete-btns btn-danger rounded-circle mr-4" style="font-size: 14px;" data-delete="{{$cart->id}}">X</button>
                                 <div class="rounded-circle"
                                     style="background-image:url({{asset($cart->attributes->img)}});background-size: cover; width: 60px; height: 60px;">
                                 </div>

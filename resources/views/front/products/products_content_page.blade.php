@@ -29,15 +29,15 @@
     margin: 0;
   }
 
-  .number-btn{
+  .number-btn {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.603);
   }
 
-  .number-btn:hover{
+  .number-btn:hover {
     background-color: rgb(182, 171, 171);
   }
 
-  .number-btn:active{
+  .number-btn:active {
     box-shadow: none;
   }
 </style>
@@ -63,8 +63,10 @@
         data-id="{{$productsData->id}}">放入購物車</button>
       <div class="position-absolute d-flex" style="right: 20px;top: 27%;">
         <div>數量</div>
-        <button data-action="minus" class="number-btn border-0 rounded mx-2" style="width: 24px; height: 24px;">-</button>
-        <input class="number-input text-center mr-2" type="number" value="1" style="width: 36px; height: 24px; font-size: 14px;">
+        <button data-action="minus" class="number-btn border-0 rounded mx-2"
+          style="width: 24px; height: 24px;">-</button>
+        <input class="number-input text-center mr-2" type="number" value="1"
+          style="width: 36px; height: 24px; font-size: 14px;">
         <button data-action="plus" class="number-btn border-0 rounded" style="width: 24px; height: 24px;">+</button>
       </div>
     </div>

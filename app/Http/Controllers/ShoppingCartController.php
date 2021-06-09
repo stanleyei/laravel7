@@ -56,8 +56,14 @@ class ShoppingCartController extends Controller
         dd($cartCollection);
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        \Cart::remove($id);
+        if($request->id){
+            \Cart::remove($request->id);
+            return 'success';
+        }
+        else{
+            return 'fail';
+        }
     }
 }
