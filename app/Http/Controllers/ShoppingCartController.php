@@ -39,10 +39,11 @@ class ShoppingCartController extends Controller
 
     public function finish(Request $request)
     {
+        $information = $request;
         $cartCollection = \Cart::getContent()->sortBy('id');
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
-        return view('front.shoppingcart.shoppingcart-4', compact('cartCollection', 'cartTotalQuantity','subTotal'));
+        return view('front.shoppingcart.shoppingcart-4', compact('information', 'cartCollection', 'cartTotalQuantity','subTotal'));
     }
 
     public function add(Request $request)

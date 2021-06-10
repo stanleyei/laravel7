@@ -101,8 +101,9 @@
                                 <button data-action="plus" class="border-0 rounded"
                                     style="width: 24px; height: 24px;" title="增加數量">+</button>
                             </div>
-                            <div class="text-center single-price" style="font-size: 12px; width: 70px"
+                            <div class="text-center single-price" style="font-size: 14px; width: 70px"
                                 data-price="{{$cart->price}}">{{($cart->price) * ($cart->quantity)}}</div>
+                            <div>元</div>
                         </div>
                     </div>
                     <hr>

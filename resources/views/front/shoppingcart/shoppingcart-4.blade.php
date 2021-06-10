@@ -101,19 +101,19 @@
                 <div class="send-ifo pt-5">
                     <div class="d-flex pb-4">
                         <div class="mr-4">姓名</div>
-                        <div>蒙其 ‧ D ‧ 魯夫</div>
+                        <div>{{$information->name}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4">電話</div>
-                        <div>0988556117</div>
+                        <div>{{$information->phone}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4">Email</div>
-                        <div>onepiece@gmail.com</div>
+                        <div>{{$information->email}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4">地址</div>
-                        <div>東海藍佛夏村</div>
+                        <div>{{$information->address}}</div>
                     </div>
                 </div>
                 <hr>

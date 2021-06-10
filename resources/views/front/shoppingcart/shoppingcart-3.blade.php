@@ -74,29 +74,29 @@
                 <div>
                     <div class="form-group">
                         <label for="inputEmail4">姓名</label>
-                        <input type="text" class="form-control shadow-none" placeholder="請輸入您的大名" value="" required>
+                        <input type="text" class="form-control shadow-none" placeholder="請輸入您的大名" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">電話</label>
-                        <input type="tel" class="form-control shadow-none" placeholder="請輸入您的聯絡電話" value="" required>
+                        <input type="tel" class="form-control shadow-none" placeholder="請輸入您的聯絡電話" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Email</label>
                         <input type="email" class="form-control shadow-none"
-                            placeholder="請輸入您的E-mail" value="" required>
+                            placeholder="請輸入您的E-mail"name="email" required>
                     </div>
                     <div class="form-row d-flex pb-4">
                         <div class="form-group col-md-6">
                             <label for="inputCity">地址</label>
-                            <input type="text" class="form-control shadow-none" placeholder="城市" value="" required>
+                            <input type="text" class="form-control shadow-none" placeholder="城市" name="city" required>
                         </div>
                         <div class="form-group col-md-6 mt-2">
                             <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" placeholder="郵遞區號" value="" required>
+                            <input type="text" class="form-control shadow-none" placeholder="郵遞區號" name="code" required>
                         </div>
                         <div class="form-row col m-0">
                             <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址" value="" required>
+                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址" name="address" required>
                         </div>
                     </div>
                     <hr>
