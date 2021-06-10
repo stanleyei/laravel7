@@ -24,4 +24,9 @@ class ToolBoxController extends Controller
         File::delete(public_path().$request->src);
         return 'success';
     }
+
+    public function swal($icon, $title, $text)
+    {
+        return ['icon'=>$icon , 'title'=>$title, 'text'=>$text];
+    }
 }

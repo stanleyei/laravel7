@@ -121,10 +121,8 @@
                 </div>
                 <hr>
                 <div class="d-flex justify-content-end align-items-center pt-1">
-                    <a href="./Digipack-index.html">
-                        <button id="submit_order" class="btn btn-primary py-2 px-5" type="button"
-                            style="border-width: 2px;">返回首頁</button>
-                    </a>
+                    <button id="submit_order" class="btn btn-primary py-2 px-5" type="button"
+                        style="border-width: 2px;">返回首頁</button>
                 </div>
         </section>
     </div>

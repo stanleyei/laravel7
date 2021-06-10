@@ -109,14 +109,10 @@
                 </div>
                 <hr>
                 <div id="btn_box" class="d-flex justify-content-between align-items-center pt-1">
-                    <a href="./Digipack-shoppingcart-1.html">
-                        <button class="btn btn btn-outline-primary py-2 px-5" type="button" style="border-width: 2px;"
-                            data-action="prev">上一步</button>
-                    </a>
-                    <a href="./Digipack-shoppingcart-3.html">
-                        <button class="btn btn-primary py-2 px-5" type="submit" style="border-width: 2px;"
-                            data-action="next">下一步</button>
-                    </a>
+                    <button class="btn btn btn-outline-primary py-2 px-5" type="button" style="border-width: 2px;"
+                        data-action="prev">上一步</button>
+                    <button class="btn btn-primary py-2 px-5" type="submit" style="border-width: 2px;"
+                        data-action="next">下一步</button>
                 </div>
             </form>
         </section>
