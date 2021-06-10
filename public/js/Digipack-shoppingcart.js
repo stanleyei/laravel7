@@ -111,15 +111,18 @@ function checkout() {
         const price = Number(input.parentElement.nextElementSibling.textContent);
         totalQty += Number(input.value);
         subPrice += price;
-        totalPrice = subPrice + fare;
+        totalQty === 0 || totalQty >= 10
+        if (totalQty === 0 || totalQty >= 10) {
+            fare = 0;
+            totalPrice = subPrice + fare;
+        }else{
+            totalPrice = subPrice + fare;
+        }
     });
-    if (totalQty === 0 || totalQty >= 10) {
-        fare = 0;
-    };
-    show_amount.textContent = totalQty.toLocaleString();
-    show_price.textContent = `$${subPrice.toLocaleString()}`;
-    shipping_cost.textContent = `$${fare}`;
-    price_total.textContent = `$${totalPrice.toLocaleString()}`;
+    show_amount.textContent = `${totalQty.toLocaleString()} 件`;
+    show_price.textContent = `$ ${subPrice.toLocaleString()} 元`;
+    shipping_cost.textContent = `$ ${fare} 元`;
+    price_total.textContent = `$ ${totalPrice.toLocaleString()} 元`;
 }
 
 //每次點擊增加減少發送Fetch的函式

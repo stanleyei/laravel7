@@ -63,56 +63,63 @@
         </section>
         <hr>
         <section>
-            <form>
+            <form action="/shoppingcart/information" method="POST">
+                @csrf
                 <div>
-                    <label for="">
+                    <div>
+                        @php
+                            $payment = Session::get('payment');
+                        @endphp
                         <h2 class="h4 pb-3">付款方式</h2>
-                        <div class="pl-5" style="font-size: 20px;"><input type="radio" name="pay-way" id=""> 信用卡付款
-                        </div>
+                        <label class="pl-5" style="font-size: 20px;"><input type="radio" name="payment" id="" value="cridit" @if ($payment == 'cridit') checked @endif required> 信用卡付款
+                        </label>
                         <hr>
-                        <div class="pl-5" style="font-size: 20px;"><input type="radio" name="pay-way" id=""> 網路 ATM
-                        </div>
+                        <label class="pl-5" style="font-size: 20px;"><input type="radio" name="payment" id="" value="atm"  @if ($payment == 'atm') checked @endif required> 網路 ATM
+                        </label>
                         <hr>
-                        <div class="pl-5" style="font-size: 20px;"><input type="radio" name="pay-way" id=""> 超商代碼
-                        </div>
-                    </label>
+                        <label class="pl-5" style="font-size: 20px;"><input type="radio" name="payment" id="" value="cvs"   @if ($payment == 'cvs') checked @endif required> 超商代碼
+                        </label>
+                    </div>
                     <hr>
-                    <label for="">
+                    <div>
+                        @php
+                            $shipment = Session::get('shipment');
+                        @endphp
                         <h2 class="h4 pb-3">運送方式</h2>
-                        <div class="pl-5" style="font-size: 20px;"><input type="radio" name="transport-way" id="">
-                            黑貓宅配</div>
+                        <label class="pl-5" style="font-size: 20px;"><input type="radio" name="shipment" id="" value="home" @if ($shipment == 'home') checked @endif required>
+                            黑貓宅配</label>
                         <hr>
-                        <div class="pl-5" style="font-size: 20px;"><input type="radio" name="transport-way" id="">
-                            超商店到店</div>
-                    </label>
+                        <label class="pl-5" style="font-size: 20px;"><input type="radio" name="shipment" id="" value="store" @if ($shipment == 'store') checked @endif required>
+                            超商店到店</label>
+                    <div>
                     <hr>
                 </div>
                 <div>
                     <div class="d-flex flex-column align-items-end">
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
-                            <div>3</div>
+                            <div>{{$cartTotalQuantity}} 件</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">小計:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$subTotal}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$subTotal}} 元</div>
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div id="btn_box" class="d-flex justify-content-between align-items-center pt-1">
                     <button class="btn btn btn-outline-primary py-2 px-5" type="button" style="border-width: 2px;"
-                        data-action="prev">上一步</button>
+                        data-action="prev" title="回到上一步">上一步</button>
                     <button class="btn btn-primary py-2 px-5" type="submit" style="border-width: 2px;"
-                        data-action="next">下一步</button>
+                        data-action="next" title="前往下一步">下一步</button>
                 </div>
             </form>
         </section>
@@ -123,12 +130,9 @@
 @section('js')
 <script>
     btn_box.addEventListener('click', e => {
-        e.preventDefault();
-        e.target.dataset.action === "prev"
-            ?
+        if(e.target.dataset.action === "prev"){
             location.href = "/shoppingcart"
-            :
-            location.href = "/shoppingcart/information";
+        };
     });
 </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Products;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ToolBoxController;
 
 class ShoppingCartController extends Controller
@@ -17,17 +18,20 @@ class ShoppingCartController extends Controller
 
     public function method()
     {
-        if(\Cart::isEmpty()){
+        if (\Cart::isEmpty()) {
             return redirect('/products')
-            // ->with(ToolBoxController::swal('warning','結帳失敗','請選擇商品後結帳!!'));
-            ->with(['icon'=>'warning' , 'title'=>'結帳失敗', 'text'=>'請選擇商品後結帳!!']);
-        }else{
-            return view('front.shoppingcart.shoppingcart-2');
+                ->with(['icon' => 'warning', 'title' => '結帳失敗', 'text' => '請選擇商品後結帳!!']);
+        } else {
+            $cartTotalQuantity = \Cart::getTotalQuantity();
+            $subTotal = \Cart::getSubTotal();
+            return view('front.shoppingcart.shoppingcart-2', compact('cartTotalQuantity','subTotal'));
         }
     }
 
-    public function information()
+    public function information(Request $request)
     {
+        Session::put('payment', $request->payment);
+        Session::put('shipment', $request->shipment);
         return view('front.shoppingcart.shoppingcart-3');
     }
 

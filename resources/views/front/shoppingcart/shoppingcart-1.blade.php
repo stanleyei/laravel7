@@ -82,8 +82,8 @@
                     @foreach ($cartCollection as $cart)
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-between align-items-center">
-                            <button class="delete-btns btn-danger rounded-circle mr-4" style="font-size: 14px;"
-                                data-delete="{{$cart->id}}">X</button>
+                            <button class="delete-btns btn-danger rounded-circle mr-4" style="font-size: 12px;"
+                                data-delete="{{$cart->id}}" title="刪除編號{{$cart->id}}號商品">X</button>
                             <div class="rounded-circle"
                                 style="background-image:url({{asset($cart->attributes->img)}});background-size: cover; width: 60px; height: 60px;">
                             </div>
@@ -95,11 +95,11 @@
                         <div class="d-flex align-items-center justify-content-center flex-wrap">
                             <div class="pr-sm-4" data-name="{{$cart->name}}">
                                 <button data-action="minus" class="border-0 rounded"
-                                    style="width: 24px; height: 24px;">-</button>
+                                    style="width: 24px; height: 24px;" title="減少數量">-</button>
                                 <input class="text-center" type="number" value="{{$cart->quantity}}"
                                     style="width: 32px; height: 24px; font-size: 14px;" data-id="{{$cart->id}}">
                                 <button data-action="plus" class="border-0 rounded"
-                                    style="width: 24px; height: 24px;">+</button>
+                                    style="width: 24px; height: 24px;" title="增加數量">+</button>
                             </div>
                             <div class="text-center single-price" style="font-size: 12px; width: 70px"
                                 data-price="{{$cart->price}}">{{($cart->price) * ($cart->quantity)}}</div>
@@ -131,13 +131,12 @@
             </div>
             <hr>
             <div class="d-flex justify-content-between align-items-center pt-1">
-                <a href="/products">
-                    <button class="btn btn-outline-primary py-2 px-4 far fa-arrow-left" type="button" style="border-width: 2px; height:44px">返回購物</button>
+                <a href="/products" title="返回購物">
+                    <button class="btn btn-outline-primary py-2 px-4 far fa-arrow-left" type="button"
+                        style="border-width: 2px; height:44px">返回購物</button>
                 </a>
-                <a href="./Digipack-shoppingcart-2.html">
-                    <button id="submit_order" class="btn btn-primary py-2 px-5" type="submit"
-                        style="border-width: 2px;">下一步</button>
-                </a>
+                <button id="submit_order" class="btn btn-primary py-2 px-5" type="submit"
+                    style="border-width: 2px;" title="下一步">下一步</button>
             </div>
         </section>
     </div>
