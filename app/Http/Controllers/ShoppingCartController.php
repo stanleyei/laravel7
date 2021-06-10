@@ -10,7 +10,7 @@ class ShoppingCartController extends Controller
 {
     public function index()
     {
-        $cartCollection = \Cart::getContent();
+        $cartCollection = \Cart::getContent()->sortBy('id');
         return view('front.shoppingcart.shoppingcart-1', compact('cartCollection'));
     }
 
