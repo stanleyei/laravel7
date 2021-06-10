@@ -55,7 +55,7 @@ class ShoppingCartController extends Controller
             \Cart::update($request->id, array(
                 'quantity' => array(
                     'relative' => false,
-                    'value' => $request->quantity
+                    'value' => $request->quantity,
                 ),
             ));
         }
