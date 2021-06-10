@@ -26,9 +26,24 @@ inputs.forEach(input => {
         if (input.value < 1) {
             input.value = 1;
         };
-        const priceElement = this.parentElement.nextElementSibling;
-        priceElement.textContent = (this.value * priceElement.dataset.price).toLocaleString();
-        checkout();
+        const productId = input.dataset.id;
+        const formData = new FormData;  
+        formData.append('id', productId);
+        formData.append('quantity', input.value);
+        formData.append('_token', token);
+        fetch('/shoppingcart/update', {
+                method: 'POST',
+                body: formData,
+        })
+        .then(response => {
+            return response.text();
+        })
+        .then(result => {
+            input.value = result;
+            const priceElement = this.parentElement.nextElementSibling;
+            priceElement.textContent = (this.value * priceElement.dataset.price).toLocaleString();
+            checkout();
+        });
     });
 });
 
