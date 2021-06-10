@@ -155,11 +155,13 @@ display_rack.addEventListener("click", function (e) {
     const priceElement = e.target.parentElement.nextElementSibling;
     inputs.forEach(input => {
         if (input === e.target.previousElementSibling) {
-            update(1, input, priceElement);
+            input.value++;
+            update(input, priceElement);
         }
         else if (input === e.target.nextElementSibling) {
             if (input.value > 1) {
-                update(-1, input, priceElement);
+                input.value--;
+                update(input, priceElement);
             };
         };
     });
@@ -253,8 +255,7 @@ function checkout() {
 }
 
 //每次點擊增加減少發送Fetch的函式
-function update(number, input, priceElement) {
-    input.value = number;
+function update(input, priceElement) {
     const productId = input.dataset.id;
     const formData = new FormData;  
     formData.append('id', productId);
@@ -274,6 +275,5 @@ function update(number, input, priceElement) {
         checkout();
     });
 }
-
 </script>
 @endsection
