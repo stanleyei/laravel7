@@ -179,7 +179,6 @@
         integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('js')
-
 </body>
 
 </html>

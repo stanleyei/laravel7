@@ -1,5 +1,5 @@
-const inputs = document.querySelectorAll('input');
 const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
+const inputs = document.querySelectorAll('input');
 checkout();
 
 //增加減少商品數量的點擊事件
@@ -49,7 +49,7 @@ document.querySelectorAll('.delete-btns').forEach(delBtns => {
                 const formData = new FormData;
                 formData.append('id', delId);
                 formData.append('_token', token);
-                fetch('{{route("shoppingcartDelete")}}', {
+                fetch('/shoppingcart/delete', {
                     method: 'POST',
                     body: formData,
                 })
@@ -114,7 +114,7 @@ function update(input, priceElement) {
     formData.append('id', productId);
     formData.append('quantity', input.value);
     formData.append('_token', token);
-    fetch('{{route("shoppingcartUpdate")}}', {
+    fetch('/shoppingcart/update', {
             method: 'POST',
             body: formData,
     })
