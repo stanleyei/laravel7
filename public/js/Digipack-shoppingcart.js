@@ -8,12 +8,12 @@ display_rack.addEventListener("click", function (e) {
     const priceElement = e.target.parentElement.nextElementSibling;
     inputs.forEach(input => {
         if (input === e.target.previousElementSibling) {
-            input.value++;
+            input.value = input.value * 1 + 1;
             update(input, priceElement);
         }
         else if (input === e.target.nextElementSibling) {
             if (input.value > 1) {
-                input.value--;
+                input.value = input.value * 1 - 1;
                 update(input, priceElement);
             };
         };
