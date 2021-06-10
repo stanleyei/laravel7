@@ -52,7 +52,6 @@ class ShoppingCartController extends Controller
     public function update(Request $request)
     {
         if ($request->id) {
- 
             \Cart::update($request->id, array(
                 'quantity' => array(
                     'relative' => false,
