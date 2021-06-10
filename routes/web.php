@@ -48,7 +48,7 @@ Route::prefix('shoppingcart')->group(function () {
     Route::get('/information', 'ShoppingCartController@information');
     Route::get('/finish', 'ShoppingCartController@finish');
     Route::post('/add', 'ShoppingCartController@add')->name('shoppingcartAdd');
-    Route::get('/content', 'ShoppingCartController@content')->name('shoppingcartContent');
+    Route::post('/update', 'ShoppingCartController@update')->name('shoppingcartUpdate');
     Route::post('/delete', 'ShoppingCartController@delete')->name('shoppingcartDelete');
 });
 
