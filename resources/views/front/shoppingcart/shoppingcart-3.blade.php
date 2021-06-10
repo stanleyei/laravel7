@@ -68,34 +68,35 @@
         </section>
         <hr>
         <section>
-            <form>
+            <form action="/shoppingcart/finish" method="POST">
+                @csrf
                 <h2 class="h4">寄送資料</h2>
                 <div>
                     <div class="form-group">
                         <label for="inputEmail4">姓名</label>
-                        <input type="text" class="form-control shadow-none" id="inputEmail4" placeholder="蒙其 ‧ D ‧ 魯夫">
+                        <input type="text" class="form-control shadow-none" placeholder="請輸入您的大名" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">電話</label>
-                        <input type="tel" class="form-control shadow-none" id="inputAddress" placeholder="0988556117">
+                        <input type="tel" class="form-control shadow-none" placeholder="請輸入您的聯絡電話" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Email</label>
-                        <input type="email" class="form-control shadow-none" id="inputAddress2"
-                            placeholder="onepiece@gmail.com">
+                        <input type="email" class="form-control shadow-none"
+                            placeholder="請輸入您的E-mail" value="" required>
                     </div>
                     <div class="form-row d-flex pb-4">
                         <div class="form-group col-md-6">
                             <label for="inputCity">地址</label>
-                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="城市">
+                            <input type="text" class="form-control shadow-none" placeholder="城市" value="" required>
                         </div>
                         <div class="form-group col-md-6 mt-2">
                             <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="郵遞區號">
+                            <input type="text" class="form-control shadow-none" placeholder="郵遞區號" value="" required>
                         </div>
                         <div class="form-row col m-0">
                             <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址">
+                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址" value="" required>
                         </div>
                     </div>
                     <hr>
@@ -104,19 +105,19 @@
                     <div class="d-flex flex-column align-items-end">
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
-                            <div>3</div>
+                            <div>{{$cartTotalQuantity}} 件</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">小計:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$subTotal}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div>$24.90</div>
+                            <div>$ {{$subTotal}} 元</div>
                         </div>
                     </div>
                 </div>
@@ -136,13 +137,9 @@
 @section('js')
 <script>
     btn_box.addEventListener('click', e => {
-            e.preventDefault();
-            e.target.dataset.action === "prev" 
-                ?
-                location.href = "/shoppingcart/method"
-                :
-                location.href = "/shoppingcart/finish";
-        })
-
+        if(e.target.dataset.action === "prev"){
+            location.href = "/shoppingcart/method"
+        };
+    });
 </script>
 @endsection

@@ -32,12 +32,17 @@ class ShoppingCartController extends Controller
     {
         Session::put('payment', $request->payment);
         Session::put('shipment', $request->shipment);
-        return view('front.shoppingcart.shoppingcart-3');
+        $cartTotalQuantity = \Cart::getTotalQuantity();
+        $subTotal = \Cart::getSubTotal();
+        return view('front.shoppingcart.shoppingcart-3', compact('cartTotalQuantity','subTotal'));
     }
 
-    public function finish()
+    public function finish(Request $request)
     {
-        return view('front.shoppingcart.shoppingcart-4');
+        $cartCollection = \Cart::getContent()->sortBy('id');
+        $cartTotalQuantity = \Cart::getTotalQuantity();
+        $subTotal = \Cart::getSubTotal();
+        return view('front.shoppingcart.shoppingcart-4', compact('cartCollection', 'cartTotalQuantity','subTotal'));
     }
 
     public function add(Request $request)

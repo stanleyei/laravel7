@@ -74,7 +74,27 @@
             <h2 class="text-center font-weight-bold" style="font-size: 48px;">訂單成立</h2>
             <div class="pb-4">
                 <span class="h4">訂單明細</span>
-                <div id="display_rack" class="pt-3"></div>
+                <div id="display_rack" class="pt-3">
+                    @foreach ($cartCollection as $cart)
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="rounded-circle"
+                                style="background-image:url({{asset($cart->attributes->img)}});background-size: cover; width: 60px; height: 60px;">
+                            </div>
+                            <div class="pl-2">
+                                <h3 class="m-0 text-nowrap" style="font-size: 16px;">{{$cart->name}}</h3>
+                                <span class="text-black-50" style="font-size: 12px;">#{{$cart->id}}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center flex-wrap">
+                            <div class="mr-5">x {{$cart->quantity}} 件</div>
+                            <div class="text-center single-price" style="font-size: 16px; width: 70px"
+                                data-price="{{$cart->price}}">$ {{($cart->price) * ($cart->quantity)}} 元</div>
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                </div>
             </div>
             <div>
                 <span class="h4">寄送資料</span>
@@ -103,19 +123,19 @@
                     <div class="d-flex flex-column align-items-end">
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
-                            <div>3</div>
+                            <div id="show_amount">{{$cartTotalQuantity}} 件</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">小計:</div>
-                            <div>$24.90</div>
+                            <div id="show_price">$ {{$subTotal}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div>$24.90</div>
+                            <div id="shipping_cost">$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div>$24.90</div>
+                            <div id="price_total">$ {{$subTotal}} 元</div>
                         </div>
                     </div>
                 </div>
@@ -130,55 +150,11 @@
 @endsection
 
 @section('js')
+{{-- <script src="{{asset('/js/Digipack-shoppingcart.js')}}"></script> --}}
 <script>
     submit_order.addEventListener('click', e => {
         e.preventDefault();
         location.href = "/";
     });
-
-    //宣告一個陣列並寫入資料
-    const goodsArray = [
-        new objFactory("ポテト", 10.50, 1, "5566", "puipui01"),
-        new objFactory("テディ", 10.50, 1, "1314", "puipui02"),
-        new objFactory("シロモ", 10.50, 1, "9487", "puipui03"),
-    ];
-
-    produceGoods();
-
-    //產生新物件的工廠函式
-    function objFactory(name, price, quantity, number, img) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.number = `#${number}`;
-        this.img = `url(/image/${img}.jpg)`;
-    };
-
-    function produceGoods() {
-
-        //清空頁面
-        display_rack.innerHTML = '';
-
-        //對goodsArray陣列跑forEach迴圈產生商品至頁面
-        goodsArray.forEach(ga => {
-            display_rack.innerHTML +=
-                `<div class="d-flex justify-content-between">
-                    <div class="d-flex justify-content-between align-items-center pb-2">
-                        <div class="rounded-circle"
-                            style="background-image: ${ga.img};background-size: cover; width: 60px; height: 60px;">
-                        </div>
-                        <div class="pl-2">
-                            <h3 class="m-0" style="font-size: 16px;">${ga.name}</h3>
-                            <span class="text-black-50" style="font-size: 12px;">${ga.number}</span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="pr-4" style="font-size: 14px;">x ${ga.quantity}</div>
-                        <div style="font-size: 12px;">$${(ga.price).toFixed(2)}</div>
-                    </div>
-                </div>
-                <hr>`;
-        });
-    };
 </script>
 @endsection
