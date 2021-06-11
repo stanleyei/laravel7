@@ -158,10 +158,5 @@
 @endsection
 
 @section('js')
-{{-- <script>
-    submit_order.addEventListener('click', e => {
-        e.preventDefault();
-        location.href = "/";
-    });
-</script> --}}
+
 @endsection
