@@ -78,25 +78,33 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">電話</label>
-                        <input type="tel" class="form-control shadow-none" placeholder="請輸入您的聯絡電話" name="phone" required>
+                        <input type="tel" class="form-control shadow-none" placeholder="請輸入您的聯絡電話" name="phone"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Email</label>
-                        <input type="email" class="form-control shadow-none"
-                            placeholder="請輸入您的E-mail"name="email" required>
+                        <input type="email" class="form-control shadow-none" placeholder="請輸入您的E-mail" name="email"
+                            required>
                     </div>
-                    <div class="form-row d-flex pb-4">
-                        <div class="form-group col-md-6">
+                    <div class="form-row pb-4">
+                        <div class="form-group col-md-12">
                             <label for="inputCity">地址</label>
-                            <input type="text" class="form-control shadow-none" placeholder="城市" name="city" required>
+                            <div class="city-selector-set d-flex">
+                                <!-- 縣市選單 -->
+                                <select class="county form-control shadow-none col-5" name="county" required></select>
+                                <!-- 區域選單 -->
+                                <div class="col-5">
+                                    <select class="district form-control shadow-none" name="district"
+                                    required></select>
+                                </div>
+                                <!-- 郵遞區號欄位 (建議加入 readonly 屬性，防止修改) -->
+                                <input class="zipcode form-control text-center" type="text" size="7" name="zipcode"
+                                    readonly placeholder="郵遞區號">
+                            </div>
                         </div>
-                        <div class="form-group col-md-6 mt-2">
-                            <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" placeholder="郵遞區號" name="code" required>
-                        </div>
-                        <div class="form-row col m-0">
-                            <label for="inputCity"></label>
-                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址" name="address" required>
+                        <div class="form-row col-12 m-0">
+                            <input type="text" class="form-control shadow-none" id="inputCity" placeholder="地址"
+                                name="address" required>
                         </div>
                     </div>
                     <hr>
@@ -135,11 +143,19 @@
 @endsection
 
 @section('js')
+<script src="{{asset('/js/tw-city-selector.min.js')}}"></script>
 <script>
     btn_box.addEventListener('click', e => {
         if(e.target.dataset.action === "prev"){
             location.href = "/shoppingcart/method"
         };
+    });
+
+    new TwCitySelector({
+        el: '.city-selector-set',
+        elCounty: '.county', // 在 el 裡查找 element
+        elDistrict: '.district', // 在 el 裡查找 element
+        elZipcode: '.zipcode' // 在 el 裡查找 element
     });
 </script>
 @endsection
