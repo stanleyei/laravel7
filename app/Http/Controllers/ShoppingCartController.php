@@ -47,7 +47,7 @@ class ShoppingCartController extends Controller
         $user = Auth::user();
         $shipping_status = Shipping_status::orderBy('sort', 'asc')->first();
         $order_status = Order_status::orderBy('sort', 'asc')->first();
-        $order = Orders::create([
+        $orders = Orders::with('order_details')->create([
             'user_id' => $user->id,
             'order_id' => 'OD' . time() . rand(1, 99),
             'name' => $request->name,
@@ -72,8 +72,8 @@ class ShoppingCartController extends Controller
             $productId = $data->id;
             $product = Products::find($productId);
             $totalPrice += $data->quantity * $product->price;
-            Order_details::create([
-                'order_id'=> $order->id,
+            Order_details::with('products')->create([
+                'order_id'=> $orders->id,
                 'products_id' => $product->id,
                 'quantity' => $data->quantity,
                 'old' => $data->tojson(),
@@ -81,7 +81,7 @@ class ShoppingCartController extends Controller
         };
 
         $fee = \Cart::getTotalQuantity() >=10 ? 0 : 60;
-        $order->update([
+        $orders->update([
             'price' => $totalPrice + $fee,
             'shipping_fee' => $fee,
         ]);
@@ -89,7 +89,7 @@ class ShoppingCartController extends Controller
 
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
-        return view('front.shoppingcart.shoppingcart-4', compact('order','cartData','cartTotalQuantity','subTotal'));
+        return view('front.shoppingcart.shoppingcart-4', compact('orders','cartData','cartTotalQuantity','subTotal'));
     }
 
     public function add(Request $request)
