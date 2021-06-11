@@ -113,7 +113,7 @@
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4">地址</div>
-                        <div>{{$information->address}}</div>
+                        <div>{{$information->zipcode}}{{$information->county}}{{$information->district}}{{$information->address}}</div>
                     </div>
                 </div>
                 <hr>
