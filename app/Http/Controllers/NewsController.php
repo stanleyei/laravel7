@@ -11,7 +11,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $newsData = News::get();
+        $newsData = News::orderBy('date', 'desc')->get();
         $total = News::count();
         return view('front.news.news_list_page', compact('newsData','total'));
     }
