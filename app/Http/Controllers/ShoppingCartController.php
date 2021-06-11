@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use App\Products;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
