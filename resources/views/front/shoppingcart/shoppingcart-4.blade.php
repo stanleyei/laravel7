@@ -75,7 +75,7 @@
             <div class="pb-4">
                 <span class="h4">訂單明細</span>
                 <div id="display_rack" class="pt-3">
-                    @foreach ($cartCollection as $cart)
+                    @foreach ($cartData as $cart)
                     <div class="d-flex justify-content-between">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="rounded-circle"
@@ -102,20 +102,20 @@
                 <div class="send-ifo pt-3">
                     <div class="d-flex pb-4">
                         <div class="mr-4 col-1">姓名</div>
-                        <div>{{$information->name}}</div>
+                        <div>{{$order->name}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">電話</div>
-                        <div>{{$information->phone}}</div>
+                        <div>{{$order->phone}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">Email</div>
-                        <div>{{$information->email}}</div>
+                        <div>{{$order->email}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">地址</div>
                         <div>
-                            {{$information->zipcode}}{{$information->county}}{{$information->district}}{{$information->address}}
+                            {{$order->zipcode}} {{$order->county}}{{$order->district}}{{$order->address}}
                         </div>
                     </div>
                 </div>
@@ -137,11 +137,11 @@
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div id="shipping_cost">$ {{$fare}} 元</div>
+                            <div id="shipping_cost">$ {{$order->shipping_fee}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div id="price_total">$ {{$subTotal + $fare}} 元</div>
+                            <div id="price_total">$ {{$order->price}} 元</div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,6 @@
 @endsection
 
 @section('js')
-{{-- <script src="{{asset('/js/Digipack-shoppingcart.js')}}"></script> --}}
 <script>
     submit_order.addEventListener('click', e => {
         e.preventDefault();

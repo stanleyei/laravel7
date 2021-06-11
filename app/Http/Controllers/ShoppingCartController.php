@@ -67,11 +67,11 @@ class ShoppingCartController extends Controller
         ]);
 
         $totalPrice = 0;
-        $cartData = \Cart::getContent();
+        $cartData = \Cart::getContent()->sortBy('id');
         foreach ($cartData as $data) {
             $productId = $data->id;
             $product = Products::find($productId);
-            $totalPrice = $data->quantity * $product->price;
+            $totalPrice += $data->quantity * $product->price;
             Order_details::create([
                 'order_id'=> $order->id,
                 'products_id' => $product->id,
@@ -86,12 +86,10 @@ class ShoppingCartController extends Controller
             'shipping_fee' => $fee,
         ]);
 
-        dd($order);
 
-        $cartCollection = \Cart::getContent()->sortBy('id');
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
-        return view('front.shoppingcart.shoppingcart-4', compact('cartCollection', 'cartTotalQuantity', 'subTotal'));
+        return view('front.shoppingcart.shoppingcart-4', compact('order','cartData','cartTotalQuantity','subTotal'));
     }
 
     public function add(Request $request)
