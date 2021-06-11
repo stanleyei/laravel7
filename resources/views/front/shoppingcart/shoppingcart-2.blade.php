@@ -96,6 +96,9 @@
                 </div>
                 <div>
                     <div class="d-flex flex-column align-items-end">
+                        @php
+                            $fare = $cartTotalQuantity >=10 ? 0 : 60 ;
+                        @endphp
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
                             <div>{{$cartTotalQuantity}} 件</div>
@@ -106,11 +109,11 @@
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div>$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
+                            <div>$ {{$fare}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div>$ {{$subTotal}} 元</div>
+                            <div>$ {{$subTotal + $fare}} 元</div>
                         </div>
                     </div>
                 </div>

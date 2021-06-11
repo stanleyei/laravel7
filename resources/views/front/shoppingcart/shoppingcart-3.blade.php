@@ -94,8 +94,7 @@
                                 <select class="county form-control shadow-none col-5" name="county" required></select>
                                 <!-- 區域選單 -->
                                 <div class="col-5">
-                                    <select class="district form-control shadow-none" name="district"
-                                    required></select>
+                                    <select class="district form-control shadow-none" name="district" required></select>
                                 </div>
                                 <!-- 郵遞區號欄位 (建議加入 readonly 屬性，防止修改) -->
                                 <input class="zipcode form-control text-center" type="text" size="7" name="zipcode"
@@ -111,6 +110,9 @@
                 </div>
                 <div>
                     <div class="d-flex flex-column align-items-end">
+                        @php
+                        $fare = $cartTotalQuantity >=10 ? 0 : 60 ;
+                        @endphp
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
                             <div>{{$cartTotalQuantity}} 件</div>
@@ -121,11 +123,11 @@
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div>$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
+                            <div>$ {{$fare}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div>$ {{$subTotal}} 元</div>
+                            <div>$ {{$subTotal + $fare}} 元</div>
                         </div>
                     </div>
                 </div>

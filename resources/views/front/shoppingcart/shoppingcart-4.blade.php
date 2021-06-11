@@ -98,22 +98,25 @@
             </div>
             <div>
                 <span class="h4">寄送資料</span>
-                <div class="send-ifo pt-5">
+                <hr>
+                <div class="send-ifo pt-3">
                     <div class="d-flex pb-4">
-                        <div class="mr-4">姓名</div>
+                        <div class="mr-4 col-1">姓名</div>
                         <div>{{$information->name}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
-                        <div class="mr-4">電話</div>
+                        <div class="mr-4 col-1">電話</div>
                         <div>{{$information->phone}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
-                        <div class="mr-4">Email</div>
+                        <div class="mr-4 col-1">Email</div>
                         <div>{{$information->email}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
-                        <div class="mr-4">地址</div>
-                        <div>{{$information->zipcode}}{{$information->county}}{{$information->district}}{{$information->address}}</div>
+                        <div class="mr-4 col-1">地址</div>
+                        <div>
+                            {{$information->zipcode}}{{$information->county}}{{$information->district}}{{$information->address}}
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -121,6 +124,9 @@
             <div>
                 <div>
                     <div class="d-flex flex-column align-items-end">
+                        @php
+                        $fare = $cartTotalQuantity >=10 ? 0 : 60 ;
+                        @endphp
                         <div class="d-flex justify-content-between" style="line-height: 28px; width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">數量:</div>
                             <div id="show_amount">{{$cartTotalQuantity}} 件</div>
@@ -131,11 +137,11 @@
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div id="shipping_cost">$ {{$cartTotalQuantity >=10 ? 0 : 60 }} 元</div>
+                            <div id="shipping_cost">$ {{$fare}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div id="price_total">$ {{$subTotal}} 元</div>
+                            <div id="price_total">$ {{$subTotal + $fare}} 元</div>
                         </div>
                     </div>
                 </div>
