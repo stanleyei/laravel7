@@ -72,7 +72,7 @@ class ShoppingCartController extends Controller
             $productId = $data->id;
             $product = Products::find($productId);
             $totalPrice += $data->quantity * $product->price;
-            Order_details::with('products')->create([
+            $order_details = Order_details::create([
                 'order_id' => $orders->id,
                 'products_id' => $product->id,
                 'quantity' => $data->quantity,
