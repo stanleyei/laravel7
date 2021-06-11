@@ -94,6 +94,7 @@ class ShoppingCartController extends Controller
             'shipping_fee' => $fee,
         ]);
 
+
         //第三方支付
         $formData = [
             'UserId' => $orders->user_id, // 用戶ID , Optional
@@ -104,14 +105,17 @@ class ShoppingCartController extends Controller
             'PaymentMethod' => 'Credit', // ALL, Credit, ATM, WebATM
         ];
 
-        dd($orders->with('order_details'));
-
-        // \Cart::clear();
         // return $this->checkout->setNotifyUrl(route('notify'))->setReturnUrl(route('return'))->setPostData($formData)->send();
 
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
         return view('front.shoppingcart.shoppingcart-4', compact('orders','cartData','cartTotalQuantity','subTotal'));
+    }
+
+    public function gotoindex()
+    {
+        \Cart::clear();
+        return view('front.index');
     }
 
     public function add(Request $request)
