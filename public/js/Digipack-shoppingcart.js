@@ -82,6 +82,7 @@ document.querySelectorAll('.delete-btns').forEach(delBtns => {
                             showConfirmButton: false,
                             timer: 800
                         });
+                        checkout();
                     }
                     else {
                         Swal.fire({

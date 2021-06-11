@@ -102,20 +102,20 @@
                 <div class="send-ifo pt-3">
                     <div class="d-flex pb-4">
                         <div class="mr-4 col-1">姓名</div>
-                        <div>{{$order->name}}</div>
+                        <div>{{$orders->name}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">電話</div>
-                        <div>{{$order->phone}}</div>
+                        <div>{{$orders->phone}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">Email</div>
-                        <div>{{$order->email}}</div>
+                        <div>{{$orders->email}}</div>
                     </div>
                     <div class="d-flex pb-4 pt-2">
                         <div class="mr-4 col-1">地址</div>
                         <div>
-                            {{$order->zipcode}} {{$order->county}}{{$order->district}}{{$order->address}}
+                            {{$orders->zipcode}} {{$orders->county}}{{$orders->district}}{{$orders->address}}
                         </div>
                     </div>
                 </div>
@@ -137,11 +137,11 @@
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">運費:</div>
-                            <div id="shipping_cost">$ {{$order->shipping_fee}} 元</div>
+                            <div id="shipping_cost">$ {{$orders->shipping_fee}} 元</div>
                         </div>
                         <div class="d-flex justify-content-between" style="line-height: 28px;  width: 236px;">
                             <div class="text-black-50" style="font-size: 14px;">總計:</div>
-                            <div id="price_total">$ {{$order->price}} 元</div>
+                            <div id="price_total">$ {{$orders->price}} 元</div>
                         </div>
                     </div>
                 </div>

@@ -9,9 +9,12 @@ use App\Order_details;
 use App\Shipping_status;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use TsaiYiHua\ECPay\Checkout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ToolBoxController;
+use TsaiYiHua\ECPay\Services\StringService;
+use TsaiYiHua\ECPay\Collections\CheckoutResponseCollection;
 
 class ShoppingCartController extends Controller
 {
@@ -23,14 +26,9 @@ class ShoppingCartController extends Controller
 
     public function method()
     {
-        if (\Cart::isEmpty()) {
-            return redirect('/products')
-                ->with(['icon' => 'warning', 'title' => '結帳失敗', 'text' => '請選擇商品後結帳!!']);
-        } else {
-            $cartTotalQuantity = \Cart::getTotalQuantity();
-            $subTotal = \Cart::getSubTotal();
-            return view('front.shoppingcart.shoppingcart-2', compact('cartTotalQuantity', 'subTotal'));
-        }
+        $cartTotalQuantity = \Cart::getTotalQuantity();
+        $subTotal = \Cart::getSubTotal();
+        return view('front.shoppingcart.shoppingcart-2', compact('cartTotalQuantity', 'subTotal'));
     }
 
     public function information(Request $request)
@@ -47,7 +45,7 @@ class ShoppingCartController extends Controller
         $user = Auth::user();
         $shipping_status = Shipping_status::orderBy('sort', 'asc')->first();
         $order_status = Order_status::orderBy('sort', 'asc')->first();
-        $orders = Orders::with('order_details')->create([
+        $orders = Orders::create([
             'user_id' => $user->id,
             'order_id' => 'OD' . time() . rand(1, 99),
             'name' => $request->name,
@@ -68,24 +66,48 @@ class ShoppingCartController extends Controller
 
         $totalPrice = 0;
         $cartData = \Cart::getContent()->sortBy('id');
+        //設個items給金流用
+        $items = [];
         foreach ($cartData as $data) {
             $productId = $data->id;
             $product = Products::find($productId);
             $totalPrice += $data->quantity * $product->price;
             Order_details::with('products')->create([
-                'order_id'=> $orders->id,
+                'order_id' => $orders->id,
                 'products_id' => $product->id,
                 'quantity' => $data->quantity,
                 'old' => $data->tojson(),
             ]);
+
+            $new_ary = [
+                'name' => $product->name,
+                'qty' => $data->quantity,
+                'price' => $product->price,
+                'unit' => '個'
+            ];
+            array_push($items, $new_ary);
         };
 
-        $fee = \Cart::getTotalQuantity() >=10 ? 0 : 60;
+        $fee = \Cart::getTotalQuantity() >= 10 ? 0 : 60;
         $orders->update([
             'price' => $totalPrice + $fee,
             'shipping_fee' => $fee,
         ]);
 
+        //第三方支付
+        $formData = [
+            'UserId' => $orders->user_id, // 用戶ID , Optional
+            'ItemDescription' => '產品簡介',
+            'Items' => $items,
+            'OrderId' => $orders->order_id,
+            'TotalAmount' => $orders->price,
+            'PaymentMethod' => 'Credit', // ALL, Credit, ATM, WebATM
+        ];
+
+        dd($orders->with('order_details'));
+
+        // \Cart::clear();
+        // return $this->checkout->setNotifyUrl(route('notify'))->setReturnUrl(route('return'))->setPostData($formData)->send();
 
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
@@ -134,5 +156,42 @@ class ShoppingCartController extends Controller
         } else {
             return 'fail';
         }
+    }
+
+    public function notifyUrl(Request $request)
+    {
+        $serverPost = $request->post();
+        $checkMacValue = $request->post('CheckMacValue');
+        unset($serverPost['CheckMacValue']);
+        $checkCode = StringService::checkMacValueGenerator($serverPost);
+        if ($checkMacValue == $checkCode) {
+            return '1|OK';
+        } else {
+            return '0|FAIL';
+        }
+    }
+
+    public function returnUrl(Request $request)
+    {
+        $serverPost = $request->post();
+        $checkMacValue = $request->post('CheckMacValue');
+        unset($serverPost['CheckMacValue']);
+        $checkCode = StringService::checkMacValueGenerator($serverPost);
+        if ($checkMacValue == $checkCode) {
+            if (!empty($request->input('redirect'))) {
+                return redirect($request->input('redirect'));
+            } else {
+
+                //付款完成，下面接下來要將購物車訂單狀態改為已付款
+                //目前是顯示所有資料將其DD出來
+                dd($this->checkoutResponse->collectResponse($serverPost));
+            }
+        }
+    }
+
+    public function __construct(Checkout $checkout, CheckoutResponseCollection $checkoutResponse)
+    {
+        $this->checkout = $checkout;
+        $this->checkoutResponse = $checkoutResponse;
     }
 }

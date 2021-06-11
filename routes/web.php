@@ -2,6 +2,7 @@
 
 use function PHPSTORM_META\type;
 
+use App\Http\Middleware\cartCheck;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,7 +45,7 @@ Route::prefix('products')->group(function () {
 
 Route::prefix('shoppingcart')->group(function () {
     Route::post('/add', 'ShoppingCartController@add')->name('shoppingcartAdd');
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth','cartCheck'])->group(function () {
         Route::get('/', 'ShoppingCartController@index');
         Route::get('/method', 'ShoppingCartController@method');
         Route::post('/information', 'ShoppingCartController@information');
@@ -52,6 +53,14 @@ Route::prefix('shoppingcart')->group(function () {
         Route::post('/update', 'ShoppingCartController@update')->name('shoppingcartUpdate');
         Route::post('/delete', 'ShoppingCartController@delete')->name('shoppingcartDelete');
     });
+});
+
+Route::prefix('cart_ecpay')->group(function(){
+    //當消費者付款完成後，綠界會將付款結果參數以幕後(Server POST)回傳到該網址。
+    Route::post('notify', 'ShoppingCartController@notifyUrl')->name('notify');
+
+    //付款完成後，綠界會將付款結果參數以幕前(Client POST)回傳到該網址
+    Route::post('return', 'ShoppingCartController@returnUrl')->name('return');
 });
 
 
