@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Orders;
 use App\Products;
+use App\Order_status;
+use App\Order_details;
+use App\Shipping_status;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ToolBoxController;
 
@@ -25,7 +29,7 @@ class ShoppingCartController extends Controller
         } else {
             $cartTotalQuantity = \Cart::getTotalQuantity();
             $subTotal = \Cart::getSubTotal();
-            return view('front.shoppingcart.shoppingcart-2', compact('cartTotalQuantity','subTotal'));
+            return view('front.shoppingcart.shoppingcart-2', compact('cartTotalQuantity', 'subTotal'));
         }
     }
 
@@ -35,16 +39,59 @@ class ShoppingCartController extends Controller
         Session::put('shipment', $request->shipment);
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
-        return view('front.shoppingcart.shoppingcart-3', compact('cartTotalQuantity','subTotal'));
+        return view('front.shoppingcart.shoppingcart-3', compact('cartTotalQuantity', 'subTotal'));
     }
 
     public function finish(Request $request)
     {
-        $information = $request;
+        $user = Auth::user();
+        $shipping_status = Shipping_status::orderBy('sort', 'asc')->first();
+        $order_status = Order_status::orderBy('sort', 'asc')->first();
+        $order = Orders::create([
+            'user_id' => $user->id,
+            'order_id' => 'OD' . time() . rand(1, 99),
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'county' => $request->county,
+            'district' => $request->district,
+            'zipcode' => $request->zipcode,
+            'address' => $request->address,
+            'price' => 9999999,
+            'pay_type' => Session::get('payment'),
+            'shipping' => Session::get('shipment'),
+            'shipping_fee' => 9999999,
+            'shipping_status_id' => $shipping_status->id,
+            'order_status_id' => $order_status->id,
+            'remark' => '',
+        ]);
+
+        $totalPrice = 0;
+        $cartData = \Cart::getContent();
+        foreach ($cartData as $data) {
+            $productId = $data->id;
+            $product = Products::find($productId);
+            $totalPrice = $data->quantity * $product->price;
+            Order_details::create([
+                'order_id'=> $order->id,
+                'products_id' => $product->id,
+                'quantity' => $data->quantity,
+                'old' => $data->tojson(),
+            ]);
+        };
+
+        $fee = \Cart::getTotalQuantity() >=10 ? 0 : 60;
+        $order->update([
+            'price' => $totalPrice + $fee,
+            'shipping_fee' => $fee,
+        ]);
+
+        dd($order);
+
         $cartCollection = \Cart::getContent()->sortBy('id');
         $cartTotalQuantity = \Cart::getTotalQuantity();
         $subTotal = \Cart::getSubTotal();
-        return view('front.shoppingcart.shoppingcart-4', compact('information', 'cartCollection', 'cartTotalQuantity','subTotal'));
+        return view('front.shoppingcart.shoppingcart-4', compact('cartCollection', 'cartTotalQuantity', 'subTotal'));
     }
 
     public function add(Request $request)
