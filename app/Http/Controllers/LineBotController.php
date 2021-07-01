@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class LineBotController extends Controller
 {
-    public function response(Request $request)
+    public function index(Request $request)
     {
-        
+        return response('ok', '200');
     }
 }
