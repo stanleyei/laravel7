@@ -11,7 +11,7 @@ class LineBotController extends Controller
     public function index(Request $request)
     {
         $text = $request->events[0]['message']['text'];
-        Log::info($text);
+        error_log($text);
         return response('ok', '200');
     }
 }
