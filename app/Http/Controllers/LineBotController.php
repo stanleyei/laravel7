@@ -14,6 +14,8 @@ class LineBotController extends Controller
         $text = $request->events[0]['message']['text'] ?? '';
         error_log($text);
         $replyToken = $request->events[0]['replyToken'];
+        error_log($replyToken);
+        
 
         // $response = Http::withHeaders([
         //     'Content-Type' => 'application/json',
