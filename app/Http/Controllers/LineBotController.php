@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 use Facade\FlareClient\Http\Response;
 
 class LineBotController extends Controller
 {
     public function index(Request $request)
     {
-        $text = $request->events[0]['message']['text'];
+        $text = $request->events[0]['message']['text'] ?? '';
         error_log($text);
         $replyToken = $request['events'][0]['replyToken'];
 
