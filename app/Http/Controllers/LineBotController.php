@@ -12,6 +12,21 @@ class LineBotController extends Controller
     {
         $text = $request->events[0]['message']['text'];
         error_log($text);
+        $replyToken = $request['events'][0]['replyToken'];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer '.env('LINE_CHANNEL_ASCCES_TOKEN')
+        ])->post('https://api.line.me/v2/bot/message/reply%27',[
+            'replyToken'=>$replyToken,
+            'messages'=>[
+                [
+                    'type'=>'text',
+                    'text'=>'hello'
+                ]
+            ]
+        ]);
+
         return response('ok', '200');
     }
 }
