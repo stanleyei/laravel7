@@ -17,7 +17,7 @@ class LineBotController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . env('LINE_CHANNEL_ASCCES_TOKEN')
+            'Authorization' => 'Bearer ' .env('LINE_CHANNEL_ASCCES_TOKEN')
         ])->post('https://api.line.me/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages' => [
