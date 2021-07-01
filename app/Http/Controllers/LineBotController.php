@@ -17,7 +17,7 @@ class LineBotController extends Controller
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' ('vJ2ZAT1xjHPzCvPHd1gZiKJbjM4lA/3YmcHm5vqWmkRRF3ZXjO3EP67hwARRdP8/AgKqGRzr+7F7BcSBJaw8jfanWrP+2ALtdXwVMKuBo6u8J941R/qRFmFFR2bj8LNO9nlgyg6129Wxk4vtdlgA/AdB04t89/1O/w1cDnyilFU=')
+            'Authorization' => 'Bearer ' .env('LINE_CHANNEL_ASCCES_TOKEN')
         ])->post('https://api.line.me/v2/bot/message/reply' ,[
             'replyToken' => $replyToken,
             'messages' => [
